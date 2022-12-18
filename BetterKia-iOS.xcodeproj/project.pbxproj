@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */; };
+		EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE6C294F7EDC00FF160E /* ContentView.swift */; };
+		EB5FAE6F294F7EDD00FF160E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5FAE6E294F7EDD00FF160E /* Assets.xcassets */; };
+		EB5FAE72294F7EDD00FF160E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5FAE71294F7EDD00FF160E /* Preview Assets.xcassets */; };
+		EB5FAE7C294F7EDD00FF160E /* BetterKia_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE7B294F7EDD00FF160E /* BetterKia_iOSTests.swift */; };
+		EB5FAE86294F7EDD00FF160E /* BetterKia_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE85294F7EDD00FF160E /* BetterKia_iOSUITests.swift */; };
+		EB5FAE88294F7EDD00FF160E /* BetterKia_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE87294F7EDD00FF160E /* BetterKia_iOSUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB5FAE78294F7EDD00FF160E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5FAE5F294F7EDC00FF160E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB5FAE66294F7EDC00FF160E;
+			remoteInfo = "BetterKia-iOS";
+		};
+		EB5FAE82294F7EDD00FF160E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5FAE5F294F7EDC00FF160E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB5FAE66294F7EDC00FF160E;
+			remoteInfo = "BetterKia-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB5FAE67294F7EDC00FF160E /* BetterKia-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BetterKia-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKia_iOSApp.swift; sourceTree = "<group>"; };
+		EB5FAE6C294F7EDC00FF160E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EB5FAE6E294F7EDD00FF160E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB5FAE71294F7EDD00FF160E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EB5FAE77294F7EDD00FF160E /* BetterKia-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BetterKia-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5FAE7B294F7EDD00FF160E /* BetterKia_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKia_iOSTests.swift; sourceTree = "<group>"; };
+		EB5FAE81294F7EDD00FF160E /* BetterKia-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BetterKia-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5FAE85294F7EDD00FF160E /* BetterKia_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKia_iOSUITests.swift; sourceTree = "<group>"; };
+		EB5FAE87294F7EDD00FF160E /* BetterKia_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKia_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB5FAE64294F7EDC00FF160E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB5FAE74294F7EDD00FF160E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB5FAE7E294F7EDD00FF160E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB5FAE5E294F7EDC00FF160E = {
+			isa = PBXGroup;
+			children = (
+				EB5FAE69294F7EDC00FF160E /* BetterKia-iOS */,
+				EB5FAE7A294F7EDD00FF160E /* BetterKia-iOSTests */,
+				EB5FAE84294F7EDD00FF160E /* BetterKia-iOSUITests */,
+				EB5FAE68294F7EDC00FF160E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB5FAE68294F7EDC00FF160E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB5FAE67294F7EDC00FF160E /* BetterKia-iOS.app */,
+				EB5FAE77294F7EDD00FF160E /* BetterKia-iOSTests.xctest */,
+				EB5FAE81294F7EDD00FF160E /* BetterKia-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB5FAE69294F7EDC00FF160E /* BetterKia-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */,
+				EB5FAE6C294F7EDC00FF160E /* ContentView.swift */,
+				EB5FAE6E294F7EDD00FF160E /* Assets.xcassets */,
+				EB5FAE70294F7EDD00FF160E /* Preview Content */,
+			);
+			path = "BetterKia-iOS";
+			sourceTree = "<group>";
+		};
+		EB5FAE70294F7EDD00FF160E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EB5FAE71294F7EDD00FF160E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EB5FAE7A294F7EDD00FF160E /* BetterKia-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB5FAE7B294F7EDD00FF160E /* BetterKia_iOSTests.swift */,
+			);
+			path = "BetterKia-iOSTests";
+			sourceTree = "<group>";
+		};
+		EB5FAE84294F7EDD00FF160E /* BetterKia-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB5FAE85294F7EDD00FF160E /* BetterKia_iOSUITests.swift */,
+				EB5FAE87294F7EDD00FF160E /* BetterKia_iOSUITestsLaunchTests.swift */,
+			);
+			path = "BetterKia-iOSUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB5FAE66294F7EDC00FF160E /* BetterKia-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB5FAE8B294F7EDD00FF160E /* Build configuration list for PBXNativeTarget "BetterKia-iOS" */;
+			buildPhases = (
+				EB5FAE63294F7EDC00FF160E /* Sources */,
+				EB5FAE64294F7EDC00FF160E /* Frameworks */,
+				EB5FAE65294F7EDC00FF160E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BetterKia-iOS";
+			productName = "BetterKia-iOS";
+			productReference = EB5FAE67294F7EDC00FF160E /* BetterKia-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB5FAE76294F7EDD00FF160E /* BetterKia-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB5FAE8E294F7EDD00FF160E /* Build configuration list for PBXNativeTarget "BetterKia-iOSTests" */;
+			buildPhases = (
+				EB5FAE73294F7EDD00FF160E /* Sources */,
+				EB5FAE74294F7EDD00FF160E /* Frameworks */,
+				EB5FAE75294F7EDD00FF160E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB5FAE79294F7EDD00FF160E /* PBXTargetDependency */,
+			);
+			name = "BetterKia-iOSTests";
+			productName = "BetterKia-iOSTests";
+			productReference = EB5FAE77294F7EDD00FF160E /* BetterKia-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EB5FAE80294F7EDD00FF160E /* BetterKia-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB5FAE91294F7EDD00FF160E /* Build configuration list for PBXNativeTarget "BetterKia-iOSUITests" */;
+			buildPhases = (
+				EB5FAE7D294F7EDD00FF160E /* Sources */,
+				EB5FAE7E294F7EDD00FF160E /* Frameworks */,
+				EB5FAE7F294F7EDD00FF160E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB5FAE83294F7EDD00FF160E /* PBXTargetDependency */,
+			);
+			name = "BetterKia-iOSUITests";
+			productName = "BetterKia-iOSUITests";
+			productReference = EB5FAE81294F7EDD00FF160E /* BetterKia-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB5FAE5F294F7EDC00FF160E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					EB5FAE66294F7EDC00FF160E = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					EB5FAE76294F7EDD00FF160E = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = EB5FAE66294F7EDC00FF160E;
+					};
+					EB5FAE80294F7EDD00FF160E = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = EB5FAE66294F7EDC00FF160E;
+					};
+				};
+			};
+			buildConfigurationList = EB5FAE62294F7EDC00FF160E /* Build configuration list for PBXProject "BetterKia-iOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB5FAE5E294F7EDC00FF160E;
+			productRefGroup = EB5FAE68294F7EDC00FF160E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB5FAE66294F7EDC00FF160E /* BetterKia-iOS */,
+				EB5FAE76294F7EDD00FF160E /* BetterKia-iOSTests */,
+				EB5FAE80294F7EDD00FF160E /* BetterKia-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB5FAE65294F7EDC00FF160E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5FAE72294F7EDD00FF160E /* Preview Assets.xcassets in Resources */,
+				EB5FAE6F294F7EDD00FF160E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB5FAE75294F7EDD00FF160E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB5FAE7F294F7EDD00FF160E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB5FAE63294F7EDC00FF160E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */,
+				EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB5FAE73294F7EDD00FF160E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5FAE7C294F7EDD00FF160E /* BetterKia_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB5FAE7D294F7EDD00FF160E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5FAE88294F7EDD00FF160E /* BetterKia_iOSUITestsLaunchTests.swift in Sources */,
+				EB5FAE86294F7EDD00FF160E /* BetterKia_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB5FAE79294F7EDD00FF160E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB5FAE66294F7EDC00FF160E /* BetterKia-iOS */;
+			targetProxy = EB5FAE78294F7EDD00FF160E /* PBXContainerItemProxy */;
+		};
+		EB5FAE83294F7EDD00FF160E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB5FAE66294F7EDC00FF160E /* BetterKia-iOS */;
+			targetProxy = EB5FAE82294F7EDD00FF160E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EB5FAE89294F7EDD00FF160E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB5FAE8A294F7EDD00FF160E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB5FAE8C294F7EDD00FF160E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BetterKia-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 425562S2X6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB5FAE8D294F7EDD00FF160E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BetterKia-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 425562S2X6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EB5FAE8F294F7EDD00FF160E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BetterKia-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BetterKia-iOS";
+			};
+			name = Debug;
+		};
+		EB5FAE90294F7EDD00FF160E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BetterKia-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BetterKia-iOS";
+			};
+			name = Release;
+		};
+		EB5FAE92294F7EDD00FF160E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "BetterKia-iOS";
+			};
+			name = Debug;
+		};
+		EB5FAE93294F7EDD00FF160E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "BetterKia-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB5FAE62294F7EDC00FF160E /* Build configuration list for PBXProject "BetterKia-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB5FAE89294F7EDD00FF160E /* Debug */,
+				EB5FAE8A294F7EDD00FF160E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB5FAE8B294F7EDD00FF160E /* Build configuration list for PBXNativeTarget "BetterKia-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB5FAE8C294F7EDD00FF160E /* Debug */,
+				EB5FAE8D294F7EDD00FF160E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB5FAE8E294F7EDD00FF160E /* Build configuration list for PBXNativeTarget "BetterKia-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB5FAE8F294F7EDD00FF160E /* Debug */,
+				EB5FAE90294F7EDD00FF160E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB5FAE91294F7EDD00FF160E /* Build configuration list for PBXNativeTarget "BetterKia-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB5FAE92294F7EDD00FF160E /* Debug */,
+				EB5FAE93294F7EDD00FF160E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB5FAE5F294F7EDC00FF160E /* Project object */;
+}
