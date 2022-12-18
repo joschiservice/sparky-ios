@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import os
 
 class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
     func application(
