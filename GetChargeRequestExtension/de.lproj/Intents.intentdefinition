@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>INEnums</key>
+	<array/>
+	<key>INIntentDefinitionModelVersion</key>
+	<string>1.2</string>
+	<key>INIntentDefinitionNamespace</key>
+	<string>haMka0</string>
+	<key>INIntentDefinitionSystemVersion</key>
+	<string>22C65</string>
+	<key>INIntentDefinitionToolsBuildVersion</key>
+	<string>14C18</string>
+	<key>INIntentDefinitionToolsVersion</key>
+	<string>14.2</string>
+	<key>INIntents</key>
+	<array>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>start</string>
+			<key>INIntentDescription</key>
+			<string>Starte die Vorklimatisierung eines Fahrzeuges</string>
+			<key>INIntentDescriptionID</key>
+			<string>UNYaDt</string>
+			<key>INIntentName</key>
+			<string>StartClimateControl</string>
+			<key>INIntentParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string>Starts the climate control of your vehicle</string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>IIIgUb</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Start Climate control</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>nX8dtr</string>
+				</dict>
+			</dict>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Vorklimatisierung erfolgreich gestartet</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>YwsNs7</string>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Ein Fehler ist aufgetreten</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>yqppSi</string>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Starte Vorklimatisierung</string>
+			<key>INIntentTitleID</key>
+			<string>Y0ktAx</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>Start</string>
+		</dict>
+	</array>
+	<key>INTypes</key>
+	<array/>
+</dict>
+</plist>

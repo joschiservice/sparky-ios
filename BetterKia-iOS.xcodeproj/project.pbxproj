@@ -31,12 +31,26 @@
 		EB9EE79A2950813C009D4D6A /* GetChargeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */; };
 		EB9EE79C29508174009D4D6A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EB9EE79D29508177009D4D6A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
+		EB9EE7A1295093BB009D4D6A /* StartClimateControlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7A0295093BB009D4D6A /* StartClimateControlHandler.swift */; };
+		EB9EE7A3295093DC009D4D6A /* StartClimateControlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7A0295093BB009D4D6A /* StartClimateControlHandler.swift */; };
+		EB9EE7A5295095E5009D4D6A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7A8295095E5009D4D6A /* Intents.intentdefinition */; };
+		EB9EE7A6295095E5009D4D6A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7A8295095E5009D4D6A /* Intents.intentdefinition */; };
+		EB9EE7AD295099F9009D4D6A /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB9EE7AF295099F9009D4D6A /* AppIntentVocabulary.plist */; };
+		EB9EE7B72950AFFE009D4D6A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9EE7B62950AFFE009D4D6A /* WidgetKit.framework */; };
+		EB9EE7B92950AFFE009D4D6A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9EE7B82950AFFE009D4D6A /* SwiftUI.framework */; };
+		EB9EE7BC2950AFFE009D4D6A /* VehicleStatusWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7BB2950AFFE009D4D6A /* VehicleStatusWidgetBundle.swift */; };
+		EB9EE7BE2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7BD2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift */; };
+		EB9EE7C02950AFFE009D4D6A /* VehicleStatusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7BF2950AFFE009D4D6A /* VehicleStatusWidget.swift */; };
+		EB9EE7C32950B000009D4D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9EE7C22950B000009D4D6A /* Assets.xcassets */; };
+		EB9EE7C52950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */; };
+		EB9EE7C62950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */; };
+		EB9EE7C92950B000009D4D6A /* VehicleStatusWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB9EE7B52950AFFE009D4D6A /* VehicleStatusWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EBC1F73E2950DF7900BBEE5E /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EBEA29192950613E00B3457A /* GetChargeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */; };
 		EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29432950687900B3457A /* GetCarsListHandler.swift */; };
 		EBEA294729506FCC00B3457A /* SetCarLockStatusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */; };
-		EBEA294A295073D800B3457A /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBEA294C295073D800B3457A /* AppIntentVocabulary.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +89,13 @@
 			remoteGlobalIDString = EB9EE78A2950811C009D4D6A;
 			remoteInfo = WatchIntentsExtension;
 		};
+		EB9EE7C72950B000009D4D6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5FAE5F294F7EDC00FF160E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB9EE7B42950AFFE009D4D6A;
+			remoteInfo = VehicleStatusWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +106,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				EB5FAEA2294F7F4B00FF160E /* GetChargeRequestExtension.appex in Embed Foundation Extensions */,
+				EB9EE7C92950B000009D4D6A /* VehicleStatusWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,12 +172,23 @@
 		EB9EE78E2950811C009D4D6A /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		EB9EE7902950811C009D4D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB9EE79B29508153009D4D6A /* BetterKia Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia Watch App.entitlements"; sourceTree = "<group>"; };
+		EB9EE7A0295093BB009D4D6A /* StartClimateControlHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartClimateControlHandler.swift; sourceTree = "<group>"; };
+		EB9EE7A7295095E5009D4D6A /* de */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = de; path = de.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
+		EB9EE7AE295099F9009D4D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
+		EB9EE7B0295099FD009D4D6A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
+		EB9EE7B52950AFFE009D4D6A /* VehicleStatusWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VehicleStatusWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9EE7B62950AFFE009D4D6A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		EB9EE7B82950AFFE009D4D6A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		EB9EE7BB2950AFFE009D4D6A /* VehicleStatusWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatusWidgetBundle.swift; sourceTree = "<group>"; };
+		EB9EE7BD2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatusWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		EB9EE7BF2950AFFE009D4D6A /* VehicleStatusWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatusWidget.swift; sourceTree = "<group>"; };
+		EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = VehicleStatusWidget.intentdefinition; sourceTree = "<group>"; };
+		EB9EE7C22950B000009D4D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB9EE7C42950B000009D4D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBEA29402950633500B3457A /* VehicleStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatusResponse.swift; sourceTree = "<group>"; };
 		EBEA29432950687900B3457A /* GetCarsListHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarsListHandler.swift; sourceTree = "<group>"; };
 		EBEA294529506D6A00B3457A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCarLockStatusHandler.swift; sourceTree = "<group>"; };
-		EBEA294B295073D800B3457A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
-		EBEA294D2950743600B3457A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,12 +236,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB9EE7B22950AFFE009D4D6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB9EE7B92950AFFE009D4D6A /* SwiftUI.framework in Frameworks */,
+				EB9EE7B72950AFFE009D4D6A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		EB5FAE5E294F7EDC00FF160E = {
 			isa = PBXGroup;
 			children = (
+				EB9EE7AF295099F9009D4D6A /* AppIntentVocabulary.plist */,
 				EBEA293F295062E800B3457A /* BetterKia-Models */,
 				EB5FAE69294F7EDC00FF160E /* BetterKia-iOS */,
 				EB5FAE7A294F7EDD00FF160E /* BetterKia-iOSTests */,
@@ -216,6 +259,7 @@
 				EB5FAE9C294F7F4B00FF160E /* GetChargeRequestExtension */,
 				EB9EE777295080FD009D4D6A /* BetterKia Watch App */,
 				EB9EE78D2950811C009D4D6A /* WatchIntentsExtension */,
+				EB9EE7BA2950AFFE009D4D6A /* VehicleStatusWidget */,
 				EB5FAE99294F7F4B00FF160E /* Frameworks */,
 				EB5FAE68294F7EDC00FF160E /* Products */,
 			);
@@ -230,6 +274,7 @@
 				EB5FAE98294F7F4B00FF160E /* GetChargeRequestExtension.appex */,
 				EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */,
 				EB9EE78B2950811C009D4D6A /* WatchIntentsExtension.appex */,
+				EB9EE7B52950AFFE009D4D6A /* VehicleStatusWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,6 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				EB5FAE9A294F7F4B00FF160E /* Intents.framework */,
+				EB9EE7B62950AFFE009D4D6A /* WidgetKit.framework */,
+				EB9EE7B82950AFFE009D4D6A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -289,7 +336,8 @@
 				EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */,
 				EBEA29432950687900B3457A /* GetCarsListHandler.swift */,
 				EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */,
-				EBEA294C295073D800B3457A /* AppIntentVocabulary.plist */,
+				EB9EE7A8295095E5009D4D6A /* Intents.intentdefinition */,
+				EB9EE7A0295093BB009D4D6A /* StartClimateControlHandler.swift */,
 			);
 			path = GetChargeRequestExtension;
 			sourceTree = "<group>";
@@ -323,6 +371,19 @@
 			path = WatchIntentsExtension;
 			sourceTree = "<group>";
 		};
+		EB9EE7BA2950AFFE009D4D6A /* VehicleStatusWidget */ = {
+			isa = PBXGroup;
+			children = (
+				EB9EE7BB2950AFFE009D4D6A /* VehicleStatusWidgetBundle.swift */,
+				EB9EE7BD2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift */,
+				EB9EE7BF2950AFFE009D4D6A /* VehicleStatusWidget.swift */,
+				EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */,
+				EB9EE7C22950B000009D4D6A /* Assets.xcassets */,
+				EB9EE7C42950B000009D4D6A /* Info.plist */,
+			);
+			path = VehicleStatusWidget;
+			sourceTree = "<group>";
+		};
 		EBEA293F295062E800B3457A /* BetterKia-Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +411,7 @@
 			dependencies = (
 				EB5FAEA1294F7F4B00FF160E /* PBXTargetDependency */,
 				EB9EE782295080FE009D4D6A /* PBXTargetDependency */,
+				EB9EE7C82950B000009D4D6A /* PBXTargetDependency */,
 			);
 			name = "BetterKia-iOS";
 			productName = "BetterKia-iOS";
@@ -445,6 +507,23 @@
 			productReference = EB9EE78B2950811C009D4D6A /* WatchIntentsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		EB9EE7B42950AFFE009D4D6A /* VehicleStatusWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB9EE7CA2950B000009D4D6A /* Build configuration list for PBXNativeTarget "VehicleStatusWidgetExtension" */;
+			buildPhases = (
+				EB9EE7B12950AFFE009D4D6A /* Sources */,
+				EB9EE7B22950AFFE009D4D6A /* Frameworks */,
+				EB9EE7B32950AFFE009D4D6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VehicleStatusWidgetExtension;
+			productName = VehicleStatusWidgetExtension;
+			productReference = EB9EE7B52950AFFE009D4D6A /* VehicleStatusWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -475,6 +554,9 @@
 					EB9EE78A2950811C009D4D6A = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					EB9EE7B42950AFFE009D4D6A = {
+						CreatedOnToolsVersion = 14.2;
+					};
 				};
 			};
 			buildConfigurationList = EB5FAE62294F7EDC00FF160E /* Build configuration list for PBXProject "BetterKia-iOS" */;
@@ -497,6 +579,7 @@
 				EB5FAE97294F7F4A00FF160E /* GetChargeRequestExtension */,
 				EB9EE775295080FD009D4D6A /* BetterKia Watch App */,
 				EB9EE78A2950811C009D4D6A /* WatchIntentsExtension */,
+				EB9EE7B42950AFFE009D4D6A /* VehicleStatusWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -508,6 +591,7 @@
 			files = (
 				EB5FAE72294F7EDD00FF160E /* Preview Assets.xcassets in Resources */,
 				EB5FAE6F294F7EDD00FF160E /* Assets.xcassets in Resources */,
+				EB9EE7AD295099F9009D4D6A /* AppIntentVocabulary.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +613,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBEA294A295073D800B3457A /* AppIntentVocabulary.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +632,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB9EE7B32950AFFE009D4D6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB9EE7C32950B000009D4D6A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -559,6 +650,7 @@
 				EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */,
 				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,
 				EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */,
+				EB9EE7C62950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */,
 				EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,7 +676,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9EE7A5295095E5009D4D6A /* Intents.intentdefinition in Sources */,
 				EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */,
+				EB9EE7A1295093BB009D4D6A /* StartClimateControlHandler.swift in Sources */,
 				EBEA29192950613E00B3457A /* GetChargeRequestHandler.swift in Sources */,
 				EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */,
 				EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */,
@@ -606,11 +700,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9EE7A6295095E5009D4D6A /* Intents.intentdefinition in Sources */,
 				EB9EE7982950813C009D4D6A /* GetCarsListHandler.swift in Sources */,
 				EB9EE79A2950813C009D4D6A /* GetChargeRequestHandler.swift in Sources */,
+				EB9EE7A3295093DC009D4D6A /* StartClimateControlHandler.swift in Sources */,
 				EB9EE79C29508174009D4D6A /* VehicleStatusResponse.swift in Sources */,
 				EB9EE7992950813C009D4D6A /* SetCarLockStatusHandler.swift in Sources */,
 				EB9EE78F2950811C009D4D6A /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB9EE7B12950AFFE009D4D6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB9EE7BC2950AFFE009D4D6A /* VehicleStatusWidgetBundle.swift in Sources */,
+				EB9EE7C52950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */,
+				EBC1F73E2950DF7900BBEE5E /* VehicleStatusResponse.swift in Sources */,
+				EB9EE7BE2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift in Sources */,
+				EB9EE7C02950AFFE009D4D6A /* VehicleStatusWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,14 +750,27 @@
 			target = EB9EE78A2950811C009D4D6A /* WatchIntentsExtension */;
 			targetProxy = EB9EE7912950811C009D4D6A /* PBXContainerItemProxy */;
 		};
+		EB9EE7C82950B000009D4D6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB9EE7B42950AFFE009D4D6A /* VehicleStatusWidgetExtension */;
+			targetProxy = EB9EE7C72950B000009D4D6A /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EBEA294C295073D800B3457A /* AppIntentVocabulary.plist */ = {
+		EB9EE7A8295095E5009D4D6A /* Intents.intentdefinition */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EBEA294B295073D800B3457A /* Base */,
-				EBEA294D2950743600B3457A /* de */,
+				EB9EE7A7295095E5009D4D6A /* de */,
+			);
+			name = Intents.intentdefinition;
+			sourceTree = "<group>";
+		};
+		EB9EE7AF295099F9009D4D6A /* AppIntentVocabulary.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB9EE7AE295099F9009D4D6A /* Base */,
+				EB9EE7B0295099FD009D4D6A /* de */,
 			);
 			name = AppIntentVocabulary.plist;
 			sourceTree = "<group>";
@@ -787,6 +908,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BetterKia-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = BetterKia;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "BetterKia wants to use Siri";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -820,6 +943,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BetterKia-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = BetterKia;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "BetterKia wants to use Siri";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1085,6 +1210,60 @@
 			};
 			name = Release;
 		};
+		EB9EE7CB2950B000009D4D6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VehicleStatusWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VehicleStatusWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS.VehicleStatusWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB9EE7CC2950B000009D4D6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VehicleStatusWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VehicleStatusWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS.VehicleStatusWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1147,6 +1326,15 @@
 			buildConfigurations = (
 				EB9EE7952950811C009D4D6A /* Debug */,
 				EB9EE7962950811C009D4D6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB9EE7CA2950B000009D4D6A /* Build configuration list for PBXNativeTarget "VehicleStatusWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB9EE7CB2950B000009D4D6A /* Debug */,
+				EB9EE7CC2950B000009D4D6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

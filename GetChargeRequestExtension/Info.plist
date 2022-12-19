@@ -8,11 +8,14 @@
 		<dict>
 			<key>IntentsRestrictedWhileLocked</key>
 			<array/>
+			<key>IntentsRestrictedWhileProtectedDataUnavailable</key>
+			<array/>
 			<key>IntentsSupported</key>
 			<array>
-				<string>INSetCarLockStatusIntent</string>
 				<string>INGetCarPowerLevelStatusIntent</string>
 				<string>INListCarsIntent</string>
+				<string>INSetCarLockStatusIntent</string>
+				<string>StartClimateControlIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>

@@ -17,12 +17,12 @@
 		<key>BetterKia-iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 		<key>BetterKia-iOSTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>BetterKia-iOSUITests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -37,7 +37,12 @@
 		<key>GetChargeRequestExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
+		</dict>
+		<key>VehicleStatusWidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>WatchExtension.xcscheme_^#shared#^_</key>
 		<dict>
