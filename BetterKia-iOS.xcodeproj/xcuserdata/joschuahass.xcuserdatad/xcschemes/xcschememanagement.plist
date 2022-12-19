@@ -4,15 +4,83 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BetterKia Watch App.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>BetterKia-Models.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>BetterKia-iOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>BetterKia-iOSTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>BetterKia-iOSUITests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>BetterKiaModels.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>GetChargeRequestExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>WatchExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>WatchIntentsExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>EB5FAE66294F7EDC00FF160E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB5FAE76294F7EDD00FF160E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB5FAE97294F7F4A00FF160E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB9EE74D29507E0E009D4D6A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB9EE75F29507E24009D4D6A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EBEA299529507D2500B3457A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

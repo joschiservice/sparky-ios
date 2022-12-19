@@ -1,8 +1,8 @@
 //
 //  IntentHandler.swift
-//  GetChargeRequestExtension
+//  WatchIntentsExtension
 //
-//  Created by Joschua Haß on 18.12.22.
+//  Created by Joschua Haß on 19.12.22.
 //
 
 import Intents
@@ -11,8 +11,6 @@ class IntentHandler: INExtension {
   override func handler(for intent: INIntent) -> Any? {
     if intent is INGetCarPowerLevelStatusIntent {
       return GetChargeRequestHandler()
-    } else if intent is INListCarsIntent {
-        return GetCarsListHandler()
     } else if intent is INSetCarLockStatusIntent {
         return SetCarLockStatusHandler()
     }

@@ -17,8 +17,26 @@
 		EB5FAE9B294F7F4B00FF160E /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5FAE9A294F7F4B00FF160E /* Intents.framework */; };
 		EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE9D294F7F4B00FF160E /* IntentHandler.swift */; };
 		EB5FAEA2294F7F4B00FF160E /* GetChargeRequestExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB5FAE98294F7F4B00FF160E /* GetChargeRequestExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EB5FAEA8294F7F9000FF160E /* GetChargeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */; };
 		EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA9294F80B300FF160E /* AppDelegate.swift */; };
+		EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */; };
+		EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE77A295080FD009D4D6A /* ContentView.swift */; };
+		EB9EE77D295080FE009D4D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9EE77C295080FE009D4D6A /* Assets.xcassets */; };
+		EB9EE780295080FE009D4D6A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9EE77F295080FE009D4D6A /* Preview Assets.xcassets */; };
+		EB9EE783295080FE009D4D6A /* BetterKia Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EB9EE78C2950811C009D4D6A /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5FAE9A294F7F4B00FF160E /* Intents.framework */; };
+		EB9EE78F2950811C009D4D6A /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE78E2950811C009D4D6A /* IntentHandler.swift */; };
+		EB9EE7932950811C009D4D6A /* WatchIntentsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB9EE78B2950811C009D4D6A /* WatchIntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EB9EE7982950813C009D4D6A /* GetCarsListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29432950687900B3457A /* GetCarsListHandler.swift */; };
+		EB9EE7992950813C009D4D6A /* SetCarLockStatusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */; };
+		EB9EE79A2950813C009D4D6A /* GetChargeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */; };
+		EB9EE79C29508174009D4D6A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
+		EB9EE79D29508177009D4D6A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
+		EBEA29192950613E00B3457A /* GetChargeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */; };
+		EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
+		EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
+		EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29432950687900B3457A /* GetCarsListHandler.swift */; };
+		EBEA294729506FCC00B3457A /* SetCarLockStatusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */; };
+		EBEA294A295073D800B3457A /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBEA294C295073D800B3457A /* AppIntentVocabulary.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +61,20 @@
 			remoteGlobalIDString = EB5FAE97294F7F4A00FF160E;
 			remoteInfo = GetChargeRequestExtension;
 		};
+		EB9EE781295080FE009D4D6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5FAE5F294F7EDC00FF160E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB9EE775295080FD009D4D6A;
+			remoteInfo = "BetterKia Watch App";
+		};
+		EB9EE7912950811C009D4D6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5FAE5F294F7EDC00FF160E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB9EE78A2950811C009D4D6A;
+			remoteInfo = WatchIntentsExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +87,38 @@
 				EB5FAEA2294F7F4B00FF160E /* GetChargeRequestExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB9EE7972950811C009D4D6A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EB9EE7932950811C009D4D6A /* WatchIntentsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBEA293A2950624700B3457A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBEA2976295077B900B3457A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EB9EE783295080FE009D4D6A /* BetterKia Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -77,6 +141,21 @@
 		EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChargeRequestHandler.swift; sourceTree = "<group>"; };
 		EB5FAEA9294F80B300FF160E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5FAEAD294F822700FF160E /* BetterKia-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia-iOS.entitlements"; sourceTree = "<group>"; };
+		EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BetterKia Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKiaApp.swift; sourceTree = "<group>"; };
+		EB9EE77A295080FD009D4D6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EB9EE77C295080FE009D4D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB9EE77F295080FE009D4D6A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EB9EE78B2950811C009D4D6A /* WatchIntentsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WatchIntentsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9EE78E2950811C009D4D6A /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		EB9EE7902950811C009D4D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB9EE79B29508153009D4D6A /* BetterKia Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia Watch App.entitlements"; sourceTree = "<group>"; };
+		EBEA29402950633500B3457A /* VehicleStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatusResponse.swift; sourceTree = "<group>"; };
+		EBEA29432950687900B3457A /* GetCarsListHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarsListHandler.swift; sourceTree = "<group>"; };
+		EBEA294529506D6A00B3457A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCarLockStatusHandler.swift; sourceTree = "<group>"; };
+		EBEA294B295073D800B3457A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
+		EBEA294D2950743600B3457A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/AppIntentVocabulary.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,16 +188,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB9EE773295080FD009D4D6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB9EE7882950811C009D4D6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB9EE78C2950811C009D4D6A /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		EB5FAE5E294F7EDC00FF160E = {
 			isa = PBXGroup;
 			children = (
+				EBEA293F295062E800B3457A /* BetterKia-Models */,
 				EB5FAE69294F7EDC00FF160E /* BetterKia-iOS */,
 				EB5FAE7A294F7EDD00FF160E /* BetterKia-iOSTests */,
 				EB5FAE84294F7EDD00FF160E /* BetterKia-iOSUITests */,
 				EB5FAE9C294F7F4B00FF160E /* GetChargeRequestExtension */,
+				EB9EE777295080FD009D4D6A /* BetterKia Watch App */,
+				EB9EE78D2950811C009D4D6A /* WatchIntentsExtension */,
 				EB5FAE99294F7F4B00FF160E /* Frameworks */,
 				EB5FAE68294F7EDC00FF160E /* Products */,
 			);
@@ -131,6 +228,8 @@
 				EB5FAE77294F7EDD00FF160E /* BetterKia-iOSTests.xctest */,
 				EB5FAE81294F7EDD00FF160E /* BetterKia-iOSUITests.xctest */,
 				EB5FAE98294F7F4B00FF160E /* GetChargeRequestExtension.appex */,
+				EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */,
+				EB9EE78B2950811C009D4D6A /* WatchIntentsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +237,7 @@
 		EB5FAE69294F7EDC00FF160E /* BetterKia-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EBEA294529506D6A00B3457A /* Info.plist */,
 				EB5FAEAD294F822700FF160E /* BetterKia-iOS.entitlements */,
 				EB5FAEA9294F80B300FF160E /* AppDelegate.swift */,
 				EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */,
@@ -187,8 +287,48 @@
 				EB5FAE9D294F7F4B00FF160E /* IntentHandler.swift */,
 				EB5FAE9F294F7F4B00FF160E /* Info.plist */,
 				EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */,
+				EBEA29432950687900B3457A /* GetCarsListHandler.swift */,
+				EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */,
+				EBEA294C295073D800B3457A /* AppIntentVocabulary.plist */,
 			);
 			path = GetChargeRequestExtension;
+			sourceTree = "<group>";
+		};
+		EB9EE777295080FD009D4D6A /* BetterKia Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				EB9EE79B29508153009D4D6A /* BetterKia Watch App.entitlements */,
+				EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */,
+				EB9EE77A295080FD009D4D6A /* ContentView.swift */,
+				EB9EE77C295080FE009D4D6A /* Assets.xcassets */,
+				EB9EE77E295080FE009D4D6A /* Preview Content */,
+			);
+			path = "BetterKia Watch App";
+			sourceTree = "<group>";
+		};
+		EB9EE77E295080FE009D4D6A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EB9EE77F295080FE009D4D6A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EB9EE78D2950811C009D4D6A /* WatchIntentsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				EB9EE78E2950811C009D4D6A /* IntentHandler.swift */,
+				EB9EE7902950811C009D4D6A /* Info.plist */,
+			);
+			path = WatchIntentsExtension;
+			sourceTree = "<group>";
+		};
+		EBEA293F295062E800B3457A /* BetterKia-Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBEA29402950633500B3457A /* VehicleStatusResponse.swift */,
+			);
+			path = "BetterKia-Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,11 +342,14 @@
 				EB5FAE64294F7EDC00FF160E /* Frameworks */,
 				EB5FAE65294F7EDC00FF160E /* Resources */,
 				EB5FAEA6294F7F4B00FF160E /* Embed Foundation Extensions */,
+				EBEA293A2950624700B3457A /* Embed Frameworks */,
+				EBEA2976295077B900B3457A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				EB5FAEA1294F7F4B00FF160E /* PBXTargetDependency */,
+				EB9EE782295080FE009D4D6A /* PBXTargetDependency */,
 			);
 			name = "BetterKia-iOS";
 			productName = "BetterKia-iOS";
@@ -266,6 +409,42 @@
 			productReference = EB5FAE98294F7F4B00FF160E /* GetChargeRequestExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		EB9EE775295080FD009D4D6A /* BetterKia Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB9EE784295080FE009D4D6A /* Build configuration list for PBXNativeTarget "BetterKia Watch App" */;
+			buildPhases = (
+				EB9EE772295080FD009D4D6A /* Sources */,
+				EB9EE773295080FD009D4D6A /* Frameworks */,
+				EB9EE774295080FD009D4D6A /* Resources */,
+				EB9EE7972950811C009D4D6A /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB9EE7922950811C009D4D6A /* PBXTargetDependency */,
+			);
+			name = "BetterKia Watch App";
+			productName = "BetterKia Watch App";
+			productReference = EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB9EE78A2950811C009D4D6A /* WatchIntentsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB9EE7942950811C009D4D6A /* Build configuration list for PBXNativeTarget "WatchIntentsExtension" */;
+			buildPhases = (
+				EB9EE7872950811C009D4D6A /* Sources */,
+				EB9EE7882950811C009D4D6A /* Frameworks */,
+				EB9EE7892950811C009D4D6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WatchIntentsExtension;
+			productName = WatchIntentsExtension;
+			productReference = EB9EE78B2950811C009D4D6A /* WatchIntentsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -290,15 +469,22 @@
 					EB5FAE97294F7F4A00FF160E = {
 						CreatedOnToolsVersion = 14.2;
 					};
+					EB9EE775295080FD009D4D6A = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					EB9EE78A2950811C009D4D6A = {
+						CreatedOnToolsVersion = 14.2;
+					};
 				};
 			};
 			buildConfigurationList = EB5FAE62294F7EDC00FF160E /* Build configuration list for PBXProject "BetterKia-iOS" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = EB5FAE5E294F7EDC00FF160E;
 			productRefGroup = EB5FAE68294F7EDC00FF160E /* Products */;
@@ -309,6 +495,8 @@
 				EB5FAE76294F7EDD00FF160E /* BetterKia-iOSTests */,
 				EB5FAE80294F7EDD00FF160E /* BetterKia-iOSUITests */,
 				EB5FAE97294F7F4A00FF160E /* GetChargeRequestExtension */,
+				EB9EE775295080FD009D4D6A /* BetterKia Watch App */,
+				EB9EE78A2950811C009D4D6A /* WatchIntentsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +529,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEA294A295073D800B3457A /* AppIntentVocabulary.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB9EE774295080FD009D4D6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB9EE780295080FE009D4D6A /* Preview Assets.xcassets in Resources */,
+				EB9EE77D295080FE009D4D6A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB9EE7892950811C009D4D6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */,
+				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,
 				EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */,
 				EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */,
 			);
@@ -379,7 +585,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */,
-				EB5FAEA8294F7F9000FF160E /* GetChargeRequestHandler.swift in Sources */,
+				EBEA29192950613E00B3457A /* GetChargeRequestHandler.swift in Sources */,
+				EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */,
+				EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */,
+				EBEA294729506FCC00B3457A /* SetCarLockStatusHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB9EE772295080FD009D4D6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */,
+				EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */,
+				EB9EE79D29508177009D4D6A /* VehicleStatusResponse.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB9EE7872950811C009D4D6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB9EE7982950813C009D4D6A /* GetCarsListHandler.swift in Sources */,
+				EB9EE79A2950813C009D4D6A /* GetChargeRequestHandler.swift in Sources */,
+				EB9EE79C29508174009D4D6A /* VehicleStatusResponse.swift in Sources */,
+				EB9EE7992950813C009D4D6A /* SetCarLockStatusHandler.swift in Sources */,
+				EB9EE78F2950811C009D4D6A /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,13 +632,36 @@
 			target = EB5FAE97294F7F4A00FF160E /* GetChargeRequestExtension */;
 			targetProxy = EB5FAEA0294F7F4B00FF160E /* PBXContainerItemProxy */;
 		};
+		EB9EE782295080FE009D4D6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB9EE775295080FD009D4D6A /* BetterKia Watch App */;
+			targetProxy = EB9EE781295080FE009D4D6A /* PBXContainerItemProxy */;
+		};
+		EB9EE7922950811C009D4D6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB9EE78A2950811C009D4D6A /* WatchIntentsExtension */;
+			targetProxy = EB9EE7912950811C009D4D6A /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EBEA294C295073D800B3457A /* AppIntentVocabulary.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBEA294B295073D800B3457A /* Base */,
+				EBEA294D2950743600B3457A /* de */,
+			);
+			name = AppIntentVocabulary.plist;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EB5FAE89294F7EDD00FF160E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -468,6 +722,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -531,6 +786,7 @@
 				DEVELOPMENT_TEAM = 425562S2X6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BetterKia-iOS/Info.plist";
 				INFOPLIST_KEY_NSSiriUsageDescription = "BetterKia wants to use Siri";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -563,6 +819,7 @@
 				DEVELOPMENT_TEAM = 425562S2X6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BetterKia-iOS/Info.plist";
 				INFOPLIST_KEY_NSSiriUsageDescription = "BetterKia wants to use Siri";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -708,6 +965,126 @@
 			};
 			name = Release;
 		};
+		EB9EE785295080FE009D4D6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BetterKia Watch App/BetterKia Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BetterKia Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 425562S2X6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BetterKia;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "de.thevisualcablecollective.BetterKia-iOS";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		EB9EE786295080FE009D4D6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BetterKia Watch App/BetterKia Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BetterKia Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 425562S2X6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BetterKia;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "de.thevisualcablecollective.BetterKia-iOS";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		EB9EE7952950811C009D4D6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchIntentsExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchIntentsExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS.watchkitapp.WatchIntentsExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		EB9EE7962950811C009D4D6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchIntentsExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchIntentsExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS.watchkitapp.WatchIntentsExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -752,6 +1129,24 @@
 			buildConfigurations = (
 				EB5FAEA4294F7F4B00FF160E /* Debug */,
 				EB5FAEA5294F7F4B00FF160E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB9EE784295080FE009D4D6A /* Build configuration list for PBXNativeTarget "BetterKia Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB9EE785295080FE009D4D6A /* Debug */,
+				EB9EE786295080FE009D4D6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB9EE7942950811C009D4D6A /* Build configuration list for PBXNativeTarget "WatchIntentsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB9EE7952950811C009D4D6A /* Debug */,
+				EB9EE7962950811C009D4D6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

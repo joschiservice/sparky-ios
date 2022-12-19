@@ -12,7 +12,6 @@
 			<array>
 				<string>INSetCarLockStatusIntent</string>
 				<string>INGetCarPowerLevelStatusIntent</string>
-				<string>INListCarsIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
