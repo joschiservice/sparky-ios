@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import os
+import WidgetKit
 
 struct ContentView: View {
     var body: some View {
@@ -13,6 +15,15 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
             Text("Hello, world!")
+            Button("Helo") {
+                let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
+                
+                let formatter = DateFormatter()
+                
+                formatter.dateFormat = "HH:mm"
+                
+                Logger().log("\(formatter.string(from: nextUpdateDate))")
+            }
         }
         .padding()
     }

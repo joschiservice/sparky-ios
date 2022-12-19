@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import os
+import WidgetKit
 
 class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
     func application(

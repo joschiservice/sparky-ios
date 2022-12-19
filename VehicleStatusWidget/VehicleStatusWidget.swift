@@ -8,16 +8,20 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import os
 
 struct Provider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), batPercentage: "0", remainingDistance: "0")
+        let entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "0")
         completion(entry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
-        var entry = SimpleEntry(date: Date(), batPercentage: "-", remainingDistance: "-")
+        var entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "-")
         let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
+        let logger = Logger()
+        
+        logger.log("next update: \(DateFormatter().string(from: nextUpdateDate))")
         
         let url = URL(string: "https://better-kia.vcc-online.eu/api/hello")!
         
@@ -31,7 +35,7 @@ struct Provider: TimelineProvider {
             if let data = data, let vehicleStatusData = try? JSONDecoder().decode(VehicleStatusResponse.self, from: data) {
                 let evStatus = vehicleStatusData.vehicleStatus.evStatus
                 
-                entry.batPercentage = String(evStatus.batteryStatus)
+                entry.batPercentage = evStatus.batteryStatus
                 entry.remainingDistance = String(evStatus.drvDistance.first?.rangeByFuel.totalAvailableRange.value ?? 0)
             } else {
                 // error
@@ -44,14 +48,14 @@ struct Provider: TimelineProvider {
     }
     
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), batPercentage: "0", remainingDistance: "0")
+        SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "0")
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     var date: Date
     
-    var batPercentage: String
+    var batPercentage: Int
     var remainingDistance: String
     
     func getTimeString() -> String {
@@ -68,7 +72,7 @@ struct VehicleStatusWidgetEntryView : View {
     var body: some View {
         VStack (spacing: 0) {
             HStack(spacing: 1) {
-                Text(entry.batPercentage)
+                Text(String(entry.batPercentage))
                     .font(.title)
                 Text("%")
                     .font(.title)
@@ -78,10 +82,10 @@ struct VehicleStatusWidgetEntryView : View {
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
             ZStack {
                 RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                    .frame(width: .infinity, height: 15)
+                    .frame(width: 138, height: 15)
                     .foregroundColor(Color(UIColor.systemGray6))
                 RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                    .size(width: 80, height: 15)
+                    .size(width: CGFloat((Float(entry.batPercentage) / 100.0) * 138), height: 15)
                     .frame(width: .infinity, height: 15)
                     .foregroundColor(Color(UIColor.systemGreen))
             }
@@ -128,7 +132,7 @@ struct VehicleStatusWidget: Widget {
 
 struct VehicleStatusWidget_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleStatusWidgetEntryView(entry: SimpleEntry(date: Date(), batPercentage: "64", remainingDistance: "230"))
+        VehicleStatusWidgetEntryView(entry: SimpleEntry(date: Date(), batPercentage: 64, remainingDistance: "230"))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
