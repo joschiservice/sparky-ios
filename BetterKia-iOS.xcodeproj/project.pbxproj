@@ -18,6 +18,7 @@
 		EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE9D294F7F4B00FF160E /* IntentHandler.swift */; };
 		EB5FAEA2294F7F4B00FF160E /* GetChargeRequestExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB5FAE98294F7F4B00FF160E /* GetChargeRequestExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA9294F80B300FF160E /* AppDelegate.swift */; };
+		EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7BD2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift */; };
 		EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */; };
 		EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE77A295080FD009D4D6A /* ContentView.swift */; };
 		EB9EE77D295080FE009D4D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9EE77C295080FE009D4D6A /* Assets.xcassets */; };
@@ -648,6 +649,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */,
+				EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */,
 				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,
 				EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */,
 				EB9EE7C62950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */,
@@ -911,6 +913,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = BetterKia;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "BetterKia wants to use Siri";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -946,6 +949,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = BetterKia;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSSiriUsageDescription = "BetterKia wants to use Siri";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
