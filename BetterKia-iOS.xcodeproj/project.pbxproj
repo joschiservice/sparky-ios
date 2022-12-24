@@ -52,6 +52,11 @@
 		EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29432950687900B3457A /* GetCarsListHandler.swift */; };
 		EBEA294729506FCC00B3457A /* SetCarLockStatusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */; };
+		EBEBB7512955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
+		EBEBB7522955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
+		EBEBB7532955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
+		EBEBB7542955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
+		EBEBB7552955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +195,7 @@
 		EBEA29432950687900B3457A /* GetCarsListHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarsListHandler.swift; sourceTree = "<group>"; };
 		EBEA294529506D6A00B3457A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCarLockStatusHandler.swift; sourceTree = "<group>"; };
+		EBEBB7502955BA2C00296FBB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				EBEA29402950633500B3457A /* VehicleStatusResponse.swift */,
+				EBEBB7502955BA2C00296FBB /* ApiClient.swift */,
 			);
 			path = "BetterKia-Models";
 			sourceTree = "<group>";
@@ -648,6 +655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEBB7512955BA2C00296FBB /* ApiClient.swift in Sources */,
 				EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */,
 				EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */,
 				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,
@@ -681,6 +689,7 @@
 				EB9EE7A5295095E5009D4D6A /* Intents.intentdefinition in Sources */,
 				EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */,
 				EB9EE7A1295093BB009D4D6A /* StartClimateControlHandler.swift in Sources */,
+				EBEBB7522955BA2C00296FBB /* ApiClient.swift in Sources */,
 				EBEA29192950613E00B3457A /* GetChargeRequestHandler.swift in Sources */,
 				EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */,
 				EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */,
@@ -695,6 +704,7 @@
 				EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */,
 				EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */,
 				EB9EE79D29508177009D4D6A /* VehicleStatusResponse.swift in Sources */,
+				EBEBB7532955BA2C00296FBB /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,6 +715,7 @@
 				EB9EE7A6295095E5009D4D6A /* Intents.intentdefinition in Sources */,
 				EB9EE7982950813C009D4D6A /* GetCarsListHandler.swift in Sources */,
 				EB9EE79A2950813C009D4D6A /* GetChargeRequestHandler.swift in Sources */,
+				EBEBB7542955BA2C00296FBB /* ApiClient.swift in Sources */,
 				EB9EE7A3295093DC009D4D6A /* StartClimateControlHandler.swift in Sources */,
 				EB9EE79C29508174009D4D6A /* VehicleStatusResponse.swift in Sources */,
 				EB9EE7992950813C009D4D6A /* SetCarLockStatusHandler.swift in Sources */,
@@ -721,6 +732,7 @@
 				EBC1F73E2950DF7900BBEE5E /* VehicleStatusResponse.swift in Sources */,
 				EB9EE7BE2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift in Sources */,
 				EB9EE7C02950AFFE009D4D6A /* VehicleStatusWidget.swift in Sources */,
+				EBEBB7552955BA2C00296FBB /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
