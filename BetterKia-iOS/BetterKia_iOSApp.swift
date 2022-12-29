@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct BetterKia_iOSApp: App {
-    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {

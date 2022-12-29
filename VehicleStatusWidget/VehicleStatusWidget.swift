@@ -17,35 +17,22 @@ struct Provider: TimelineProvider {
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
-        var entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "-", isCharging: false)
-        let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
-        let logger = Logger()
-        
-        logger.log("next update: \(DateFormatter().string(from: nextUpdateDate))")
-        
-        let url = URL(string: "https://better-kia.vcc-online.eu/api/hello")!
-        
-        var request = URLRequest(url: url)
-        
-        let auth = Data("2384z27834687236478f67826482|fjfiuwergisidjb4r734fsj3".utf8).base64EncodedString()
-        request.setValue(auth, forHTTPHeaderField: "Authorization")
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        Task {
+            var entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "-", isCharging: false)
+            let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
+            let vehicleStatusData = await ApiClient.getVehicleStatus()
             
-            if let data = data, let vehicleStatusData = try? JSONDecoder().decode(VehicleStatusResponse.self, from: data) {
-                let evStatus = vehicleStatusData.vehicleStatus.evStatus
+            if vehicleStatusData != nil {
+                let evStatus = vehicleStatusData!.evStatus
                 
                 entry.batPercentage = evStatus.batteryStatus
                 entry.remainingDistance = String(evStatus.drvDistance.first?.rangeByFuel.totalAvailableRange.value ?? 0)
                 entry.isCharging = evStatus.batteryCharge
-            } else {
-                // error
             }
+            
             let timeline = Timeline(entries: [entry], policy: .after(nextUpdateDate))
             completion(timeline)
         }
-        
-        task.resume()
     }
     
     func placeholder(in context: Context) -> SimpleEntry {
