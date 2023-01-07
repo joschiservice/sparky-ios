@@ -89,8 +89,43 @@ public class ApiClient {
         return false;
     }
     
-    static func getSchedules() {
+    static func getSchedules() async -> [Schedule]? {
+        do {
+            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/climate-control-schedules")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    do {
+                        let decoder =  JSONDecoder()
+                        
+                        let formatter = DateFormatter()
+                        formatter.locale = Locale(identifier: "en_US_POSIX")
+                        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                        
+                        decoder.dateDecodingStrategy =  .formatted(formatter)
+                        
+                        let scheduledata = try decoder.decode([ScheduleData].self, from: data)
+                        var returnData: [Schedule] = []
+                        
+                        for entry in scheduledata {
+                            returnData.append(entry.toSchedule())
+                        }
+                        
+                        return returnData
+                    } catch {
+                        logger.error("GetSchedules: Data couldn't be converted: \(error)")
+                        logger.debug("GetSchedules: Response Data: \(String(decoding: data, as: UTF8.self))")
+                    }
+                } else {
+                    logger.error("GetSchedules: Status code was invalid")
+                }
+            }
+        } catch {
+            
+        }
         
+        logger.error("Failed to retrieve charging schedules")
+        return nil
     }
     
     static func saveSchedule() {

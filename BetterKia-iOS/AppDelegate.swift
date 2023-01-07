@@ -18,6 +18,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
        // Override point for customization after application launch.you’re
        UIApplication.shared.registerForRemoteNotifications()
         
+        UNUserNotificationCenter.current().delegate = self
+        
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             
@@ -27,6 +29,13 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
             
             // Enable or disable features based on the authorization.
         }
+        
+        // When the app launch after user tap on notification (originally was not running / not in background)
+          if(launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] != nil){
+              print("Hi there! I was opened using a notification I guess")
+          }
+        
+        
        return true
     }
 
@@ -61,6 +70,24 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
     
     var deliveryActivity: Activity<LiveChargeStatusWidgetAttributes>?
     
+    // This function will be called when the app receive notification
+      func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+          
+        // show the notification alert (banner), and with sound
+          completionHandler([.banner, .list, .sound])
+      }
+    
+    struct UserInfoData {
+        let chargeStatus: InitialChargeStatus
+    }
+    
+    struct InitialChargeStatus {
+        let batteryCharge: Int
+        let chargeLimit: Int
+        let chargedKw: Int
+        let minRemaining: Int
+    }
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
     {
         Logger().log("User clicked on notificaiton")
@@ -72,9 +99,14 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
         // You may print `userInfo` dictionary, to see all data received with the notification.
         if response.notification.request.content.categoryIdentifier == "LIVE_CHARGING"
         {
+            let userInfo = response.notification.request.content.userInfo["chargeStatus"] as! NSDictionary
+            let batteryCharge = userInfo["batteryCharge"] as! Int
+            let minRemaining = userInfo["minRemaining"] as! Int
+            let chargeLimit = userInfo["chargeLimit"] as! Int
+            let chargedKw = userInfo["chargedKw"] as! Int
             Logger().log("Starting live charging monitoring...")
             if ActivityAuthorizationInfo().areActivitiesEnabled {
-                let initialContentState = LiveChargeStatusWidgetAttributes.ContentState(batteryCharge: 33, minRemaining: 33, chargeLimit: 33, chargedKw: 33)
+                let initialContentState = LiveChargeStatusWidgetAttributes.ContentState(batteryCharge: batteryCharge, minRemaining: minRemaining, chargeLimit: chargeLimit, chargedKw: chargedKw)
                 let activityAttributes = LiveChargeStatusWidgetAttributes()
                 
                 let activityContent = ActivityContent(state: initialContentState, staleDate: Calendar.current.date(byAdding: .minute, value: 30, to: Date())!)

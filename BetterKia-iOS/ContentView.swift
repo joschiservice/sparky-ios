@@ -24,6 +24,14 @@ struct ClimateControlScheduleView: View {
     
     @State private var schedules: [Schedule] = []
     
+    func loadSchedules() {
+        Task {
+            self.isLoading = true
+            self.schedules = await ApiClient.getSchedules() ?? []
+            self.isLoading = false
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             List ($schedules, id: \.self, editActions: .delete) {schedule in
@@ -35,12 +43,11 @@ struct ClimateControlScheduleView: View {
                     ProgressView()
                 }
                 else if schedules.isEmpty {
-                                Text("Oops, loos like there's no data...")
+                                Text("No schedules created yet.")
                             }
                         })
             .refreshable {
-                            print("Do your refresh work here")
-                
+                self.loadSchedules()
             }
             .listStyle(.plain)
             .navigationTitle("Schedules")
@@ -66,6 +73,7 @@ struct ClimateControlScheduleView: View {
                 }
             }
         }
+        .onAppear(perform: self.loadSchedules)
     }
 }
 
