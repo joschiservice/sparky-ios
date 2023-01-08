@@ -18,17 +18,25 @@ struct Provider: TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
         Task {
+            var logger = Logger()
+            logger.log("Start getting timeline...")
             var entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "-", isCharging: false)
             let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
+            logger.log("Executing vehicle status request")
             let vehicleStatusData = await ApiClient.getVehicleStatus()
             
             if vehicleStatusData != nil {
+                logger.error("Got VehicleStatusData")
                 let evStatus = vehicleStatusData!.evStatus
                 
                 entry.batPercentage = evStatus.batteryStatus
                 entry.remainingDistance = String(evStatus.drvDistance.first?.rangeByFuel.totalAvailableRange.value ?? 0)
                 entry.isCharging = evStatus.batteryCharge
+            } else {
+                logger.error("VehicleStatusData is nil")
             }
+            
+            logger.log("Setting timeline")
             
             let timeline = Timeline(entries: [entry], policy: .after(nextUpdateDate))
             completion(timeline)
@@ -94,9 +102,11 @@ struct VehicleStatusWidgetEntryView : View {
                 Text(entry.getStatusText())
                     .font(.footnote)
                     .fontWeight(.bold)
+                    .fixedSize()
                 Text(" | \(entry.remainingDistance) km")
                     .font(.footnote)
                     .opacity(0.6)
+                    .fixedSize()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(EdgeInsets(top: 8, leading: 2, bottom: 0, trailing: 0))
