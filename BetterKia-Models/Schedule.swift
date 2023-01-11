@@ -30,17 +30,40 @@ public struct Schedule: Hashable {
     mutating func handleDidSet() {
         self.hasAnyValueChanged = true
     }
+    
+    func toScheduleActionData() -> ScheduleActionData {
+        
+        // Convert time to server time
+        var calendar = Calendar.current
+        calendar.timeZone = .gmt
+        
+        let depatureTimeHour = calendar.component(.hour, from: departureTime)
+        let depatureTimeMin = calendar.component(.minute, from: departureTime)
+        
+        var activeDaysConv: [String] = []
+        
+        if (isActiveOnMonday) { activeDaysConv.append("monday") }
+        if (isActiveOnTuesday) { activeDaysConv.append("tuesday") }
+        if (isActiveOnWednesday) { activeDaysConv.append("wednesday") }
+        if (isActiveOnThursday) { activeDaysConv.append("thursday") }
+        if (isActiveOnFriday) { activeDaysConv.append("friday") }
+        if (isActiveOnSaturday) { activeDaysConv.append("saturday") }
+        if (isActiveOnSunday) { activeDaysConv.append("sunday") }
+        
+        return ScheduleActionData(id: self.id, name: self.name, isActive: self.isActivated, departureTimeHour: depatureTimeHour, departureTimeMinute: depatureTimeMin, activeDays: activeDaysConv)
+    }
 }
 
 // Data directly returned by the API
 public struct ScheduleData: Decodable {
     let id: Int
+    let name: String
     let isActive: Bool
     let departureTime: Date
     let activeDays: [WeekdayData]
     
     func toSchedule() -> Schedule {
-        var schedule = Schedule(id: self.id, name: "", isActivated: self.isActive, departureTime: self.departureTime)
+        var schedule = Schedule(id: self.id, name: self.name, isActivated: self.isActive, departureTime: self.departureTime)
         
         for weekday in self.activeDays {
             switch weekday.name {
@@ -73,4 +96,13 @@ public struct ScheduleData: Decodable {
 public struct WeekdayData: Decodable {
     let id: Int
     let name: String
+}
+
+public struct ScheduleActionData: Encodable {
+    let id: Int
+    let name: String
+    let isActive: Bool
+    let departureTimeHour: Int
+    let departureTimeMinute: Int
+    let activeDays: [String]
 }

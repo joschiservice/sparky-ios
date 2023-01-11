@@ -18,7 +18,7 @@ struct Provider: TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
         Task {
-            var logger = Logger()
+            let logger = Logger()
             logger.log("Start getting timeline...")
             var entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "-", isCharging: false)
             let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!

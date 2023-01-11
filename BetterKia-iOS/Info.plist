@@ -9,6 +9,17 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>car.side.air.fresh.fill</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Start Air Conditioning</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>StartHvacAction</string>
+		</dict>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

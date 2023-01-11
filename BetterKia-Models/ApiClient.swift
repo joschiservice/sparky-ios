@@ -23,9 +23,12 @@ public class ApiClient {
         
         var request = URLRequest(url: url)
         
+        // Set Headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
         request.httpMethod = method
+        
         let sessionConfiguration = URLSessionConfiguration.default
 
         sessionConfiguration.httpAdditionalHeaders = [
@@ -128,8 +131,35 @@ public class ApiClient {
         return nil
     }
     
-    static func saveSchedule() {
+    static func saveSchedule(item: Schedule) async -> Bool {
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+        let jsonData = try? jsonEncoder.encode(item.toScheduleActionData())
         
+        do {
+            var url = "https://better-kia.vcc-online.eu/api/climate-control-schedules/"
+            var method = "POST"
+            if (item.id != 0) {
+                url += String(item.id) + "/"
+                method = "PATCH"
+            }
+            let (data, response) = try await self.doRequest(urlString: url, method: method, jsonData: jsonData)
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
+                    return true
+                } else {
+                    logger.error("SaveSchedule: Status code was invalid")
+                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("Failed to save schedules")
+        return false
     }
     
     static func getVehicleStatus() async -> VehicleStatus? {
@@ -145,7 +175,7 @@ public class ApiClient {
             
         }
         
-        logger.error("Failed to register for live charging updates")
+        logger.error("Failed to get vehicle charging status")
         return nil;
     }
     
