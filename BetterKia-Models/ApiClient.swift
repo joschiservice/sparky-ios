@@ -18,6 +18,8 @@ public class ApiClient {
     
     private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ApiClient")
     
+    private static let serverUrl = "https://better-kia-api.vercel.app/"
+    
     static func doRequest(urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
         let url = URL(string: urlString)!
         
@@ -53,7 +55,7 @@ public class ApiClient {
         let jsonData = try? jsonEncoder.encode(parameters)
         
         do {
-            let (_, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/notifications/", method: "POST", jsonData: jsonData)
+            let (_, response) = try await self.doRequest(urlString: serverUrl + "api/notifications/", method: "POST", jsonData: jsonData)
             
             if let httpResponse = response as? HTTPURLResponse {
                 
@@ -77,7 +79,7 @@ public class ApiClient {
         let jsonData = try? jsonEncoder.encode(parameters)
         
         do {
-            let (_, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/notifications/", method: "POST", jsonData: jsonData)
+            let (_, response) = try await self.doRequest(urlString: serverUrl + "api/notifications/", method: "POST", jsonData: jsonData)
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 204) {
@@ -94,7 +96,7 @@ public class ApiClient {
     
     static func getSchedules() async -> [Schedule]? {
         do {
-            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/climate-control-schedules")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/climate-control-schedules")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -137,7 +139,7 @@ public class ApiClient {
         let jsonData = try? jsonEncoder.encode(item.toScheduleActionData())
         
         do {
-            var url = "https://better-kia.vcc-online.eu/api/climate-control-schedules/"
+            var url = serverUrl + "api/climate-control-schedules/"
             var method = "POST"
             if (item.id != 0) {
                 url += String(item.id) + "/"
@@ -164,7 +166,7 @@ public class ApiClient {
     
     static func getVehicleStatus() async -> VehicleStatus? {
         do {
-            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/hello")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/hello")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -181,7 +183,7 @@ public class ApiClient {
     
     static func lockVehicle() async -> Bool {
         do {
-            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/lock")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/lock")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -199,7 +201,7 @@ public class ApiClient {
     
     static func unlockVehicle() async -> Bool {
         do {
-            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/unlock")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/unlock")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -212,6 +214,28 @@ public class ApiClient {
         }
         
         logger.error("Failed to unlock vehicle")
+        return false;
+    }
+    
+    static func startVehicle() async -> Bool {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/start")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
+                    logger.log("Start vehicle result: \(apiResponse?.message ?? "")");
+                    return apiResponse != nil && apiResponse?.error == false;
+                } else {
+                    logger.error("Status Code: \(httpResponse.statusCode)");
+                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("Failed to start vehicle")
         return false;
     }
 }

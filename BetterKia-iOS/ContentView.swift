@@ -48,6 +48,8 @@ struct ExampleView: View {
 }
 
 struct ContentView: View {
+    @ObservedObject private var vehicleManager = VehicleManager.shared
+    
     var body: some View {
         TabView {
             ClimateControlScheduleView()
@@ -63,6 +65,9 @@ struct ContentView: View {
                 .tabItem {
                     Label("Account", systemImage: "person.crop.circle.fill")
                 }
+        }
+        .sheet(isPresented: $vehicleManager.showClimateControlPopover) {
+            StartInfoView()
         }
     }
 }
