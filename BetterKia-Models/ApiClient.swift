@@ -181,6 +181,23 @@ public class ApiClient {
         return nil;
     }
     
+    static func getVehicleLocation() async -> VehicleLocationResponse? {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/location")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    return try? JSONDecoder().decode(VehicleLocationResponse.self, from: data);
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("Failed to get vehicle charging status")
+        return nil;
+    }
+    
     static func lockVehicle() async -> Bool {
         do {
             let (data, response) = try await self.doRequest(urlString: serverUrl + "api/lock")
