@@ -15,6 +15,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
     func application(_ application: UIApplication,
                didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        print(TempCodeConverter.tempCodeToCelsius(code: "02H"))
+        
        // Override point for customization after application launch.you’re
        UIApplication.shared.registerForRemoteNotifications()
         

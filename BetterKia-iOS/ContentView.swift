@@ -52,13 +52,13 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            DashboardView()
+                .tabItem {
+                    Label("Dashboard", systemImage: "bolt.car.fill")
+                }
             ClimateControlScheduleView()
                 .tabItem {
                     Label("Schedules", systemImage: "calendar")
-                }
-            ExampleView()
-                .tabItem {
-                    Label("Sent", systemImage: "tray.and.arrow.up.fill")
                 }
             ExampleView()
                 .badge("!")
@@ -75,5 +75,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }
