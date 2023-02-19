@@ -25,9 +25,9 @@ struct Provider: TimelineProvider {
             logger.log("Executing vehicle status request")
             let vehicleStatusData = await ApiClient.getVehicleStatus()
             
-            if vehicleStatusData != nil {
+            if vehicleStatusData.data != nil {
                 logger.error("Got VehicleStatusData")
-                let evStatus = vehicleStatusData!.evStatus
+                let evStatus = vehicleStatusData.data!.evStatus
                 
                 entry.batPercentage = evStatus.batteryStatus
                 entry.remainingDistance = String(evStatus.drvDistance.first?.rangeByFuel.totalAvailableRange.value ?? 0)

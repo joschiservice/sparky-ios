@@ -13,6 +13,11 @@ struct SimpleApiResponse: Decodable {
     let message: String
 }
 
+struct ApiErrorResponse: Decodable {
+    let error: Bool
+    let code: String
+}
+
 public class ApiClient {
     private static let _authHeader = Data("2384z27834687236478f67826482|fjfiuwergisidjb4r734fsj3".utf8).base64EncodedString()
     
@@ -164,13 +169,16 @@ public class ApiClient {
         return false
     }
     
-    static func getVehicleStatus() async -> VehicleStatus? {
+    static func getVehicleStatus() async -> CommonResponse<VehicleStatus> {
         do {
             let (data, response) = try await self.doRequest(urlString: serverUrl + "api/hello")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    return try? JSONDecoder().decode(VehicleStatus.self, from: data);
+                    let responseData = try? JSONDecoder().decode(VehicleStatus.self, from: data);
+                    return CommonResponse(failed: false, error: .NoError, data: responseData);
+                } else {
+                    return unexpectedResponseHandler(data);
                 }
             }
         } catch {
@@ -178,7 +186,23 @@ public class ApiClient {
         }
         
         logger.error("Failed to get vehicle charging status")
-        return nil;
+        return CommonResponse(failed: true, error: .UnknownError, data: nil);
+    }
+    
+    private static func unexpectedResponseHandler<T>(_ data: Data) -> CommonResponse<T> {
+        let errorData = try? JSONDecoder().decode(ApiErrorResponse.self, from: data);
+        
+        if (errorData == nil) {
+            return CommonResponse<T>(failed: true, error: .UnknownError, data: nil);
+        }
+        
+        var error = ApiErrorType.UnknownError;
+        
+        if (errorData?.code == "RATE_LIMITED_BY_OEM") {
+            error = ApiErrorType.RateLimitedByOEM;
+        }
+        
+        return CommonResponse(failed: true, error: error, data: nil);
     }
     
     static func getVehicleLocation() async -> VehicleLocationResponse? {

@@ -18,6 +18,7 @@
 		EB0FB988296EC1DE00898ADA /* ClimateControlScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */; };
 		EB0FB98B296F2C3000898ADA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EB0FB98A296F2C3000898ADA /* Lottie */; };
 		EB0FB98D296F2CD100898ADA /* air-conditioner-and-heater-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */; };
+		EB2C14CA29A2D13500ED944C /* LockControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C14C929A2D13500ED944C /* LockControlItem.swift */; };
 		EB3398B0295F16F300E4B2B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB40F539295F149E00064F1F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB40F53A295F149E00064F1F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
@@ -189,6 +190,7 @@
 		EB03235329A2307200256B66 /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateControlScheduleView.swift; sourceTree = "<group>"; };
 		EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "air-conditioner-and-heater-lottie.json"; sourceTree = "<group>"; };
+		EB2C14C929A2D13500ED944C /* LockControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockControlItem.swift; sourceTree = "<group>"; };
 		EB4321D9295DE00600A6BA52 /* ScheduleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEntry.swift; sourceTree = "<group>"; };
 		EB4321DB295DE03000A6BA52 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		EB46C69E299ECBDB00AAB8AE /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			children = (
 				EB03234F29A2302C00256B66 /* ControlItem.swift */,
 				EB03235129A2305200256B66 /* HvacControlItem.swift */,
+				EB2C14C929A2D13500ED944C /* LockControlItem.swift */,
 			);
 			path = ControlItems;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				EB9EE7C62950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */,
 				EB03235429A2307200256B66 /* Widget.swift in Sources */,
 				EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */,
+				EB2C14CA29A2D13500ED944C /* LockControlItem.swift in Sources */,
 				EB03234429A22F5D00256B66 /* BatteryWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

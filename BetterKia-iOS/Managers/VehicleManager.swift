@@ -10,6 +10,13 @@ import Dispatch
 import os
 import SwiftUI
 
+enum VehicleDataStatus {
+    case Refreshing;
+    case UnknownError;
+    case Success;
+    case RateLimitedByOEM;
+}
+
 public class VehicleManager : ObservableObject {
     @Published var showClimateControlPopover = false;
     @Published var isLoadingVehicleData = false;
@@ -18,6 +25,8 @@ public class VehicleManager : ObservableObject {
     @Published var vehicleLocation: VehicleLocation? = nil;
     @Published var isLoadingVehicleLocation = false;
     @Published var isHvacActive = false;
+    @Published var vehicleDataStatus = VehicleDataStatus.Refreshing;
+    @Published var isVehicleLocked = true;
     
     let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "VehicleManager")
     
@@ -66,14 +75,25 @@ public class VehicleManager : ObservableObject {
     public func getVehicleData() async {
         DispatchQueue.main.async {
             self.isLoadingVehicleData = true;
+            self.vehicleDataStatus = VehicleDataStatus.Refreshing;
         }
         
         logger.log("Retrieving vehicle status data...");
-        let data = await ApiClient.getVehicleStatus();
+        let response = await ApiClient.getVehicleStatus();
         
         DispatchQueue.main.async {
-            self.vehicleData = data;
-            self.isHvacActive = data?.acc ?? false;
+            if (response.failed) {
+                if (response.error == ApiErrorType.RateLimitedByOEM) {
+                    self.vehicleDataStatus = VehicleDataStatus.RateLimitedByOEM;
+                } else {
+                    self.vehicleDataStatus = VehicleDataStatus.UnknownError;
+                }
+            } else {
+                self.vehicleDataStatus = VehicleDataStatus.Success;
+            }
+            
+            self.vehicleData = response.data;
+            self.isHvacActive = response.data?.acc ?? false;
             self.isLoadingVehicleData = false;
         }
     }
@@ -125,5 +145,18 @@ public class VehicleManager : ObservableObject {
         vmanager.vehicleLocation = VehicleLocation(latitude: 54.19478906001295, longitude: 9.093066782003024, speed: VehicleSpeed(unit: 0, value: 0), heading: 0);
         vmanager.isHvacActive = true;
         return vmanager;
+    }
+    
+    public func lock() async {
+        _ = await ApiClient.lockVehicle();
+        self.isVehicleLocked = true;
+    }
+    
+    public func unlock() async {
+        _ = await ApiClient.unlockVehicle();
+        
+        DispatchQueue.main.async {
+            self.isVehicleLocked = false;
+        }
     }
 }

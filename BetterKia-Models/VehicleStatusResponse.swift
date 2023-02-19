@@ -24,8 +24,16 @@ public struct VehicleSpeed: Decodable {
     let value: Int
 }
 
-public struct VehicleStatusResponse: Decodable {
-    let vehicleStatus: VehicleStatus
+enum ApiErrorType {
+    case NoError
+    case RateLimitedByOEM
+    case UnknownError
+}
+
+public struct CommonResponse<T> {
+    let failed: Bool
+    let error: ApiErrorType
+    let data: T?
 }
 
 public struct VehicleStatus : Decodable {
