@@ -47,7 +47,8 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
         case "StartHvacAction":
             logger.log("Requesting immediate start of hvac...")
             Task {
-                completionHandler(await VehicleManager.shared.start())
+                await VehicleManager.shared.start()
+                completionHandler(true)
             }
         default:
             completionHandler(false)

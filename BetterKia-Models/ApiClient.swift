@@ -194,7 +194,7 @@ public class ApiClient {
             
         }
         
-        logger.error("Failed to get vehicle charging status")
+        logger.error("Failed to get vehicle location")
         return nil;
     }
     
@@ -234,7 +234,7 @@ public class ApiClient {
         return false;
     }
     
-    static func startVehicle() async -> Bool {
+    static func startVehicle() async -> SimpleApiResponse? {
         do {
             let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/start")
             
@@ -242,7 +242,7 @@ public class ApiClient {
                 if (httpResponse.statusCode == 200) {
                     let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
                     logger.log("Start vehicle result: \(apiResponse?.message ?? "")");
-                    return apiResponse != nil && apiResponse?.error == false;
+                    return apiResponse;
                 } else {
                     logger.error("Status Code: \(httpResponse.statusCode)");
                     logger.error("Response: \(String(decoding: data, as: UTF8.self))")
@@ -253,6 +253,28 @@ public class ApiClient {
         }
         
         logger.error("Failed to start vehicle")
-        return false;
+        return nil;
+    }
+    
+    static func stopVehicle() async -> SimpleApiResponse? {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/stop")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
+                    logger.log("Stop vehicle result: \(apiResponse?.message ?? "")");
+                    return apiResponse
+                } else {
+                    logger.error("Status Code: \(httpResponse.statusCode)");
+                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("Failed to stop vehicle")
+        return nil;
     }
 }

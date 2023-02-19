@@ -48,3 +48,15 @@ struct HvacWidget: View {
         }
     }
 }
+
+struct HvacWidgetPreviews: PreviewProvider {
+    static var previews: some View {
+        DashboardView(vehicleManager: VehicleManager.getPreviewInstance())
+            .previewDisplayName("Dashboard: Data")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+        
+        DashboardView()
+            .previewDisplayName("Dashboard: No Data")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+    }
+}

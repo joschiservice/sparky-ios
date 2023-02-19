@@ -27,12 +27,21 @@ struct DashboardView: View {
                         .foregroundColor(.gray)
                 }
                 
-                Image("KiaSoul")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .offset(x: 50, y: 0)
-                    .frame(height: 200)
-                    .padding(EdgeInsets(top: 30, leading: 0, bottom: 30, trailing: 0))
+                if (vehicleManager.vehicleData != nil && vehicleManager.vehicleData!.evStatus.batteryCharge) {
+                    Image("KiaSoulCharging")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .offset(x: 0, y: 0)
+                        .frame(height: 200)
+                        .padding(EdgeInsets(top: 30, leading: 0, bottom: 30, trailing: 0))
+                } else {
+                    Image("KiaSoul")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .offset(x: 50, y: 0)
+                        .frame(height: 200)
+                        .padding(EdgeInsets(top: 30, leading: 0, bottom: 30, trailing: 0))
+                }
                 
                 ControlItems(vehicleManager: vehicleManager)
                 

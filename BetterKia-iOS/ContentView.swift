@@ -10,6 +10,7 @@ import os
 import WidgetKit
 import ActivityKit
 import Lottie
+import Combine
  
 struct LottieView: UIViewRepresentable {
     let lottieFile: String
@@ -49,6 +50,7 @@ struct ExampleView: View {
 
 struct ContentView: View {
     @ObservedObject private var vehicleManager = VehicleManager.shared
+    @ObservedObject private var alertManager = AlertManager.shared
     
     var body: some View {
         TabView {
@@ -69,6 +71,11 @@ struct ContentView: View {
         .sheet(isPresented: $vehicleManager.showClimateControlPopover) {
             StartInfoView()
         }
+        .alert(alertManager.currentAlertTitle, isPresented: $alertManager.showAlert, actions: {
+            
+        }, message: {
+            Text(alertManager.currentAlertDescription)
+        })
     }
 }
 

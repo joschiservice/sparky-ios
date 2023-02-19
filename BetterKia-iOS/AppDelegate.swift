@@ -10,11 +10,20 @@ import UIKit
 import os
 import WidgetKit
 import ActivityKit
+import Sentry
 
 class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication,
                didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        SentrySDK.start { options in
+                options.dsn = "https://dbf25dbe96e24b2c886de65a8b6a9b81@o1249248.ingest.sentry.io/4504706464022528"
+
+                // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+                // We recommend adjusting this value in production.
+                options.tracesSampleRate = 1.0
+            }
+        
         print(TempCodeConverter.tempCodeToCelsius(code: "02H"))
         
        // Override point for customization after application launch.you’re

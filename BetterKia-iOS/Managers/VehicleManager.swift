@@ -8,6 +8,7 @@
 import Foundation
 import Dispatch
 import os
+import SwiftUI
 
 public class VehicleManager : ObservableObject {
     @Published var showClimateControlPopover = false;
@@ -22,7 +23,7 @@ public class VehicleManager : ObservableObject {
     
     public static var shared = VehicleManager()
     
-    public func start() async -> Bool {
+    public func start() async {
         logger.log("Starting vehicle...");
         
         DispatchQueue.main.async {
@@ -31,13 +32,35 @@ public class VehicleManager : ObservableObject {
         
         let result = await ApiClient.startVehicle();
         
-        logger.log("Start: \(result ? "Successful" : "Failed")");
+        logger.log("Start: \(result?.message ?? "Unknown Error")");
         
         DispatchQueue.main.async {
             self.isHvacActive = true;
         }
+    }
+    
+    public func stop() async {
+        logger.log("Stopping vehicle...");
         
-        return result;
+        let result = await ApiClient.stopVehicle();
+        
+        logger.log("Stop: \(result?.message ?? "Unknown Error")");
+        
+        if (result != nil) {
+            if (result!.message == "SUCCESS") {
+                DispatchQueue.main.async {
+                    self.isHvacActive = false;
+                }
+            } else if (result!.message == "VEHICLE_RESPONSE_PENDING") {
+                // Get vehicle data with refresh
+            } else {
+                // Unknown error
+            }
+        } else {
+            let alertTitle = "HVAC: Stop error";
+            let alertDescription = "An unknown error occured while stopping the hvac. It might be that the hvac is still active or it might stop soon.";
+            AlertManager.shared.publishAlert(alertTitle, description: alertDescription);
+        }
     }
     
     public func getVehicleData() async {
@@ -56,6 +79,7 @@ public class VehicleManager : ObservableObject {
     }
     
     public func getVehicleLocation() async {
+        return;
         DispatchQueue.main.async {
             self.isLoadingVehicleLocation = true;
         }

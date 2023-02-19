@@ -9,21 +9,27 @@ import SwiftUI
 
 struct HvacControlItem: View {
     @ObservedObject var vehicleManager: VehicleManager
-    @State var isActivatingHvac = false;
+    @State var isBusy = false;
     
     var body: some View {
         Button {
             if (!vehicleManager.isHvacActive) {
-                isActivatingHvac = true;
+                isBusy = true;
                 Task {
                     _ = await vehicleManager.start();
-                    isActivatingHvac = false;
+                    isBusy = false;
+                }
+            } else {
+                isBusy = true;
+                Task {
+                    _ = await vehicleManager.stop();
+                    isBusy = false;
                 }
             }
         }
     label:
         {
-            if (isActivatingHvac) {
+            if (isBusy) {
                 ProgressView()
             } else {
                 Image(systemName: "fanblades.fill")
@@ -34,6 +40,18 @@ struct HvacControlItem: View {
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
-        .disabled(isActivatingHvac)
+        .disabled(isBusy)
+    }
+}
+
+struct HvacControlItemPreviews: PreviewProvider {
+    static var previews: some View {
+        DashboardView(vehicleManager: VehicleManager.getPreviewInstance())
+            .previewDisplayName("Dashboard: Data")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+        
+        DashboardView()
+            .previewDisplayName("Dashboard: No Data")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }
