@@ -88,4 +88,18 @@ public class VehicleManager : ObservableObject {
         let currentTemp = curve(x: timeElapsed) + startTemp
         return currentTemp
     }
+    
+    /**
+     Returns an instance of VehicleManager, that is optimized for usage in preview environments.
+     */
+    public static func getPreviewInstance() -> VehicleManager {
+        let vmanager = VehicleManager();
+        vmanager.currentHvacTargetTemp = 22
+        vmanager.vehicleData = VehicleStatus(
+            evStatus: EvStatus(batteryCharge: true, batteryStatus: 20, drvDistance: [DriveDistance(rangeByFuel: RangeByFuel(totalAvailableRange: RangeData(value: 320, unit: 1)))]),
+            time: "2022-03-01", acc: true, sideBackWindowHeat: 1, steerWheelHeat: 1, defrost: true)
+        vmanager.vehicleLocation = VehicleLocation(latitude: 54.19478906001295, longitude: 9.093066782003024, speed: VehicleSpeed(unit: 0, value: 0), heading: 0);
+        vmanager.isHvacActive = true;
+        return vmanager;
+    }
 }
