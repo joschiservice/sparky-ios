@@ -31,6 +31,8 @@ struct LockControlItem: View {
         {
             if (isBusy) {
                 ProgressView()
+                    .frame(height: 20)
+                    .frame(maxWidth: .infinity, alignment: .center)
             } else {
                 if (vehicleManager.isVehicleLocked) {
                     Image(systemName: "lock.fill")

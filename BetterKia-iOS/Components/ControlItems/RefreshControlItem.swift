@@ -1,30 +1,22 @@
 //
-//  HvacControlItem.swift
+//  RefreshControlItem.swift
 //  BetterKia-iOS
 //
-//  Created by Joschua Haß on 19.02.23.
+//  Created by Joschua Haß on 20.02.23.
 //
 
 import SwiftUI
 
-struct HvacControlItem: View {
+struct RefreshControlItem: View {
     @ObservedObject var vehicleManager: VehicleManager
     @State var isBusy = false;
     
     var body: some View {
         Button {
-            if (!vehicleManager.isHvacActive) {
-                isBusy = true;
-                Task {
-                    _ = await vehicleManager.start();
-                    isBusy = false;
-                }
-            } else {
-                isBusy = true;
-                Task {
-                    _ = await vehicleManager.stop();
-                    isBusy = false;
-                }
+            isBusy = true;
+            Task {
+                _ = await vehicleManager.getVehicleData(forceRefresh: true);
+                isBusy = false;
             }
         }
     label:
@@ -34,11 +26,11 @@ struct HvacControlItem: View {
                     .frame(height: 20)
                     .frame(maxWidth: .infinity, alignment: .center)
             } else {
-                Image(systemName: "fanblades.fill")
+                Image(systemName: "arrow.triangle.2.circlepath")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 20)
-                    .foregroundColor(vehicleManager.isHvacActive ? .white : .gray)
+                    .foregroundColor(.gray)
                     .frame(maxWidth: .infinity, alignment: .center)
             }
         }
@@ -46,7 +38,7 @@ struct HvacControlItem: View {
     }
 }
 
-struct HvacControlItemPreviews: PreviewProvider {
+struct RefreshControlItemPreviews: PreviewProvider {
     static var previews: some View {
         DashboardView(vehicleManager: VehicleManager.getPreviewInstance())
             .previewDisplayName("Dashboard: Data")
@@ -57,3 +49,4 @@ struct HvacControlItemPreviews: PreviewProvider {
             .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }
+

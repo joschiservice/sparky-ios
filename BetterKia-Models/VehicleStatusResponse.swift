@@ -39,10 +39,12 @@ public struct CommonResponse<T> {
 public struct VehicleStatus : Decodable {
     let evStatus: EvStatus
     let time: String
-    let acc: Bool
+    let acc: Bool // What is this value for?
     let sideBackWindowHeat: Int
     let steerWheelHeat: Int
     let defrost: Bool
+    let airCtrlOn: Bool // True, when HVAC is active
+    let doorLock: Bool
 }
 
 public struct EvStatus: Decodable {

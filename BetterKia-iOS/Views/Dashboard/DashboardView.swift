@@ -14,9 +14,7 @@ struct DashboardView: View {
     @State private var isShowingDetailView = false
     @ObservedObject var vehicleManager = VehicleManager.shared
     
-    func showErrorInfo() {
-        
-    }
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationView {
@@ -119,6 +117,15 @@ struct DashboardView: View {
                 }
             }
         }
+        .onReceive(timer) { input in
+            if (UIApplication.shared.applicationState != .active) {
+                return;
+            }
+            
+            Task {
+                await VehicleManager.shared.getVehicleLocation()
+            }
+                    }
     }
 }
 
@@ -131,6 +138,7 @@ struct ControlItems: View {
                 LockControlItem(vehicleManager: vehicleManager)
                 HvacControlItem(vehicleManager: vehicleManager)
                 ControlItem(iconName: "bolt.fill")
+                RefreshControlItem(vehicleManager: vehicleManager)
             }
         }
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
@@ -139,14 +147,7 @@ struct ControlItems: View {
 
 struct DashboardViewPreviews: PreviewProvider {
     static func getPreviewVmanager() -> VehicleManager {
-        let vmanager = VehicleManager()
-        vmanager.currentHvacTargetTemp = 22
-        vmanager.vehicleData = VehicleStatus(
-            evStatus: EvStatus(batteryCharge: true, batteryStatus: 20, drvDistance: [DriveDistance(rangeByFuel: RangeByFuel(totalAvailableRange: RangeData(value: 320, unit: 1)))]),
-            time: "2022-03-01", acc: true, sideBackWindowHeat: 1, steerWheelHeat: 1, defrost: true)
-        vmanager.vehicleLocation = VehicleLocation(latitude: 54.19478906001295, longitude: 9.093066782003024, speed: VehicleSpeed(unit: 0, value: 0), heading: 0);
-        vmanager.isHvacActive = true;
-        return vmanager
+        return VehicleManager.getPreviewInstance()
     }
     
     static var previews: some View {

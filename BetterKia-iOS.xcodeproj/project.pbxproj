@@ -37,6 +37,7 @@
 		EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE9D294F7F4B00FF160E /* IntentHandler.swift */; };
 		EB5FAEA2294F7F4B00FF160E /* GetChargeRequestExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB5FAE98294F7F4B00FF160E /* GetChargeRequestExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA9294F80B300FF160E /* AppDelegate.swift */; };
+		EB73FADE29A40B9D005B0A23 /* RefreshControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73FADD29A40B9D005B0A23 /* RefreshControlItem.swift */; };
 		EB77092529992F29008F9952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB77092429992F29008F9952 /* SceneDelegate.swift */; };
 		EB7709282999387B008F9952 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7709272999387B008F9952 /* VehicleManager.swift */; };
 		EB77092A29993C8C008F9952 /* StartInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB77092929993C8C008F9952 /* StartInfoView.swift */; };
@@ -211,6 +212,7 @@
 		EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChargeRequestHandler.swift; sourceTree = "<group>"; };
 		EB5FAEA9294F80B300FF160E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5FAEAD294F822700FF160E /* BetterKia-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia-iOS.entitlements"; sourceTree = "<group>"; };
+		EB73FADD29A40B9D005B0A23 /* RefreshControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlItem.swift; sourceTree = "<group>"; };
 		EB77092429992F29008F9952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EB7709272999387B008F9952 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
 		EB77092929993C8C008F9952 /* StartInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInfoView.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				EB03234F29A2302C00256B66 /* ControlItem.swift */,
 				EB03235129A2305200256B66 /* HvacControlItem.swift */,
 				EB2C14C929A2D13500ED944C /* LockControlItem.swift */,
+				EB73FADD29A40B9D005B0A23 /* RefreshControlItem.swift */,
 			);
 			path = ControlItems;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				EB03235029A2302C00256B66 /* ControlItem.swift in Sources */,
 				EBA8D230299E51EE00C2ACBA /* TempCodeConverter.swift in Sources */,
 				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,
+				EB73FADE29A40B9D005B0A23 /* RefreshControlItem.swift in Sources */,
 				EB03234D29A2300000256B66 /* MapWidget.swift in Sources */,
 				EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */,
 				EB03234929A22FBF00256B66 /* HvacOptionsWidget.swift in Sources */,

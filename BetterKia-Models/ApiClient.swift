@@ -18,6 +18,11 @@ struct ApiErrorResponse: Decodable {
     let code: String
 }
 
+struct CommandResponse: Decodable {
+    let error: Bool
+    let code: String
+}
+
 public class ApiClient {
     private static let _authHeader = Data("2384z27834687236478f67826482|fjfiuwergisidjb4r734fsj3".utf8).base64EncodedString()
     
@@ -169,9 +174,9 @@ public class ApiClient {
         return false
     }
     
-    static func getVehicleStatus() async -> CommonResponse<VehicleStatus> {
+    static func getVehicleStatus(refreshData: Bool = false) async -> CommonResponse<VehicleStatus> {
         do {
-            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/hello")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/hello" + (refreshData ? "?forceRefresh=true" : ""))
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -222,14 +227,14 @@ public class ApiClient {
         return nil;
     }
     
-    static func lockVehicle() async -> Bool {
+    static func lockVehicle() async -> CommandResponse? {
         do {
             let (data, response) = try await self.doRequest(urlString: serverUrl + "api/lock")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
-                    return apiResponse != nil && apiResponse?.error == false && apiResponse?.message == "Lock successful";
+                    let apiResponse = try? JSONDecoder().decode(CommandResponse.self, from: data)
+                    return apiResponse;
                 }
             }
         } catch {
@@ -237,17 +242,17 @@ public class ApiClient {
         }
         
         logger.error("Failed to lock vehicle")
-        return false;
+        return nil;
     }
     
-    static func unlockVehicle() async -> Bool {
+    static func unlockVehicle() async -> CommandResponse? {
         do {
             let (data, response) = try await self.doRequest(urlString: serverUrl + "api/unlock")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
-                    return apiResponse != nil && apiResponse?.error == false && apiResponse?.message == "Unlock successful";
+                    let apiResponse = try? JSONDecoder().decode(CommandResponse.self, from: data)
+                    return apiResponse;
                 }
             }
         } catch {
@@ -255,17 +260,17 @@ public class ApiClient {
         }
         
         logger.error("Failed to unlock vehicle")
-        return false;
+        return nil;
     }
     
-    static func startVehicle() async -> SimpleApiResponse? {
+    static func startVehicle() async -> CommandResponse? {
         do {
             let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/start")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
-                    logger.log("Start vehicle result: \(apiResponse?.message ?? "")");
+                    let apiResponse = try? JSONDecoder().decode(CommandResponse.self, from: data)
+                    logger.log("Start vehicle result: \(apiResponse?.code ?? "")");
                     return apiResponse;
                 } else {
                     logger.error("Status Code: \(httpResponse.statusCode)");
@@ -280,14 +285,14 @@ public class ApiClient {
         return nil;
     }
     
-    static func stopVehicle() async -> SimpleApiResponse? {
+    static func stopVehicle() async -> CommandResponse? {
         do {
             let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/stop")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
-                    logger.log("Stop vehicle result: \(apiResponse?.message ?? "")");
+                    let apiResponse = try? JSONDecoder().decode(CommandResponse.self, from: data)
+                    logger.log("Stop vehicle result: \(apiResponse?.code ?? "")");
                     return apiResponse
                 } else {
                     logger.error("Status Code: \(httpResponse.statusCode)");
