@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB03234429A22F5D00256B66 /* BatteryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03234329A22F5D00256B66 /* BatteryWidget.swift */; };
+		EB03234729A22FA700256B66 /* HvacWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03234629A22FA700256B66 /* HvacWidget.swift */; };
+		EB03234929A22FBF00256B66 /* HvacOptionsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03234829A22FBF00256B66 /* HvacOptionsWidget.swift */; };
+		EB03234B29A22FD500256B66 /* VehicleStatusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03234A29A22FD500256B66 /* VehicleStatusWidget.swift */; };
+		EB03234D29A2300000256B66 /* MapWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03234C29A2300000256B66 /* MapWidget.swift */; };
+		EB03235029A2302C00256B66 /* ControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03234F29A2302C00256B66 /* ControlItem.swift */; };
+		EB03235229A2305200256B66 /* HvacControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03235129A2305200256B66 /* HvacControlItem.swift */; };
+		EB03235429A2307200256B66 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03235329A2307200256B66 /* Widget.swift */; };
 		EB0FB988296EC1DE00898ADA /* ClimateControlScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */; };
 		EB0FB98B296F2C3000898ADA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EB0FB98A296F2C3000898ADA /* Lottie */; };
 		EB0FB98D296F2CD100898ADA /* air-conditioner-and-heater-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */; };
+		EB2C14CA29A2D13500ED944C /* LockControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C14C929A2D13500ED944C /* LockControlItem.swift */; };
 		EB3398B0295F16F300E4B2B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB40F539295F149E00064F1F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB40F53A295F149E00064F1F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB40F53B295F149F00064F1F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB4321DA295DE00600A6BA52 /* ScheduleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321D9295DE00600A6BA52 /* ScheduleEntry.swift */; };
 		EB4321DC295DE03000A6BA52 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
+		EB46C69F299ECBDB00AAB8AE /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46C69E299ECBDB00AAB8AE /* DashboardView.swift */; };
 		EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */; };
 		EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE6C294F7EDC00FF160E /* ContentView.swift */; };
 		EB5FAE6F294F7EDD00FF160E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5FAE6E294F7EDD00FF160E /* Assets.xcassets */; };
@@ -27,6 +37,10 @@
 		EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE9D294F7F4B00FF160E /* IntentHandler.swift */; };
 		EB5FAEA2294F7F4B00FF160E /* GetChargeRequestExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB5FAE98294F7F4B00FF160E /* GetChargeRequestExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA9294F80B300FF160E /* AppDelegate.swift */; };
+		EB73FADE29A40B9D005B0A23 /* RefreshControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73FADD29A40B9D005B0A23 /* RefreshControlItem.swift */; };
+		EB77092529992F29008F9952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB77092429992F29008F9952 /* SceneDelegate.swift */; };
+		EB7709282999387B008F9952 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7709272999387B008F9952 /* VehicleManager.swift */; };
+		EB77092A29993C8C008F9952 /* StartInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB77092929993C8C008F9952 /* StartInfoView.swift */; };
 		EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7BD2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift */; };
 		EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */; };
 		EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE77A295080FD009D4D6A /* ContentView.swift */; };
@@ -55,6 +69,9 @@
 		EB9EE7C52950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */; };
 		EB9EE7C62950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */; };
 		EB9EE7C92950B000009D4D6A /* VehicleStatusWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB9EE7B52950AFFE009D4D6A /* VehicleStatusWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EBA8D230299E51EE00C2ACBA /* TempCodeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D22F299E51EE00C2ACBA /* TempCodeConverter.swift */; };
+		EBA8D232299E5E7000C2ACBA /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D231299E5E7000C2ACBA /* AuthManager.swift */; };
+		EBAD23C4299CE0A5005CF29F /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */; };
 		EBC1F73E2950DF7900BBEE5E /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EBEA29192950613E00B3457A /* GetChargeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */; };
 		EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
@@ -66,6 +83,9 @@
 		EBEBB7532955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
 		EBEBB7542955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
 		EBEBB7552955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
+		EBF623E929A23D67003044AC /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = EBF623E829A23D67003044AC /* Sentry */; };
+		EBF623EB29A23D67003044AC /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EBF623EA29A23D67003044AC /* SentrySwiftUI */; };
+		EBF623ED29A26120003044AC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF623EC29A26120003044AC /* AlertManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,10 +181,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EB03234329A22F5D00256B66 /* BatteryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryWidget.swift; sourceTree = "<group>"; };
+		EB03234629A22FA700256B66 /* HvacWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HvacWidget.swift; sourceTree = "<group>"; };
+		EB03234829A22FBF00256B66 /* HvacOptionsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HvacOptionsWidget.swift; sourceTree = "<group>"; };
+		EB03234A29A22FD500256B66 /* VehicleStatusWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatusWidget.swift; sourceTree = "<group>"; };
+		EB03234C29A2300000256B66 /* MapWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWidget.swift; sourceTree = "<group>"; };
+		EB03234F29A2302C00256B66 /* ControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlItem.swift; sourceTree = "<group>"; };
+		EB03235129A2305200256B66 /* HvacControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HvacControlItem.swift; sourceTree = "<group>"; };
+		EB03235329A2307200256B66 /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateControlScheduleView.swift; sourceTree = "<group>"; };
 		EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "air-conditioner-and-heater-lottie.json"; sourceTree = "<group>"; };
+		EB2C14C929A2D13500ED944C /* LockControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockControlItem.swift; sourceTree = "<group>"; };
 		EB4321D9295DE00600A6BA52 /* ScheduleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEntry.swift; sourceTree = "<group>"; };
 		EB4321DB295DE03000A6BA52 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		EB46C69E299ECBDB00AAB8AE /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		EB5FAE67294F7EDC00FF160E /* BetterKia-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BetterKia-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKia_iOSApp.swift; sourceTree = "<group>"; };
 		EB5FAE6C294F7EDC00FF160E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -182,6 +212,10 @@
 		EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChargeRequestHandler.swift; sourceTree = "<group>"; };
 		EB5FAEA9294F80B300FF160E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5FAEAD294F822700FF160E /* BetterKia-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia-iOS.entitlements"; sourceTree = "<group>"; };
+		EB73FADD29A40B9D005B0A23 /* RefreshControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlItem.swift; sourceTree = "<group>"; };
+		EB77092429992F29008F9952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EB7709272999387B008F9952 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
+		EB77092929993C8C008F9952 /* StartInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInfoView.swift; sourceTree = "<group>"; };
 		EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BetterKia Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKiaApp.swift; sourceTree = "<group>"; };
 		EB9EE77A295080FD009D4D6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -204,11 +238,15 @@
 		EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = VehicleStatusWidget.intentdefinition; sourceTree = "<group>"; };
 		EB9EE7C22950B000009D4D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB9EE7C42950B000009D4D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBA8D22F299E51EE00C2ACBA /* TempCodeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCodeConverter.swift; sourceTree = "<group>"; };
+		EBA8D231299E5E7000C2ACBA /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		EBEA29402950633500B3457A /* VehicleStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatusResponse.swift; sourceTree = "<group>"; };
 		EBEA29432950687900B3457A /* GetCarsListHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarsListHandler.swift; sourceTree = "<group>"; };
 		EBEA294529506D6A00B3457A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCarLockStatusHandler.swift; sourceTree = "<group>"; };
 		EBEBB7502955BA2C00296FBB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		EBF623EC29A26120003044AC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +255,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB0FB98B296F2C3000898ADA /* Lottie in Frameworks */,
+				EBF623EB29A23D67003044AC /* SentrySwiftUI in Frameworks */,
+				EBF623E929A23D67003044AC /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,12 +309,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB03234229A22EE600256B66 /* DashboardWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				EB03234329A22F5D00256B66 /* BatteryWidget.swift */,
+				EB03234629A22FA700256B66 /* HvacWidget.swift */,
+				EB03234829A22FBF00256B66 /* HvacOptionsWidget.swift */,
+				EB03234A29A22FD500256B66 /* VehicleStatusWidget.swift */,
+				EB03234C29A2300000256B66 /* MapWidget.swift */,
+				EB03235329A2307200256B66 /* Widget.swift */,
+			);
+			path = DashboardWidgets;
+			sourceTree = "<group>";
+		};
+		EB03234E29A2301900256B66 /* ControlItems */ = {
+			isa = PBXGroup;
+			children = (
+				EB03234F29A2302C00256B66 /* ControlItem.swift */,
+				EB03235129A2305200256B66 /* HvacControlItem.swift */,
+				EB2C14C929A2D13500ED944C /* LockControlItem.swift */,
+				EB73FADD29A40B9D005B0A23 /* RefreshControlItem.swift */,
+			);
+			path = ControlItems;
+			sourceTree = "<group>";
+		};
 		EB4321D8295DDFEC00A6BA52 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB03234E29A2301900256B66 /* ControlItems */,
+				EB03234229A22EE600256B66 /* DashboardWidgets */,
 				EB4321D9295DE00600A6BA52 /* ScheduleEntry.swift */,
+				EB77092929993C8C008F9952 /* StartInfoView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EB46C69D299ECBD000AAB8AE /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				EB46C69E299ECBDB00AAB8AE /* DashboardView.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		EB5FAE5E294F7EDC00FF160E = {
@@ -311,6 +386,9 @@
 		EB5FAE69294F7EDC00FF160E /* BetterKia-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EBA8D22E299E51DF00C2ACBA /* Converter */,
+				EBAD23C1299CE08E005CF29F /* Views */,
+				EB77092629993865008F9952 /* Managers */,
 				EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */,
 				EB4321D8295DDFEC00A6BA52 /* Components */,
 				EBEA294529506D6A00B3457A /* Info.plist */,
@@ -321,6 +399,7 @@
 				EB5FAE6E294F7EDD00FF160E /* Assets.xcassets */,
 				EB5FAE70294F7EDD00FF160E /* Preview Content */,
 				EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */,
+				EB77092429992F29008F9952 /* SceneDelegate.swift */,
 			);
 			path = "BetterKia-iOS";
 			sourceTree = "<group>";
@@ -374,6 +453,16 @@
 			path = GetChargeRequestExtension;
 			sourceTree = "<group>";
 		};
+		EB77092629993865008F9952 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EB7709272999387B008F9952 /* VehicleManager.swift */,
+				EBA8D231299E5E7000C2ACBA /* AuthManager.swift */,
+				EBF623EC29A26120003044AC /* AlertManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		EB9EE777295080FD009D4D6A /* BetterKia Watch App */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +505,31 @@
 			path = VehicleStatusWidget;
 			sourceTree = "<group>";
 		};
+		EBA8D22E299E51DF00C2ACBA /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				EBA8D22F299E51EE00C2ACBA /* TempCodeConverter.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		EBAD23C1299CE08E005CF29F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB46C69D299ECBD000AAB8AE /* Dashboard */,
+				EBAD23C2299CE095005CF29F /* OnBoarding */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EBAD23C2299CE095005CF29F /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		EBEA293F295062E800B3457A /* BetterKia-Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +564,8 @@
 			name = "BetterKia-iOS";
 			packageProductDependencies = (
 				EB0FB98A296F2C3000898ADA /* Lottie */,
+				EBF623E829A23D67003044AC /* Sentry */,
+				EBF623EA29A23D67003044AC /* SentrySwiftUI */,
 			);
 			productName = "BetterKia-iOS";
 			productReference = EB5FAE67294F7EDC00FF160E /* BetterKia-iOS.app */;
@@ -608,6 +724,7 @@
 			mainGroup = EB5FAE5E294F7EDC00FF160E;
 			packageReferences = (
 				EB0FB989296F2C3000898ADA /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				EBF623E729A23D67003044AC /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			productRefGroup = EB5FAE68294F7EDC00FF160E /* Products */;
 			projectDirPath = "";
@@ -690,14 +807,32 @@
 			files = (
 				EBEBB7512955BA2C00296FBB /* ApiClient.swift in Sources */,
 				EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */,
+				EB03235229A2305200256B66 /* HvacControlItem.swift in Sources */,
+				EB7709282999387B008F9952 /* VehicleManager.swift in Sources */,
 				EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */,
 				EB4321DC295DE03000A6BA52 /* Schedule.swift in Sources */,
+				EB03234B29A22FD500256B66 /* VehicleStatusWidget.swift in Sources */,
+				EB03235029A2302C00256B66 /* ControlItem.swift in Sources */,
+				EBA8D230299E51EE00C2ACBA /* TempCodeConverter.swift in Sources */,
 				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,
+				EB73FADE29A40B9D005B0A23 /* RefreshControlItem.swift in Sources */,
+				EB03234D29A2300000256B66 /* MapWidget.swift in Sources */,
 				EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */,
+				EB03234929A22FBF00256B66 /* HvacOptionsWidget.swift in Sources */,
 				EB0FB988296EC1DE00898ADA /* ClimateControlScheduleView.swift in Sources */,
+				EBA8D232299E5E7000C2ACBA /* AuthManager.swift in Sources */,
+				EB46C69F299ECBDB00AAB8AE /* DashboardView.swift in Sources */,
+				EB77092A29993C8C008F9952 /* StartInfoView.swift in Sources */,
+				EBAD23C4299CE0A5005CF29F /* OnBoardingView.swift in Sources */,
+				EBF623ED29A26120003044AC /* AlertManager.swift in Sources */,
+				EB77092529992F29008F9952 /* SceneDelegate.swift in Sources */,
+				EB03234729A22FA700256B66 /* HvacWidget.swift in Sources */,
 				EB4321DA295DE00600A6BA52 /* ScheduleEntry.swift in Sources */,
 				EB9EE7C62950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */,
+				EB03235429A2307200256B66 /* Widget.swift in Sources */,
 				EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */,
+				EB2C14CA29A2D13500ED944C /* LockControlItem.swift in Sources */,
+				EB03234429A22F5D00256B66 /* BatteryWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,7 +1086,6 @@
 		EB5FAE8C294F7EDD00FF160E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "BetterKia-iOS/BetterKia-iOS.entitlements";
@@ -987,7 +1121,6 @@
 		EB5FAE8D294F7EDD00FF160E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "BetterKia-iOS/BetterKia-iOS.entitlements";
@@ -1023,7 +1156,6 @@
 		EB5FAE8F294F7EDD00FF160E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1043,7 +1175,6 @@
 		EB5FAE90294F7EDD00FF160E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1063,7 +1194,6 @@
 		EB5FAE92294F7EDD00FF160E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 425562S2X6;
@@ -1081,7 +1211,6 @@
 		EB5FAE93294F7EDD00FF160E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 425562S2X6;
@@ -1406,6 +1535,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		EBF623E729A23D67003044AC /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1413,6 +1550,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EB0FB989296F2C3000898ADA /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		EBF623E829A23D67003044AC /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBF623E729A23D67003044AC /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+		EBF623EA29A23D67003044AC /* SentrySwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBF623E729A23D67003044AC /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = SentrySwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

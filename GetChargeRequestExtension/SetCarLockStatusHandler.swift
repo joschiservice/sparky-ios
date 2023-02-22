@@ -20,9 +20,11 @@ class SetCarLockStatusHandler: NSObject, INSetCarLockStatusIntentHandling {
           var wasActionSuccessful = false
           
           if intent.locked ?? false {
-              wasActionSuccessful = await ApiClient.lockVehicle()
+              var result = await ApiClient.lockVehicle();
+              wasActionSuccessful = result != nil && !result!.error;
           } else {
-              wasActionSuccessful = await ApiClient.unlockVehicle()
+              var result = await ApiClient.unlockVehicle();
+              wasActionSuccessful = result != nil && !result!.error;
           }
           
           if wasActionSuccessful {

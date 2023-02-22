@@ -20,7 +20,7 @@ class GetChargeRequestHandler: NSObject, INGetCarPowerLevelStatusIntentHandling 
           
           let vehicleStatusData = await ApiClient.getVehicleStatus()
           
-          if vehicleStatusData == nil {
+          if vehicleStatusData.data == nil {
               intentResponse = INGetCarPowerLevelStatusIntentResponse(
                 code: .failure,
                 userActivity: .none)
@@ -29,7 +29,7 @@ class GetChargeRequestHandler: NSObject, INGetCarPowerLevelStatusIntentHandling 
               return;
           }
           
-          let evStatus = vehicleStatusData!.evStatus
+          let evStatus = vehicleStatusData.data!.evStatus
           intentResponse = INGetCarPowerLevelStatusIntentResponse(
               code: .success,
             userActivity: .none)
@@ -54,7 +54,7 @@ class GetChargeRequestHandler: NSObject, INGetCarPowerLevelStatusIntentHandling 
           dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
           dateFormatter.dateFormat = "yyyyMMddHHmmss"
           dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-          let date = dateFormatter.date(from: vehicleStatusData!.time)!
+          let date = dateFormatter.date(from: vehicleStatusData.data!.time)!
           
           // only visible when charging
           intentResponse.dateOfLastStateUpdate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)

@@ -10,6 +10,7 @@ import os
 import WidgetKit
 import ActivityKit
 import Lottie
+import Combine
  
 struct LottieView: UIViewRepresentable {
     let lottieFile: String
@@ -48,15 +49,18 @@ struct ExampleView: View {
 }
 
 struct ContentView: View {
+    @ObservedObject private var vehicleManager = VehicleManager.shared
+    @ObservedObject private var alertManager = AlertManager.shared
+    
     var body: some View {
         TabView {
+            DashboardView()
+                .tabItem {
+                    Label("Dashboard", systemImage: "bolt.car.fill")
+                }
             ClimateControlScheduleView()
                 .tabItem {
                     Label("Schedules", systemImage: "calendar")
-                }
-            ExampleView()
-                .tabItem {
-                    Label("Sent", systemImage: "tray.and.arrow.up.fill")
                 }
             ExampleView()
                 .badge("!")
@@ -64,11 +68,20 @@ struct ContentView: View {
                     Label("Account", systemImage: "person.crop.circle.fill")
                 }
         }
+        .sheet(isPresented: $vehicleManager.showClimateControlPopover) {
+            StartInfoView()
+        }
+        .alert(alertManager.currentAlertTitle, isPresented: $alertManager.showAlert, actions: {
+            
+        }, message: {
+            Text(alertManager.currentAlertDescription)
+        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }

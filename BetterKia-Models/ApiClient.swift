@@ -13,10 +13,22 @@ struct SimpleApiResponse: Decodable {
     let message: String
 }
 
+struct ApiErrorResponse: Decodable {
+    let error: Bool
+    let code: String
+}
+
+struct CommandResponse: Decodable {
+    let error: Bool
+    let code: String
+}
+
 public class ApiClient {
     private static let _authHeader = Data("2384z27834687236478f67826482|fjfiuwergisidjb4r734fsj3".utf8).base64EncodedString()
     
     private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ApiClient")
+    
+    private static let serverUrl = "https://better-kia-api.vercel.app/"
     
     static func doRequest(urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
         let url = URL(string: urlString)!
@@ -53,7 +65,7 @@ public class ApiClient {
         let jsonData = try? jsonEncoder.encode(parameters)
         
         do {
-            let (_, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/notifications/", method: "POST", jsonData: jsonData)
+            let (_, response) = try await self.doRequest(urlString: serverUrl + "api/notifications/", method: "POST", jsonData: jsonData)
             
             if let httpResponse = response as? HTTPURLResponse {
                 
@@ -77,7 +89,7 @@ public class ApiClient {
         let jsonData = try? jsonEncoder.encode(parameters)
         
         do {
-            let (_, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/notifications/", method: "POST", jsonData: jsonData)
+            let (_, response) = try await self.doRequest(urlString: serverUrl + "api/notifications/", method: "POST", jsonData: jsonData)
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 204) {
@@ -94,7 +106,7 @@ public class ApiClient {
     
     static func getSchedules() async -> [Schedule]? {
         do {
-            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/climate-control-schedules")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/climate-control-schedules")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -137,7 +149,7 @@ public class ApiClient {
         let jsonData = try? jsonEncoder.encode(item.toScheduleActionData())
         
         do {
-            var url = "https://better-kia.vcc-online.eu/api/climate-control-schedules/"
+            var url = serverUrl + "api/climate-control-schedules/"
             var method = "POST"
             if (item.id != 0) {
                 url += String(item.id) + "/"
@@ -162,13 +174,16 @@ public class ApiClient {
         return false
     }
     
-    static func getVehicleStatus() async -> VehicleStatus? {
+    static func getVehicleStatus(refreshData: Bool = false) async -> CommonResponse<VehicleStatus> {
         do {
-            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/hello")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/hello" + (refreshData ? "?forceRefresh=true" : ""))
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    return try? JSONDecoder().decode(VehicleStatus.self, from: data);
+                    let responseData = try? JSONDecoder().decode(VehicleStatus.self, from: data);
+                    return CommonResponse(failed: false, error: .NoError, data: responseData);
+                } else {
+                    return unexpectedResponseHandler(data);
                 }
             }
         } catch {
@@ -176,17 +191,50 @@ public class ApiClient {
         }
         
         logger.error("Failed to get vehicle charging status")
-        return nil;
+        return CommonResponse(failed: true, error: .UnknownError, data: nil);
     }
     
-    static func lockVehicle() async -> Bool {
+    private static func unexpectedResponseHandler<T>(_ data: Data) -> CommonResponse<T> {
+        let errorData = try? JSONDecoder().decode(ApiErrorResponse.self, from: data);
+        
+        if (errorData == nil) {
+            return CommonResponse<T>(failed: true, error: .UnknownError, data: nil);
+        }
+        
+        var error = ApiErrorType.UnknownError;
+        
+        if (errorData?.code == "RATE_LIMITED_BY_OEM") {
+            error = ApiErrorType.RateLimitedByOEM;
+        }
+        
+        return CommonResponse(failed: true, error: error, data: nil);
+    }
+    
+    static func getVehicleLocation() async -> VehicleLocationResponse? {
         do {
-            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/lock")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/location")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
-                    return apiResponse != nil && apiResponse?.error == false && apiResponse?.message == "Lock successful";
+                    return try? JSONDecoder().decode(VehicleLocationResponse.self, from: data);
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("Failed to get vehicle location")
+        return nil;
+    }
+    
+    static func lockVehicle() async -> CommandResponse? {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/lock")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    let apiResponse = try? JSONDecoder().decode(CommandResponse.self, from: data)
+                    return apiResponse;
                 }
             }
         } catch {
@@ -194,17 +242,17 @@ public class ApiClient {
         }
         
         logger.error("Failed to lock vehicle")
-        return false;
+        return nil;
     }
     
-    static func unlockVehicle() async -> Bool {
+    static func unlockVehicle() async -> CommandResponse? {
         do {
-            let (data, response) = try await self.doRequest(urlString: "https://better-kia.vcc-online.eu/api/unlock")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/unlock")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    let apiResponse = try? JSONDecoder().decode(SimpleApiResponse.self, from: data)
-                    return apiResponse != nil && apiResponse?.error == false && apiResponse?.message == "Unlock successful";
+                    let apiResponse = try? JSONDecoder().decode(CommandResponse.self, from: data)
+                    return apiResponse;
                 }
             }
         } catch {
@@ -212,6 +260,50 @@ public class ApiClient {
         }
         
         logger.error("Failed to unlock vehicle")
-        return false;
+        return nil;
+    }
+    
+    static func startVehicle() async -> CommandResponse? {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/start")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    let apiResponse = try? JSONDecoder().decode(CommandResponse.self, from: data)
+                    logger.log("Start vehicle result: \(apiResponse?.code ?? "")");
+                    return apiResponse;
+                } else {
+                    logger.error("Status Code: \(httpResponse.statusCode)");
+                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("Failed to start vehicle")
+        return nil;
+    }
+    
+    static func stopVehicle() async -> CommandResponse? {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/stop")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    let apiResponse = try? JSONDecoder().decode(CommandResponse.self, from: data)
+                    logger.log("Stop vehicle result: \(apiResponse?.code ?? "")");
+                    return apiResponse
+                } else {
+                    logger.error("Status Code: \(httpResponse.statusCode)");
+                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("Failed to stop vehicle")
+        return nil;
     }
 }
