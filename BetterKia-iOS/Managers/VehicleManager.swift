@@ -27,6 +27,7 @@ public class VehicleManager : ObservableObject {
     @Published var isHvacActive = false;
     @Published var vehicleDataStatus = VehicleDataStatus.Refreshing;
     @Published var isVehicleLocked = true;
+    var lastVehicleDataUpdate: Date? = nil;
     
     let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "VehicleManager")
     
@@ -92,6 +93,7 @@ public class VehicleManager : ObservableObject {
                 self.vehicleDataStatus = VehicleDataStatus.Success;
             }
             
+            self.lastVehicleDataUpdate = Date();
             self.vehicleData = response.data;
             self.isHvacActive = response.data?.airCtrlOn ?? false;
             self.isVehicleLocked = response.data?.doorLock ?? false;

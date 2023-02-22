@@ -12,9 +12,50 @@ import MapKit
 struct DashboardView: View {
     @State private var animateGradient = false
     @State private var isShowingDetailView = false
+    @Environment(\.scenePhase) var scenePhase
     @ObservedObject var vehicleManager = VehicleManager.shared
     
-    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    let checkVehicleDataAgeTimer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
+    
+    static let MAX_VEHICLE_DATA_AGE = 5; // in minutes
+    
+    /**
+     This function ensure, that the vehicle data is not outdated. It will refresh the data, if it exceeded the maximum age.
+     */
+    func ensureVehicleDataAge(newScenePhase: ScenePhase? = nil) {
+        // Don't do this in XCode preview
+        if (ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1") {
+            return;
+        }
+        
+        // Ensure that app is in foreground, as we don't want any expensive and unecessary background updates
+        let currentScenePhase = newScenePhase ?? scenePhase;
+        if currentScenePhase != .active {
+            return;
+        }
+        
+        // Get elapsed time since last update
+        if (vehicleManager.lastVehicleDataUpdate != nil) {
+            let elapsedTime = Calendar.current.dateComponents([.minute], from: vehicleManager.lastVehicleDataUpdate!, to: Date());
+            
+            print("DashboardView::ensureVehicleDataAge: \(elapsedTime.minute ?? 0) minutes have been elapsed since the last vehicle data update");
+            
+            if (elapsedTime.minute ?? 0 < DashboardView.MAX_VEHICLE_DATA_AGE) {
+                return;
+            }
+        }
+        
+        // No duplicates
+        if (vehicleManager.vehicleDataStatus == .Refreshing) {
+            return;
+        }
+        
+        print("DashboardView::ensureVehicleDataAge: Refreshing data")
+        
+        Task {
+            await vehicleManager.getVehicleData();
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -37,7 +78,7 @@ struct DashboardView: View {
                             ProgressView()
                         case .UnknownError:
                             Button {
-                                AlertManager.shared.publishAlert("Info: Vehicle Status Data", description: "An unknown error occured while retrieving your vehicle data.")
+                                AlertManager.shared.publishAlert("No vehicle data available", description: "An unknown error occured while retrieving your vehicle data.")
                             }
                         label: {
                             Image(systemName: "xmark.circle.fill")
@@ -45,7 +86,10 @@ struct DashboardView: View {
                         }
                         case .Success:
                             Button {
-                                AlertManager.shared.publishAlert("Info: Vehicle Status Data", description: "Everything is fine! Your data is up-to-date.")
+                                let formatter = DateFormatter();
+                                formatter.timeStyle = .short;
+                                let lastUpdateTimeText = formatter.string(from: vehicleManager.lastVehicleDataUpdate!);
+                                AlertManager.shared.publishAlert("Vehicle data is up-to-date!", description: "Everything is fine! The last update was at \(lastUpdateTimeText)")
                             }
                         label: {
                             Image(systemName: "checkmark.circle.fill")
@@ -53,7 +97,7 @@ struct DashboardView: View {
                         }
                         case .RateLimitedByOEM:
                             Button {
-                                AlertManager.shared.publishAlert("Info: Vehicle Status Data", description: "Oh no! The manufacturer of your vehicle doesn't allow us to make more data requests for the rest of the day. That's not our fault. You just have to wait until the next day.")
+                                AlertManager.shared.publishAlert("No vehicle data available for today", description: "Oh no! The manufacturer of your vehicle doesn't allow us to make more data requests for the rest of the day. Please wait until the next day.")
                             }
                         label: {
                             Image(systemName: "exclamationmark.triangle.fill")
@@ -111,21 +155,19 @@ struct DashboardView: View {
                     await vehicleManager.getVehicleData()
                 }
             }
+            
             if (vehicleManager.vehicleLocation == nil) {
                 Task {
                     await vehicleManager.getVehicleLocation()
                 }
             }
         }
-        .onReceive(timer) { input in
-            if (UIApplication.shared.applicationState != .active) {
-                return;
-            }
-            
-            Task {
-                await VehicleManager.shared.getVehicleLocation()
-            }
-                    }
+        .onReceive(checkVehicleDataAgeTimer) { _ in
+            ensureVehicleDataAge()
+        }
+        .onChange(of: scenePhase) { newScenePhase in
+            ensureVehicleDataAge(newScenePhase: newScenePhase)
+        }
     }
 }
 
