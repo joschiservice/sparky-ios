@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EB5FAE97294F7F4A00FF160E"
-               BuildableName = "GetChargeRequestExtension.appex"
-               BlueprintName = "GetChargeRequestExtension"
+               BuildableName = "BetterKia-iOSIntentsExtension.appex"
+               BlueprintName = "BetterKia-iOSIntentsExtension"
                ReferencedContainer = "container:BetterKia-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
