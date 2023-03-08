@@ -14,6 +14,8 @@ class GetChargeRequestHandler: NSObject, INGetCarPowerLevelStatusIntentHandling 
   func handle(intent: INGetCarPowerLevelStatusIntent,
               completion: @escaping (INGetCarPowerLevelStatusIntentResponse) -> Void) {
       Task {
+          AuthManager.shared.initialize();
+          
           var intentResponse = INGetCarPowerLevelStatusIntentResponse(
             code: .failure,
             userActivity: .none)

@@ -23,14 +23,85 @@ struct CommandResponse: Decodable {
     let code: String
 }
 
+struct SignInResponse: Decodable {
+    let accessToken: String
+    let refreshToken: String
+}
+
+struct RefreshTokenResponse: Decodable {
+    let accessToken: String
+    let refreshToken: String
+}
+
+struct RefreshTokenRequest: Encodable {
+    let refreshToken: String
+}
+
+enum SessionExpiredError: Error {
+    case runtimeError(String)
+}
+
+public protocol ApiClientDelegate : AnyObject {
+    func newTokensReceived(accessToken: String, refreshToken: String)
+    func sessionExpired()
+}
+
 public class ApiClient {
-    private static let _authHeader = Data("2384z27834687236478f67826482|fjfiuwergisidjb4r734fsj3".utf8).base64EncodedString()
-    
     private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ApiClient")
     
     private static let serverUrl = "https://better-kia-api.vercel.app/"
     
+    public static var accessToken = "";
+    
+    public static var refreshToken = "";
+    
+    public static weak var delegate : ApiClientDelegate?
+    
     static func doRequest(urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
+        var authHeaderValue = "Bearer " + accessToken;
+        
+        var requestResult = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: urlString, method: method, jsonData: jsonData)
+        let requestResponse = requestResult.1;
+        
+        if let httpResponse = requestResponse as? HTTPURLResponse {
+            if (httpResponse.statusCode == 401) {
+                // In this case we need to refresh the access token
+                let jsonEncoder = JSONEncoder()
+                jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+                let jsonData = try? jsonEncoder.encode(RefreshTokenRequest(refreshToken: refreshToken))
+                
+                let (refreshTokenData, refreshTokenResponse) = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: serverUrl + "api/auth/refresh", method: "POST", jsonData: jsonData);
+                
+                if let refreshTokenhHttpResponse = refreshTokenResponse as? HTTPURLResponse {
+                    if (refreshTokenhHttpResponse.statusCode == 200) {
+                        let refreshTokenParsedData = try? JSONDecoder().decode(RefreshTokenResponse.self, from: refreshTokenData)
+                        
+                        // Store new tokens
+                        accessToken = refreshTokenParsedData!.accessToken;
+                        refreshToken = refreshTokenParsedData!.refreshToken;
+                        
+                        delegate?.newTokensReceived(accessToken: accessToken, refreshToken: refreshToken);
+                        
+                        // Do the request again
+                        authHeaderValue = "Bearer " + accessToken;
+                        
+                        requestResult = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: urlString, method: method, jsonData: jsonData)
+                        
+                        return requestResult;
+                    } else {
+                        // log out user
+                        delegate?.sessionExpired()
+                        
+                        throw SessionExpiredError.runtimeError("The refresh token of the session has expired.")
+                    }
+                }
+            }
+        }
+        
+        return requestResult;
+    }
+    
+    private static func doRequestInternal(authHeaderValue: String, urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
         let url = URL(string: urlString)!
         
         var request = URLRequest(url: url)
@@ -41,10 +112,10 @@ public class ApiClient {
         
         request.httpMethod = method
         
-        let sessionConfiguration = URLSessionConfiguration.default
+        let sessionConfiguration = URLSessionConfiguration.default;
 
         sessionConfiguration.httpAdditionalHeaders = [
-            "Authorization": _authHeader
+            "Authorization": authHeaderValue
         ]
 
         let session = URLSession(configuration: sessionConfiguration)
@@ -53,7 +124,7 @@ public class ApiClient {
             
         logger.debug("Sending \(request.httpMethod ?? "GET") request to \(url)")
         
-        return try await session.data(for: request)
+        return try await session.data(for: request);
     }
     
     static func registerDeviceToken(deviceToken: String) async -> Bool {
@@ -176,13 +247,15 @@ public class ApiClient {
     
     static func getVehicleStatus(refreshData: Bool = false) async -> CommonResponse<VehicleStatus> {
         do {
-            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/hello" + (refreshData ? "?forceRefresh=true" : ""))
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/data" + (refreshData ? "?forceRefresh=true" : ""))
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
                     let responseData = try? JSONDecoder().decode(VehicleStatus.self, from: data);
                     return CommonResponse(failed: false, error: .NoError, data: responseData);
                 } else {
+                    logger.error("Status Code: \(httpResponse.statusCode)");
+                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
                     return unexpectedResponseHandler(data);
                 }
             }
@@ -229,7 +302,7 @@ public class ApiClient {
     
     static func lockVehicle() async -> CommandResponse? {
         do {
-            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/lock")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/lock")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -247,7 +320,7 @@ public class ApiClient {
     
     static func unlockVehicle() async -> CommandResponse? {
         do {
-            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/unlock")
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/unlock")
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -306,4 +379,34 @@ public class ApiClient {
         logger.error("Failed to stop vehicle")
         return nil;
     }
+    
+    static func authenticateUsingKia(email: String, password: String) async -> SignInResponse? {
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+        let jsonData = try? jsonEncoder.encode(SignInUsingKiaRequest(email: email, password: password))
+        
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/auth/signin/kia", method: "POST", jsonData: jsonData)
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    let apiResponse = try? JSONDecoder().decode(SignInResponse.self, from: data)
+                    return apiResponse
+                } else {
+                    logger.error("Status Code: \(httpResponse.statusCode)");
+                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("Failed to login using Kia")
+        return nil;
+    }
+}
+
+struct SignInUsingKiaRequest: Encodable {
+    let email: String
+    let password: String
 }

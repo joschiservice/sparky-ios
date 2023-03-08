@@ -23,6 +23,7 @@ struct Provider: TimelineProvider {
             var entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "-", isCharging: false)
             let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
             logger.log("Executing vehicle status request")
+            AuthManager.shared.initialize()
             let vehicleStatusData = await ApiClient.getVehicleStatus()
             
             if vehicleStatusData.data != nil {

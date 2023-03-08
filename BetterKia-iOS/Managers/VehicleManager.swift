@@ -9,6 +9,7 @@ import Foundation
 import Dispatch
 import os
 import SwiftUI
+import MapKit
 
 enum VehicleDataStatus {
     case Refreshing;
@@ -17,17 +18,25 @@ enum VehicleDataStatus {
     case RateLimitedByOEM;
 }
 
+struct CarPosition: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
+
 public class VehicleManager : ObservableObject {
     @Published var showClimateControlPopover = false;
     @Published var isLoadingVehicleData = false;
     @Published var vehicleData: VehicleStatus? = nil;
-    @Published var currentHvacTargetTemp: Int? = nil;
+    @Published var currentHvacTargetTemp: Int? = 21;
     @Published var vehicleLocation: VehicleLocation? = nil;
     @Published var isLoadingVehicleLocation = false;
     @Published var isHvacActive = false;
     @Published var vehicleDataStatus = VehicleDataStatus.Refreshing;
     @Published var isVehicleLocked = true;
+    @Published var vehicleRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002));
     var lastVehicleDataUpdate: Date? = nil;
+    @Published var vehiclePositionAnnotations: [CarPosition] = [];
     
     let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "VehicleManager")
     
@@ -102,6 +111,19 @@ public class VehicleManager : ObservableObject {
     }
     
     public func getVehicleLocation() async {
+        // DEMO
+        DispatchQueue.main.async {
+            self.logger.log("Location: setting demo data");
+            self.vehicleLocation = VehicleLocation(latitude: 53.546925, longitude: 9.998855, speed:VehicleSpeed(unit: 1, value: 0), heading: 0)
+            
+            let mapLocation = CLLocationCoordinate2D(latitude: self.vehicleLocation!.latitude, longitude: self.vehicleLocation!.longitude)
+            
+            self.vehicleRegion = MKCoordinateRegion(center: mapLocation, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
+            
+            self.vehiclePositionAnnotations.append(CarPosition(name: "Car", coordinate: self.vehicleRegion.center));
+            
+            self.isLoadingVehicleLocation = false;
+        }
         return;
         DispatchQueue.main.async {
             self.isLoadingVehicleLocation = true;

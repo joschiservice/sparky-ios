@@ -86,6 +86,11 @@
 		EBF623E929A23D67003044AC /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = EBF623E829A23D67003044AC /* Sentry */; };
 		EBF623EB29A23D67003044AC /* SentrySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EBF623EA29A23D67003044AC /* SentrySwiftUI */; };
 		EBF623ED29A26120003044AC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF623EC29A26120003044AC /* AlertManager.swift */; };
+		EBFCC1D129B8F97500736F76 /* SignInUsingKiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFCC1D029B8F97500736F76 /* SignInUsingKiaView.swift */; };
+		EBFCC1D229B91BCD00736F76 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D231299E5E7000C2ACBA /* AuthManager.swift */; };
+		EBFCC1D329B91BCF00736F76 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D231299E5E7000C2ACBA /* AuthManager.swift */; };
+		EBFCC1D429B91BD100736F76 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D231299E5E7000C2ACBA /* AuthManager.swift */; };
+		EBFCC1D529B91BD300736F76 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D231299E5E7000C2ACBA /* AuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +252,7 @@
 		EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCarLockStatusHandler.swift; sourceTree = "<group>"; };
 		EBEBB7502955BA2C00296FBB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		EBF623EC29A26120003044AC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		EBFCC1D029B8F97500736F76 /* SignInUsingKiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUsingKiaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */,
+				EBFCC1D029B8F97500736F76 /* SignInUsingKiaView.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -812,6 +819,7 @@
 				EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */,
 				EB4321DC295DE03000A6BA52 /* Schedule.swift in Sources */,
 				EB03234B29A22FD500256B66 /* VehicleStatusWidget.swift in Sources */,
+				EBFCC1D129B8F97500736F76 /* SignInUsingKiaView.swift in Sources */,
 				EB03235029A2302C00256B66 /* ControlItem.swift in Sources */,
 				EBA8D230299E51EE00C2ACBA /* TempCodeConverter.swift in Sources */,
 				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,
@@ -866,6 +874,7 @@
 				EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */,
 				EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */,
 				EBEA294729506FCC00B3457A /* SetCarLockStatusHandler.swift in Sources */,
+				EBFCC1D229B91BCD00736F76 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,6 +883,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */,
+				EBFCC1D329B91BCF00736F76 /* AuthManager.swift in Sources */,
 				EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */,
 				EB9EE79D29508177009D4D6A /* VehicleStatusResponse.swift in Sources */,
 				EB40F53B295F149F00064F1F /* Schedule.swift in Sources */,
@@ -894,6 +904,7 @@
 				EB9EE79C29508174009D4D6A /* VehicleStatusResponse.swift in Sources */,
 				EB9EE7992950813C009D4D6A /* SetCarLockStatusHandler.swift in Sources */,
 				EB9EE78F2950811C009D4D6A /* IntentHandler.swift in Sources */,
+				EBFCC1D429B91BD100736F76 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,6 +913,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB9EE7BC2950AFFE009D4D6A /* VehicleStatusWidgetBundle.swift in Sources */,
+				EBFCC1D529B91BD300736F76 /* AuthManager.swift in Sources */,
 				EB9EE7C52950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */,
 				EBC1F73E2950DF7900BBEE5E /* VehicleStatusResponse.swift in Sources */,
 				EB9EE7BE2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift in Sources */,

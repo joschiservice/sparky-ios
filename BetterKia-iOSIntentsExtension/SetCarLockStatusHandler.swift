@@ -15,6 +15,8 @@ class SetCarLockStatusHandler: NSObject, INSetCarLockStatusIntentHandling {
   func handle(intent: INSetCarLockStatusIntent,
               completion: @escaping (INSetCarLockStatusIntentResponse) -> Void) {
       Task {
+          AuthManager.shared.initialize()
+          
           var intentResponse = INSetCarLockStatusIntentResponse(code: .failure, userActivity: .none)
           
           var wasActionSuccessful = false

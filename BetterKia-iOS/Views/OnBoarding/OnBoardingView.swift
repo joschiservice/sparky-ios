@@ -63,6 +63,7 @@ struct OnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnBoardingView()
         LoginView()
+            .previewDisplayName("Login View")
     }
 }
 
@@ -96,6 +97,8 @@ struct GeneralInfo : View {
 }
 
 struct LoginView : View {
+    @State private var isShowingKiaLogin = false
+    
     var body: some View {
         VStack {
             Text("Sign in to BetterKia")
@@ -106,6 +109,7 @@ struct LoginView : View {
             
             VStack (spacing: 12) {
                 Button {
+                    isShowingKiaLogin = true;
                 }
             label: {
                 HStack {
@@ -147,6 +151,10 @@ struct LoginView : View {
         }
         .padding()
         .navigationBarBackButtonHidden(true)
+        .navigationDestination(
+             isPresented: $isShowingKiaLogin) {
+                  SignInUsingKiaView()
+             }
         .background(
                 Image("LoginBackground")
                     .resizable()
