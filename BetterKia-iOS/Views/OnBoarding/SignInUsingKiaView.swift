@@ -45,6 +45,7 @@ struct SignInUsingKiaView : View {
                     .keyboardType(.emailAddress)
                     .scrollDismissesKeyboard(.interactively)
                     .autocorrectionDisabled(true)
+                    .textContentType(.emailAddress)
             }
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
             
@@ -55,6 +56,7 @@ struct SignInUsingKiaView : View {
                 
                 SecureField("Password", text: $kiaPassword)
                     .scrollDismissesKeyboard(.interactively)
+                    .textContentType(.password)
             }
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
             

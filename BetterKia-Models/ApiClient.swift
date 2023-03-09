@@ -65,12 +65,14 @@ public class ApiClient {
         
         if let httpResponse = requestResponse as? HTTPURLResponse {
             if (httpResponse.statusCode == 401) {
+                logger.debug("Request to \(urlString) returned Unauthorized. Refreshing access token...")
+                
                 // In this case we need to refresh the access token
                 let jsonEncoder = JSONEncoder()
                 jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
-                let jsonData = try? jsonEncoder.encode(RefreshTokenRequest(refreshToken: refreshToken))
+                let jsonDataRefresh = try? jsonEncoder.encode(RefreshTokenRequest(refreshToken: refreshToken))
                 
-                let (refreshTokenData, refreshTokenResponse) = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: serverUrl + "api/auth/refresh", method: "POST", jsonData: jsonData);
+                let (refreshTokenData, refreshTokenResponse) = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: serverUrl + "api/auth/refresh", method: "POST", jsonData: jsonDataRefresh);
                 
                 if let refreshTokenhHttpResponse = refreshTokenResponse as? HTTPURLResponse {
                     if (refreshTokenhHttpResponse.statusCode == 200) {
@@ -89,6 +91,9 @@ public class ApiClient {
                         
                         return requestResult;
                     } else {
+                        logger.debug("Session expired and couldn't be restored.");
+                        logger.debug("Refresh token response: \(String(decoding: refreshTokenData, as: UTF8.self))");
+                        
                         // log out user
                         delegate?.sessionExpired()
                         
@@ -254,13 +259,13 @@ public class ApiClient {
                     let responseData = try? JSONDecoder().decode(VehicleStatus.self, from: data);
                     return CommonResponse(failed: false, error: .NoError, data: responseData);
                 } else {
-                    logger.error("Status Code: \(httpResponse.statusCode)");
-                    logger.error("Response: \(String(decoding: data, as: UTF8.self))")
+                    logger.error("GetVehicleStatus: Status Code: \(httpResponse.statusCode)");
+                    logger.error("GetVehicleStatus: Response: \(String(decoding: data, as: UTF8.self))")
                     return unexpectedResponseHandler(data);
                 }
             }
-        } catch {
-            
+        } catch let error {
+            logger.error("GetVehicleStatus: Error: \(error.localizedDescription)")
         }
         
         logger.error("Failed to get vehicle charging status")
