@@ -26,6 +26,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
         
         print(TempCodeConverter.tempCodeToCelsius(code: "02H"))
         
+        // Setup Authentication service
+        AuthManager.shared.initialize();
+        
        // Override point for customization after application launch.you’re
        UIApplication.shared.registerForRemoteNotifications()
         

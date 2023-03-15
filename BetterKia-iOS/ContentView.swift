@@ -38,12 +38,11 @@ struct LottieView: UIViewRepresentable {
     }
 }
 
-struct ExampleView: View {
+struct AccountView: View {
     
     var body: some View {
         VStack {
-            LottieView(lottieFile: "air-conditioner-and-heater-lottie")
-                .frame(width: 300, height: 300)
+            Text("Account View")
         }
     }
 }
@@ -64,7 +63,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("Schedules", systemImage: "calendar")
                     }
-                ExampleView()
+                AccountView()
                     .tabItem {
                         Label("Account", systemImage: "person.crop.circle.fill")
                     }

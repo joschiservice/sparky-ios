@@ -14,9 +14,6 @@ struct BetterKia_iOSApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear {
-                    AuthManager.shared.initialize()
-                }
         }
     }
 }

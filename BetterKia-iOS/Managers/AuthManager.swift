@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 public class AuthManager : ObservableObject, ApiClientDelegate {
     public static let shared = AuthManager()
@@ -37,12 +38,19 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
         ApiClient.accessToken = result!.accessToken;
         ApiClient.refreshToken = result!.refreshToken;
         
-        isAuthenticated = true;
+        DispatchQueue.main.async {
+            self.isAuthenticated = true;
+        }
+        
+        // Reload widgets to display data
+        WidgetCenter.shared.reloadAllTimelines()
         
         return true;
     }
     
     private func storeTokens(accessToken: String, refreshToken: String) -> Bool {
+        print("Saving new tokens. Access Token: '\(accessToken)' Refresh Token: '\(refreshToken)'");
+        
         let accessTokenResult = saveDataInKeychain(data: Data(accessToken.utf8), service: "access-token", account: "better-kia");
         let refreshTokenResult = saveDataInKeychain(data: Data(refreshToken.utf8), service: "refresh-token", account: "better-kia");
         
@@ -75,6 +83,8 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
             kSecAttrAccount: account,
+            kSecAttrAccessGroup: "group.de.thevisualcablecollective.BetterKia.appgroup",
+            kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,
         ] as CFDictionary
             
         // Add data in query to keychain
@@ -86,9 +96,10 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
                     kSecAttrService: service,
                     kSecAttrAccount: account,
                     kSecClass: kSecClassGenericPassword,
+                    kSecAttrAccessGroup: "group.de.thevisualcablecollective.BetterKia.appgroup",
                 ] as CFDictionary
 
-                let attributesToUpdate = [kSecValueData: data] as CFDictionary
+                let attributesToUpdate = [kSecValueData: data, kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,] as CFDictionary
 
                 // Update existing item
                 SecItemUpdate(query, attributesToUpdate)
@@ -106,6 +117,7 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
             kSecAttrService: service,
             kSecAttrAccount: account,
             kSecClass: kSecClassGenericPassword,
+            kSecAttrAccessGroup: "group.de.thevisualcablecollective.BetterKia.appgroup",
             kSecReturnData: true
         ] as CFDictionary
         

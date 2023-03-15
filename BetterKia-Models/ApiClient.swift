@@ -57,6 +57,8 @@ public class ApiClient {
     
     public static weak var delegate : ApiClientDelegate?
     
+    private static var isRefreshingToken = false;
+    
     static func doRequest(urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
         var authHeaderValue = "Bearer " + accessToken;
         
@@ -65,6 +67,18 @@ public class ApiClient {
         
         if let httpResponse = requestResponse as? HTTPURLResponse {
             if (httpResponse.statusCode == 401) {
+                if (isRefreshingToken) {
+                    while (isRefreshingToken) {
+                        usleep(100);
+                    }
+                    
+                    authHeaderValue = "Bearer " + accessToken;
+                    
+                    return try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: urlString, method: method, jsonData: jsonData);
+                }
+                
+                isRefreshingToken = true;
+                
                 logger.debug("Request to \(urlString) returned Unauthorized. Refreshing access token...")
                 
                 // In this case we need to refresh the access token
@@ -84,6 +98,8 @@ public class ApiClient {
                         
                         delegate?.newTokensReceived(accessToken: accessToken, refreshToken: refreshToken);
                         
+                        isRefreshingToken = false;
+                        
                         // Do the request again
                         authHeaderValue = "Bearer " + accessToken;
                         
@@ -97,9 +113,13 @@ public class ApiClient {
                         // log out user
                         delegate?.sessionExpired()
                         
+                        isRefreshingToken = false;
+                        
                         throw SessionExpiredError.runtimeError("The refresh token of the session has expired.")
                     }
                 }
+                
+                isRefreshingToken = false;
             }
         }
         

@@ -200,6 +200,8 @@
 		EB4321D9295DE00600A6BA52 /* ScheduleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEntry.swift; sourceTree = "<group>"; };
 		EB4321DB295DE03000A6BA52 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		EB46C69E299ECBDB00AAB8AE /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		EB4CECFE29BC89FC00C1B899 /* BetterKia-iOSWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia-iOSWidgets.entitlements"; sourceTree = "<group>"; };
+		EB4CECFF29BC8A0F00C1B899 /* BetterKia-iOSIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia-iOSIntentsExtension.entitlements"; sourceTree = "<group>"; };
 		EB5FAE67294F7EDC00FF160E /* BetterKia-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BetterKia-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKia_iOSApp.swift; sourceTree = "<group>"; };
 		EB5FAE6C294F7EDC00FF160E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 		EB5FAE9C294F7F4B00FF160E /* BetterKia-iOSIntentsExtension */ = {
 			isa = PBXGroup;
 			children = (
+				EB4CECFF29BC8A0F00C1B899 /* BetterKia-iOSIntentsExtension.entitlements */,
 				EB5FAE9D294F7F4B00FF160E /* IntentHandler.swift */,
 				EB5FAE9F294F7F4B00FF160E /* Info.plist */,
 				EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */,
@@ -501,6 +504,7 @@
 		EB9EE7BA2950AFFE009D4D6A /* BetterKia-iOSWidgets */ = {
 			isa = PBXGroup;
 			children = (
+				EB4CECFE29BC89FC00C1B899 /* BetterKia-iOSWidgets.entitlements */,
 				EB9EE7BB2950AFFE009D4D6A /* VehicleStatusWidgetBundle.swift */,
 				EB9EE7BD2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift */,
 				EB9EE7BF2950AFFE009D4D6A /* VehicleStatusWidget.swift */,
@@ -1240,6 +1244,7 @@
 		EB5FAEA4294F7F4B00FF160E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "BetterKia-iOSIntentsExtension/BetterKia-iOSIntentsExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 425562S2X6;
@@ -1265,6 +1270,7 @@
 		EB5FAEA5294F7F4B00FF160E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "BetterKia-iOSIntentsExtension/BetterKia-iOSIntentsExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 425562S2X6;
@@ -1412,6 +1418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "BetterKia-iOSWidgets/BetterKia-iOSWidgets.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 425562S2X6;
@@ -1439,6 +1446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "BetterKia-iOSWidgets/BetterKia-iOSWidgets.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 425562S2X6;
