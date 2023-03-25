@@ -56,10 +56,9 @@ class GetChargeRequestHandler: NSObject, INGetCarPowerLevelStatusIntentHandling 
           dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
           dateFormatter.dateFormat = "yyyyMMddHHmmss"
           dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-          let date = dateFormatter.date(from: vehicleStatusData.data!.time)!
           
           // only visible when charging
-          intentResponse.dateOfLastStateUpdate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+          intentResponse.dateOfLastStateUpdate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: vehicleStatusData.data!.time)
           
           completion(intentResponse)
       }

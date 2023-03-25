@@ -38,7 +38,7 @@ public struct CommonResponse<T> {
 
 public struct VehicleStatus : Decodable {
     let evStatus: EvStatus
-    let time: String
+    let time: Date
     let acc: Bool // What is this value for?
     let sideBackWindowHeat: Int
     let steerWheelHeat: Int
@@ -66,3 +66,31 @@ public struct RangeData: Decodable {
     let unit: Int
 }
 
+public struct VehicleIdentification: Decodable {
+    let vin: String;
+    
+    let nickname: String;
+    
+    let modelName: String;
+    
+    enum CodingKeys: String, CodingKey {
+        case vin
+        case nickname
+        case modelName = "name"
+    }
+}
+
+public struct PrimaryVehicleInfo: Decodable {
+    let vin: String;
+    
+    let modelName: String;
+    
+    enum CodingKeys: String, CodingKey {
+        case vin
+        case modelName = "model"
+    }
+}
+
+public struct SetPrimaryVehicleData: Encodable {
+    let primaryVehicleVin: String;
+}

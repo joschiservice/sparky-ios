@@ -89,7 +89,8 @@ struct DashboardView: View {
                                 let formatter = DateFormatter();
                                 formatter.timeStyle = .short;
                                 let lastUpdateTimeText = formatter.string(from: vehicleManager.lastVehicleDataUpdate!);
-                                AlertManager.shared.publishAlert("Vehicle data is up-to-date!", description: "Everything is fine! The last update was at \(lastUpdateTimeText)")
+                                let dataAgeText = formatter.string(from: vehicleManager.vehicleData!.time);
+                                AlertManager.shared.publishAlert("Vehicle data is up-to-date!", description: "Everything is fine! The last update was at \(lastUpdateTimeText) and the data was received from the car at \(dataAgeText)")
                             }
                         label: {
                             Image(systemName: "checkmark.circle.fill")

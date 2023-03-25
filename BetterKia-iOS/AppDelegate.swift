@@ -11,6 +11,8 @@ import os
 import WidgetKit
 import ActivityKit
 import Sentry
+import CoreBluetooth
+import ExternalAccessory
 
 class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication,
@@ -29,8 +31,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
         // Setup Authentication service
         AuthManager.shared.initialize();
         
-       // Override point for customization after application launch.you’re
-       UIApplication.shared.registerForRemoteNotifications()
+        // Override point for customization after application launch.you’re
+        UIApplication.shared.registerForRemoteNotifications()
         
         UNUserNotificationCenter.current().delegate = self
         

@@ -46,6 +46,8 @@ public protocol ApiClientDelegate : AnyObject {
     func sessionExpired()
 }
 
+public let IS_DEMO_MODE = ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil;
+
 public class ApiClient {
     private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ApiClient")
     
@@ -60,6 +62,12 @@ public class ApiClient {
     private static var isRefreshingToken = false;
     
     static func doRequest(urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
+        
+        // Don't allow requests when running in XCode Canvas
+        if IS_DEMO_MODE {
+            return (Data(), URLResponse());
+        }
+        
         var authHeaderValue = "Bearer " + accessToken;
         
         var requestResult = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: urlString, method: method, jsonData: jsonData)
@@ -239,6 +247,60 @@ public class ApiClient {
         return nil
     }
     
+    static func getVehicles() async -> [VehicleIdentification]? {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/account/vehicles")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    do {
+                        let decoder =  JSONDecoder()
+                        
+                        return try decoder.decode([VehicleIdentification].self, from: data)
+                    } catch {
+                        logger.error("GetVehicles: Data couldn't be converted: \(error)")
+                        logger.debug("GetVehicles: Response Data: \(String(decoding: data, as: UTF8.self))")
+                    }
+                } else {
+                    logger.error("GetVehicles: Status code was invalid")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("GetVehicles: Failed to retrieve data")
+        return nil
+    }
+    
+    static func getPrimaryVehicle() async -> PrimaryVehicleInfo? {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/account/vehicle")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    do {
+                        let decoder =  JSONDecoder()
+                        
+                        logger.debug("GetVehicles: Response Data: \(String(decoding: data, as: UTF8.self))")
+                        
+                        return try decoder.decode(PrimaryVehicleInfo.self, from: data)
+                    } catch {
+                        logger.error("GetVehicles: Data couldn't be converted: \(error)")
+                        logger.debug("GetVehicles: Response Data: \(String(decoding: data, as: UTF8.self))")
+                    }
+                } else {
+                    logger.error("GetVehicles: Status code was invalid")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("GetVehicles: Failed to retrieve data")
+        return nil
+    }
+    
     static func saveSchedule(item: Schedule) async -> Bool {
         let jsonEncoder = JSONEncoder()
         jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
@@ -270,13 +332,51 @@ public class ApiClient {
         return false
     }
     
+    static func setPrimaryVehicle(vin: String) async -> Bool {
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+        
+        let postBody = SetPrimaryVehicleData(primaryVehicleVin: vin);
+        
+        let jsonData = try? jsonEncoder.encode(postBody)
+        
+        do {
+            let url = serverUrl + "api/account/set-primary-vehicle"
+            let method = "POST"
+            let (data, response) = try await self.doRequest(urlString: url, method: method, jsonData: jsonData)
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 204) {
+                    logger.error("SetPrimaryVehicle: Response: \(String(decoding: data, as: UTF8.self))")
+                    return true
+                } else {
+                    logger.error("SetPrimaryVehicle: Status code was invalid")
+                    logger.error("SetPrimaryVehicle: Response: \(String(decoding: data, as: UTF8.self))")
+                }
+            }
+        } catch {
+            
+        }
+        
+        logger.error("SetPrimaryVehicle: Failed!")
+        return false
+    }
+    
     static func getVehicleStatus(refreshData: Bool = false) async -> CommonResponse<VehicleStatus> {
         do {
             let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/data" + (refreshData ? "?forceRefresh=true" : ""))
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
-                    let responseData = try? JSONDecoder().decode(VehicleStatus.self, from: data);
+                    let decoder =  JSONDecoder()
+                    
+                    let formatter = DateFormatter()
+                    formatter.locale = Locale(identifier: "en_US_POSIX")
+                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
+                    decoder.dateDecodingStrategy =  .formatted(formatter)
+                    
+                    let responseData = try? decoder.decode(VehicleStatus.self, from: data);
                     return CommonResponse(failed: false, error: .NoError, data: responseData);
                 } else {
                     logger.error("GetVehicleStatus: Status Code: \(httpResponse.statusCode)");

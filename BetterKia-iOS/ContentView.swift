@@ -63,9 +63,9 @@ struct ContentView: View {
                     .tabItem {
                         Label("Schedules", systemImage: "calendar")
                     }
-                AccountView()
+                SettingsView()
                     .tabItem {
-                        Label("Account", systemImage: "person.crop.circle.fill")
+                        Label("Settings", systemImage: "gear")
                     }
             }
             .sheet(isPresented: $vehicleManager.showClimateControlPopover) {
@@ -76,6 +76,11 @@ struct ContentView: View {
             }, message: {
                 Text(alertManager.currentAlertDescription)
             })
+            .onAppear {
+                Task {
+                    await VehicleManager.shared.getPrimaryVehicle();
+                }
+            }
         } else {
             OnBoardingView()
                 .alert(alertManager.currentAlertTitle, isPresented: $alertManager.showAlert, actions: {
@@ -91,5 +96,22 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+        
+        TabView {
+            DashboardView()
+                .tabItem {
+                    Label("Dashboard", systemImage: "bolt.car.fill")
+                }
+            ClimateControlScheduleView()
+                .tabItem {
+                    Label("Schedules", systemImage: "calendar")
+                }
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
+        }
+        .previewDisplayName("Authenticated")
+        
     }
 }

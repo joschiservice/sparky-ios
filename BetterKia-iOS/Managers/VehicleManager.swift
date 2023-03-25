@@ -24,6 +24,11 @@ struct CarPosition: Identifiable {
     let coordinate: CLLocationCoordinate2D
 }
 
+struct Vehicle {
+    let model: String;
+    let vin: String;
+}
+
 public class VehicleManager : ObservableObject {
     @Published var showClimateControlPopover = false;
     @Published var isLoadingVehicleData = false;
@@ -41,6 +46,8 @@ public class VehicleManager : ObservableObject {
     let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "VehicleManager")
     
     public static var shared = VehicleManager()
+    
+    @Published public var primaryVehicle: PrimaryVehicleInfo? = nil;
     
     public func start() async {
         logger.log("Starting vehicle...");
@@ -63,6 +70,35 @@ public class VehicleManager : ObservableObject {
         DispatchQueue.main.async {
             self.isHvacActive = true;
         }
+    }
+    
+    public func getPrimaryVehicle(force: Bool = false) async -> PrimaryVehicleInfo? {
+        if primaryVehicle != nil && !force {
+            return primaryVehicle;
+        }
+        
+        if IS_DEMO_MODE {
+            return PrimaryVehicleInfo(vin: "EXAMPLE_VIN", modelName: "EXAMPLE_MODEL");
+        }
+        
+        let data = await ApiClient.getPrimaryVehicle();
+        
+        DispatchQueue.main.async {
+            self.primaryVehicle = data;
+        }
+        
+        return primaryVehicle;
+    }
+    
+    public func getVehicles() async -> [VehicleIdentification]? {
+        if IS_DEMO_MODE {
+            return [
+                VehicleIdentification(vin: "EXAMPLE_VIN_1", nickname: "EXAMPLE_NICKNAME_1", modelName: "EXAMPLE_MODEL_1"),
+                VehicleIdentification(vin: "EXAMPLE_VIN_2", nickname: "EXAMPLE_NICKNAME_2", modelName: "EXAMPLE_MODEL_2")
+            ]
+        }
+        
+        return await ApiClient.getVehicles();
     }
     
     public func stop() async {
@@ -166,7 +202,7 @@ public class VehicleManager : ObservableObject {
         vmanager.currentHvacTargetTemp = 22
         vmanager.vehicleData = VehicleStatus(
             evStatus: EvStatus(batteryCharge: true, batteryStatus: 20, drvDistance: [DriveDistance(rangeByFuel: RangeByFuel(totalAvailableRange: RangeData(value: 320, unit: 1)))]),
-            time: "2022-03-01", acc: true, sideBackWindowHeat: 1, steerWheelHeat: 1, defrost: true, airCtrlOn: false, doorLock: false)
+            time: Date(), acc: true, sideBackWindowHeat: 1, steerWheelHeat: 1, defrost: true, airCtrlOn: false, doorLock: false)
         vmanager.vehicleLocation = VehicleLocation(latitude: 54.19478906001295, longitude: 9.093066782003024, speed: VehicleSpeed(unit: 0, value: 0), heading: 0);
         vmanager.isHvacActive = true;
         return vmanager;

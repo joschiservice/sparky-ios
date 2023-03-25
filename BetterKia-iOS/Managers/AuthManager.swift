@@ -48,6 +48,20 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
         return true;
     }
     
+    public func signOut() {
+        // Clear tokens in keychain
+        _ = storeTokens(accessToken: "", refreshToken: "")
+        
+        // Clear tokens in memory
+        ApiClient.accessToken = "";
+        ApiClient.refreshToken = "";
+        
+        // Update UI
+        DispatchQueue.main.async {
+            self.isAuthenticated = false;
+        }
+    }
+    
     private func storeTokens(accessToken: String, refreshToken: String) -> Bool {
         print("Saving new tokens. Access Token: '\(accessToken)' Refresh Token: '\(refreshToken)'");
         
