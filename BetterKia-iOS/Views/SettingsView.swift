@@ -12,6 +12,8 @@ import AuthenticationServices
 struct SettingsView: View {
     @ObservedObject var vehicleManager = VehicleManager.shared
     
+    @State var isBleAutoUnlockActivated = false;
+    
     var body: some View {
         NavigationStack {
             List {
@@ -20,10 +22,30 @@ struct SettingsView: View {
                     Label("VIN: " + (vehicleManager.primaryVehicle?.vin ?? "n/a"), systemImage: "number")
                     ChangePrimaryVehicleButton()
                 }
+                
+                Section() {
+                    NavigationLink("Experimental Features") {
+                        List {
+                            Section(footer: Text("AutoLock measures the distance between your smartphone and the OBD2 adapter in your car to determine, when you walk away from your vehicle.")) {
+                                Toggle("Activate AutoLock", isOn: $isBleAutoUnlockActivated)
+                                    .onChange(of: isBleAutoUnlockActivated) { newValue in
+                                        UserDefaults.standard.set(newValue, forKey: "BLE_AUTOLOCK_ACTIVATED")
+                                        
+                                        AlertManager.shared.publishAlert("Restart required", description: "A restart of the app is required to activate or deactivate the AutoLock feature.")
+                                    }
+                            }
+                        }
+                        .navigationTitle("Experimental Features")
+                    }
+                }
+                
                 Section("Account") {
                     SignOutButton()
                     DeleteAccountButton()
                 }
+            }
+            .onAppear() {
+                isBleAutoUnlockActivated = UserDefaults.standard.bool(forKey: "BLE_AUTOLOCK_ACTIVATED");
             }
             .navigationTitle("Settings")
         }
