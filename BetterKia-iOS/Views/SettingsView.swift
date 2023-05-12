@@ -13,6 +13,7 @@ struct SettingsView: View {
     @ObservedObject var vehicleManager = VehicleManager.shared
     
     @State var isBleAutoUnlockActivated = false;
+    @State var obd2Uuid = "";
     
     var body: some View {
         NavigationStack {
@@ -33,6 +34,12 @@ struct SettingsView: View {
                                         
                                         AlertManager.shared.publishAlert("Restart required", description: "A restart of the app is required to activate or deactivate the AutoLock feature.")
                                     }
+                                
+                                if(isBleAutoUnlockActivated) {
+                                    TextField("OBD2 Device UUID", text: $obd2Uuid)
+                                        .scrollDismissesKeyboard(.interactively)
+                                        .autocorrectionDisabled(true)
+                                }
                             }
                         }
                         .navigationTitle("Experimental Features")
@@ -60,10 +67,19 @@ struct SettingsView_Previews: PreviewProvider {
 }
 
 struct SignOutButton: View {
+    @State var isShowingAlert = false;
+    
     var body: some View {
         Button("Sign Out") {
-            AuthManager.shared.signOut();
+            isShowingAlert = true;
         }
+        .alert("Are you sure you want to sign out?", isPresented: $isShowingAlert, actions: {
+            Button(role: .destructive) {
+                AuthManager.shared.signOut();
+            } label: {
+                Text("Sign Out")
+            }
+        })
     }
 }
 

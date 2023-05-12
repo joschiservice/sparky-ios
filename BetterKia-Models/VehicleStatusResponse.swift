@@ -28,6 +28,7 @@ enum ApiErrorType {
     case NoError
     case RateLimitedByOEM
     case UnknownError
+    case InvalidBrandSession
 }
 
 public struct CommonResponse<T> {

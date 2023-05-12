@@ -388,7 +388,7 @@ public class ApiClient {
             logger.error("GetVehicleStatus: Error: \(error.localizedDescription)")
         }
         
-        logger.error("Failed to get vehicle charging status")
+        logger.error("Failed to get vehicle status")
         return CommonResponse(failed: true, error: .UnknownError, data: nil);
     }
     
@@ -403,6 +403,8 @@ public class ApiClient {
         
         if (errorData?.code == "RATE_LIMITED_BY_OEM") {
             error = ApiErrorType.RateLimitedByOEM;
+        } else if (errorData?.code == "MISSING_BRAND_SESSION") {
+            error = ApiErrorType.InvalidBrandSession;
         }
         
         return CommonResponse(failed: true, error: error, data: nil);

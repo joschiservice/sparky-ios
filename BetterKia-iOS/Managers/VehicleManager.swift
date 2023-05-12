@@ -131,6 +131,9 @@ public class VehicleManager : ObservableObject {
             if (response.failed) {
                 if (response.error == ApiErrorType.RateLimitedByOEM) {
                     self.vehicleDataStatus = VehicleDataStatus.RateLimitedByOEM;
+                } else if (response.error == ApiErrorType.InvalidBrandSession) {
+                    self.vehicleDataStatus = VehicleDataStatus.UnknownError;
+                    AlertManager.shared.publishAlert("Reconnect your Kia account", description: "The connection with the KiaConnect service has expired. Please reconnect your Kia account in the settings to continue using Sparky.")
                 } else {
                     self.vehicleDataStatus = VehicleDataStatus.UnknownError;
                 }
