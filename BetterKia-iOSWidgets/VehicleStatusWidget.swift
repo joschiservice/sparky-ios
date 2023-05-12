@@ -10,9 +10,14 @@ import SwiftUI
 import Intents
 import os
 
+enum VehicleState {
+    case Parked
+    case Driving
+}
+
 struct Provider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        let entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "0", isCharging: false)
+        let entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "0", isCharging: false, vehicleState: VehicleState.Parked)
         completion(entry)
     }
     
@@ -20,7 +25,7 @@ struct Provider: TimelineProvider {
         Task {
             let logger = Logger()
             logger.log("Start getting timeline...")
-            var entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "-", isCharging: false)
+            var entry = SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "-", isCharging: false, vehicleState: VehicleState.Parked)
             let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
             logger.log("Executing vehicle status request")
             AuthManager.shared.initialize()
@@ -33,6 +38,12 @@ struct Provider: TimelineProvider {
                 entry.batPercentage = evStatus.batteryStatus
                 entry.remainingDistance = String(evStatus.drvDistance.first?.rangeByFuel.totalAvailableRange.value ?? 0)
                 entry.isCharging = evStatus.batteryCharge
+                
+                if (vehicleStatusData.data!.engine) {
+                    entry.vehicleState = VehicleState.Driving;
+                } else {
+                    entry.vehicleState = VehicleState.Parked;
+                }
             } else {
                 logger.error("VehicleStatusData is nil")
             }
@@ -45,7 +56,7 @@ struct Provider: TimelineProvider {
     }
     
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "0", isCharging: false)
+        SimpleEntry(date: Date(), batPercentage: 0, remainingDistance: "0", isCharging: false, vehicleState: VehicleState.Parked)
     }
 }
 
@@ -55,6 +66,8 @@ struct SimpleEntry: TimelineEntry {
     var batPercentage: Int
     var remainingDistance: String
     var isCharging: Bool
+    
+    var vehicleState: VehicleState
     
     func getTimeString() -> String {
         let formatter = DateFormatter()
@@ -66,6 +79,8 @@ struct SimpleEntry: TimelineEntry {
     func getStatusText() -> String {
         if (isCharging) {
             return "CHARGING"
+        } else if (vehicleState == VehicleState.Driving) {
+            return "DRIVING"
         } else {
             return "PARKED"
         }
@@ -144,7 +159,7 @@ struct VehicleStatusWidget: Widget {
 
 struct VehicleStatusWidget_Previews: PreviewProvider {
     static var previews: some View {
-        VehicleStatusWidgetEntryView(entry: SimpleEntry(date: Date(), batPercentage: 100, remainingDistance: "230", isCharging: true))
+        VehicleStatusWidgetEntryView(entry: SimpleEntry(date: Date(), batPercentage: 100, remainingDistance: "230", isCharging: true, vehicleState: VehicleState.Parked))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

@@ -38,6 +38,7 @@ public struct CommonResponse<T> {
 }
 
 public struct VehicleStatus : Decodable {
+    let engine: Bool
     let evStatus: EvStatus
     let time: Date
     let acc: Bool // What is this value for?
