@@ -61,7 +61,11 @@ struct ContentView: View {
                     }
                 ClimateControlScheduleView()
                     .tabItem {
-                        Label("Schedules", systemImage: "calendar")
+                        Label("Schedules", systemImage: "clock")
+                    }
+                HistoryView()
+                    .tabItem {
+                        Label("History", systemImage: "calendar")
                     }
                 SettingsView()
                     .tabItem {
@@ -104,8 +108,13 @@ struct ContentView_Previews: PreviewProvider {
                 }
             ClimateControlScheduleView()
                 .tabItem {
-                    Label("Schedules", systemImage: "calendar")
+                    Label("Schedules", systemImage: "clock")
                 }
+            HistoryView()
+                .tabItem {
+                    Label("History", systemImage: "calendar")
+                }
+            
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")

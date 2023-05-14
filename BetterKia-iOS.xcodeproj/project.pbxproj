@@ -38,6 +38,7 @@
 		EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE9D294F7F4B00FF160E /* IntentHandler.swift */; };
 		EB5FAEA2294F7F4B00FF160E /* BetterKia-iOSIntentsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB5FAE98294F7F4B00FF160E /* BetterKia-iOSIntentsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA9294F80B300FF160E /* AppDelegate.swift */; };
+		EB645C662A114F760080AED1 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645C652A114F760080AED1 /* HistoryView.swift */; };
 		EB73FADE29A40B9D005B0A23 /* RefreshControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73FADD29A40B9D005B0A23 /* RefreshControlItem.swift */; };
 		EB77092529992F29008F9952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB77092429992F29008F9952 /* SceneDelegate.swift */; };
 		EB7709282999387B008F9952 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7709272999387B008F9952 /* VehicleManager.swift */; };
@@ -224,6 +225,7 @@
 		EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChargeRequestHandler.swift; sourceTree = "<group>"; };
 		EB5FAEA9294F80B300FF160E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5FAEAD294F822700FF160E /* BetterKia-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia-iOS.entitlements"; sourceTree = "<group>"; };
+		EB645C652A114F760080AED1 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		EB73FADD29A40B9D005B0A23 /* RefreshControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlItem.swift; sourceTree = "<group>"; };
 		EB77092429992F29008F9952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EB7709272999387B008F9952 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
@@ -416,7 +418,6 @@
 				EB5FAE6C294F7EDC00FF160E /* ContentView.swift */,
 				EB5FAE6E294F7EDD00FF160E /* Assets.xcassets */,
 				EB5FAE70294F7EDD00FF160E /* Preview Content */,
-				EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */,
 				EB77092429992F29008F9952 /* SceneDelegate.swift */,
 			);
 			path = "BetterKia-iOS";
@@ -548,6 +549,8 @@
 				EB46C69D299ECBD000AAB8AE /* Dashboard */,
 				EBAD23C2299CE095005CF29F /* OnBoarding */,
 				EB28828D29CE42EA0001E44C /* SettingsView.swift */,
+				EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */,
+				EB645C652A114F760080AED1 /* HistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */,
 				EB03234929A22FBF00256B66 /* HvacOptionsWidget.swift in Sources */,
 				EB28828E29CE42EA0001E44C /* SettingsView.swift in Sources */,
+				EB645C662A114F760080AED1 /* HistoryView.swift in Sources */,
 				EB0FB988296EC1DE00898ADA /* ClimateControlScheduleView.swift in Sources */,
 				EBE11D7A29D06A1A005863DC /* ProductFetcher.swift in Sources */,
 				EBA8D232299E5E7000C2ACBA /* AuthManager.swift in Sources */,
