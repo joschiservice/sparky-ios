@@ -93,8 +93,8 @@ public class VehicleManager : ObservableObject {
     public func getVehicles() async -> [VehicleIdentification]? {
         if IS_DEMO_MODE {
             return [
-                VehicleIdentification(vin: "EXAMPLE_VIN_1", nickname: "EXAMPLE_NICKNAME_1", modelName: "EXAMPLE_MODEL_1"),
-                VehicleIdentification(vin: "EXAMPLE_VIN_2", nickname: "EXAMPLE_NICKNAME_2", modelName: "EXAMPLE_MODEL_2")
+                VehicleIdentification(vin: "EXAMPLE_VIN_1", nickname: "NICKNAME_1", modelName: "MODEL_1"),
+                VehicleIdentification(vin: "EXAMPLE_VIN_2", nickname: "NICKNAME_2", modelName: "MODEL_2")
             ]
         }
         

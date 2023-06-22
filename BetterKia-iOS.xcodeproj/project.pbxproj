@@ -15,6 +15,8 @@
 		EB03235029A2302C00256B66 /* ControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03234F29A2302C00256B66 /* ControlItem.swift */; };
 		EB03235229A2305200256B66 /* HvacControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03235129A2305200256B66 /* HvacControlItem.swift */; };
 		EB03235429A2307200256B66 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03235329A2307200256B66 /* Widget.swift */; };
+		EB03AFDB2A3CEA3D00833D66 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB03AFDA2A3CEA3D00833D66 /* ShareViewController.swift */; };
+		EB03AFE22A3CEA3D00833D66 /* BetterKia-iOSShareExt.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB03AFD82A3CEA3D00833D66 /* BetterKia-iOSShareExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB0FB988296EC1DE00898ADA /* ClimateControlScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */; };
 		EB0FB98B296F2C3000898ADA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EB0FB98A296F2C3000898ADA /* Lottie */; };
 		EB0FB98D296F2CD100898ADA /* air-conditioner-and-heater-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */; };
@@ -75,6 +77,8 @@
 		EBA8D232299E5E7000C2ACBA /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D231299E5E7000C2ACBA /* AuthManager.swift */; };
 		EBAD23C4299CE0A5005CF29F /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */; };
 		EBC1F73E2950DF7900BBEE5E /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
+		EBC8F7762A3DD93D007EDFB9 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC8F7752A3DD93D007EDFB9 /* ShareView.swift */; };
+		EBC8F7772A3DD9E2007EDFB9 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC8F7752A3DD93D007EDFB9 /* ShareView.swift */; };
 		EBE11D7429D06614005863DC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE11D7329D06614005863DC /* StoreKit.framework */; };
 		EBE11D7629D06778005863DC /* SelectSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE11D7529D06778005863DC /* SelectSubscriptionView.swift */; };
 		EBE11D7A29D06A1A005863DC /* ProductFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE11D7929D06A1A005863DC /* ProductFetcher.swift */; };
@@ -99,6 +103,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EB03AFE02A3CEA3D00833D66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB5FAE5F294F7EDC00FF160E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB03AFD72A3CEA3D00833D66;
+			remoteInfo = "BetterKia-iOSShareExt";
+		};
 		EB5FAE78294F7EDD00FF160E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB5FAE5F294F7EDC00FF160E /* Project object */;
@@ -150,6 +161,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				EB03AFE22A3CEA3D00833D66 /* BetterKia-iOSShareExt.appex in Embed Foundation Extensions */,
 				EB5FAEA2294F7F4B00FF160E /* BetterKia-iOSIntentsExtension.appex in Embed Foundation Extensions */,
 				EB9EE7C92950B000009D4D6A /* BetterKia-iOSWidgets.appex in Embed Foundation Extensions */,
 			);
@@ -199,6 +211,9 @@
 		EB03234F29A2302C00256B66 /* ControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlItem.swift; sourceTree = "<group>"; };
 		EB03235129A2305200256B66 /* HvacControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HvacControlItem.swift; sourceTree = "<group>"; };
 		EB03235329A2307200256B66 /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		EB03AFD82A3CEA3D00833D66 /* BetterKia-iOSShareExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BetterKia-iOSShareExt.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB03AFDA2A3CEA3D00833D66 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		EB03AFDF2A3CEA3D00833D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateControlScheduleView.swift; sourceTree = "<group>"; };
 		EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "air-conditioner-and-heater-lottie.json"; sourceTree = "<group>"; };
 		EB28828D29CE42EA0001E44C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -255,6 +270,7 @@
 		EBA8D22F299E51EE00C2ACBA /* TempCodeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCodeConverter.swift; sourceTree = "<group>"; };
 		EBA8D231299E5E7000C2ACBA /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		EBC8F7752A3DD93D007EDFB9 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		EBE11D7329D06614005863DC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EBE11D7529D06778005863DC /* SelectSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubscriptionView.swift; sourceTree = "<group>"; };
 		EBE11D7929D06A1A005863DC /* ProductFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFetcher.swift; sourceTree = "<group>"; };
@@ -268,6 +284,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EB03AFD52A3CEA3D00833D66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB5FAE64294F7EDC00FF160E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,6 +375,16 @@
 			path = ControlItems;
 			sourceTree = "<group>";
 		};
+		EB03AFD92A3CEA3D00833D66 /* BetterKia-iOSShareExt */ = {
+			isa = PBXGroup;
+			children = (
+				EB03AFDA2A3CEA3D00833D66 /* ShareViewController.swift */,
+				EBC8F7752A3DD93D007EDFB9 /* ShareView.swift */,
+				EB03AFDF2A3CEA3D00833D66 /* Info.plist */,
+			);
+			path = "BetterKia-iOSShareExt";
+			sourceTree = "<group>";
+		};
 		EB4321D8295DDFEC00A6BA52 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +416,7 @@
 				EB5FAE9C294F7F4B00FF160E /* BetterKia-iOSIntentsExtension */,
 				EB9EE777295080FD009D4D6A /* BetterKia Watch App */,
 				EB9EE78D2950811C009D4D6A /* BetterKia-WatchIntentsExtension */,
+				EB03AFD92A3CEA3D00833D66 /* BetterKia-iOSShareExt */,
 				EB5FAE99294F7F4B00FF160E /* Frameworks */,
 				EB5FAE68294F7EDC00FF160E /* Products */,
 			);
@@ -398,6 +432,7 @@
 				EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */,
 				EB9EE78B2950811C009D4D6A /* BetterKia-WatchIntentsExtension.appex */,
 				EB9EE7B52950AFFE009D4D6A /* BetterKia-iOSWidgets.appex */,
+				EB03AFD82A3CEA3D00833D66 /* BetterKia-iOSShareExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -578,6 +613,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EB03AFD72A3CEA3D00833D66 /* BetterKia-iOSShareExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB03AFE52A3CEA3D00833D66 /* Build configuration list for PBXNativeTarget "BetterKia-iOSShareExt" */;
+			buildPhases = (
+				EB03AFD42A3CEA3D00833D66 /* Sources */,
+				EB03AFD52A3CEA3D00833D66 /* Frameworks */,
+				EB03AFD62A3CEA3D00833D66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BetterKia-iOSShareExt";
+			productName = "BetterKia-iOSShareExt";
+			productReference = EB03AFD82A3CEA3D00833D66 /* BetterKia-iOSShareExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EB5FAE66294F7EDC00FF160E /* BetterKia-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB5FAE8B294F7EDD00FF160E /* Build configuration list for PBXNativeTarget "BetterKia-iOS" */;
@@ -595,6 +647,7 @@
 				EB5FAEA1294F7F4B00FF160E /* PBXTargetDependency */,
 				EB9EE782295080FE009D4D6A /* PBXTargetDependency */,
 				EB9EE7C82950B000009D4D6A /* PBXTargetDependency */,
+				EB03AFE12A3CEA3D00833D66 /* PBXTargetDependency */,
 			);
 			name = "BetterKia-iOS";
 			packageProductDependencies = (
@@ -719,9 +772,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					EB03AFD72A3CEA3D00833D66 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					EB5FAE66294F7EDC00FF160E = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -772,11 +828,19 @@
 				EB9EE775295080FD009D4D6A /* BetterKia Watch App */,
 				EB9EE78A2950811C009D4D6A /* BetterKia-WatchIntentsExtension */,
 				EB9EE7B42950AFFE009D4D6A /* BetterKia-iOSWidgets */,
+				EB03AFD72A3CEA3D00833D66 /* BetterKia-iOSShareExt */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EB03AFD62A3CEA3D00833D66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB5FAE65294F7EDC00FF160E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -836,6 +900,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EB03AFD42A3CEA3D00833D66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBC8F7762A3DD93D007EDFB9 /* ShareView.swift in Sources */,
+				EB03AFDB2A3CEA3D00833D66 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB5FAE63294F7EDC00FF160E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -846,6 +919,7 @@
 				EB7709282999387B008F9952 /* VehicleManager.swift in Sources */,
 				EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */,
 				EB4321DC295DE03000A6BA52 /* Schedule.swift in Sources */,
+				EBC8F7772A3DD9E2007EDFB9 /* ShareView.swift in Sources */,
 				EB03234B29A22FD500256B66 /* VehicleStatusWidget.swift in Sources */,
 				EBFCC1D129B8F97500736F76 /* SignInUsingKiaView.swift in Sources */,
 				EB03235029A2302C00256B66 /* ControlItem.swift in Sources */,
@@ -958,6 +1032,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EB03AFE12A3CEA3D00833D66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB03AFD72A3CEA3D00833D66 /* BetterKia-iOSShareExt */;
+			targetProxy = EB03AFE02A3CEA3D00833D66 /* PBXContainerItemProxy */;
+		};
 		EB5FAE79294F7EDD00FF160E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EB5FAE66294F7EDC00FF160E /* BetterKia-iOS */;
@@ -1011,6 +1090,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EB03AFE32A3CEA3D00833D66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BetterKia-iOSShareExt/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BetterKia-iOSShareExt";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS.BetterKia-iOSShareExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB03AFE42A3CEA3D00833D66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 425562S2X6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BetterKia-iOSShareExt/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BetterKia-iOSShareExt";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.thevisualcablecollective.BetterKia-iOS.BetterKia-iOSShareExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		EB5FAE89294F7EDD00FF160E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1130,6 +1261,7 @@
 		EB5FAE8C294F7EDD00FF160E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "BetterKia-iOS/BetterKia-iOS.entitlements";
@@ -1166,6 +1298,7 @@
 		EB5FAE8D294F7EDD00FF160E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "BetterKia-iOS/BetterKia-iOS.entitlements";
@@ -1502,6 +1635,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EB03AFE52A3CEA3D00833D66 /* Build configuration list for PBXNativeTarget "BetterKia-iOSShareExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB03AFE32A3CEA3D00833D66 /* Debug */,
+				EB03AFE42A3CEA3D00833D66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EB5FAE62294F7EDC00FF160E /* Build configuration list for PBXProject "BetterKia-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

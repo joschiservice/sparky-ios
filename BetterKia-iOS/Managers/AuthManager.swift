@@ -99,7 +99,7 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
             kSecAttrAccount: account,
             kSecAttrAccessGroup: "group.de.thevisualcablecollective.BetterKia.appgroup",
             kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,
-        ] as CFDictionary
+        ] as [CFString : Any] as CFDictionary
             
         // Add data in query to keychain
         let status = SecItemAdd(query, nil)
@@ -111,9 +111,9 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
                     kSecAttrAccount: account,
                     kSecClass: kSecClassGenericPassword,
                     kSecAttrAccessGroup: "group.de.thevisualcablecollective.BetterKia.appgroup",
-                ] as CFDictionary
+                ] as [CFString : Any] as CFDictionary
 
-                let attributesToUpdate = [kSecValueData: data, kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,] as CFDictionary
+            let attributesToUpdate = [kSecValueData: data, kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,] as [CFString : Any] as CFDictionary
 
                 // Update existing item
                 SecItemUpdate(query, attributesToUpdate)
@@ -133,7 +133,7 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccessGroup: "group.de.thevisualcablecollective.BetterKia.appgroup",
             kSecReturnData: true
-        ] as CFDictionary
+        ] as [CFString : Any] as CFDictionary
         
         var result: AnyObject?
         SecItemCopyMatching(query, &result)

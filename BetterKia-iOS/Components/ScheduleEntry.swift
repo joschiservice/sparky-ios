@@ -41,19 +41,19 @@ struct ScheduleEntry: View {
                     .aspectRatio(contentMode: .fill)
                     
                     Toggle(isOn: schedule.isActiveOnTuesday) {
-                            Text("Di")
+                            Text("Tu")
                     }
                     .toggleStyle(.button)
                     .aspectRatio(contentMode: .fill)
                     
                     Toggle(isOn: schedule.isActiveOnWednesday) {
-                            Text("Mi")
+                            Text("We")
                     }
                     .toggleStyle(.button)
                     .aspectRatio(contentMode: .fill)
                     
                     Toggle(isOn: schedule.isActiveOnThursday) {
-                            Text("Do")
+                            Text("Th")
                     }
                     .toggleStyle(.button)
                     .aspectRatio(contentMode: .fill)

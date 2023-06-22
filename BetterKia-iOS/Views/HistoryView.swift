@@ -50,7 +50,7 @@ struct HistoryEntry: View {
             
             Spacer()
             
-            Text("-20%")
+            Text("-3%")
                 .opacity(0.4)
         }
         ) {
@@ -65,7 +65,7 @@ struct HistoryEntry: View {
                             .foregroundColor(Color(UIColor.systemRed))
                             .opacity(0.6)
                         RoundedRectangle(cornerSize: CGSize(width: 2, height: 4))
-                            .size(width: (CGFloat(40) / 100.0) * metrics.size.width, height: 6)
+                            .size(width: (CGFloat(77) / 100.0) * metrics.size.width, height: 6)
                             .foregroundColor(Color(UIColor.white))
                     }
                     
@@ -73,7 +73,7 @@ struct HistoryEntry: View {
                 HStack {
                     Label("8 km", systemImage: "map")
                     Spacer()
-                    Text("≈ 3,52 €")
+                    Text("≈ 1,52 €")
                         .fontWeight(.bold)
                 }
             }
