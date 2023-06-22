@@ -153,7 +153,7 @@ struct ChangePrimaryVehicleButton: View {
                 if vehicles != nil {
                     List {
                         ForEach(vehicles!, id: \.vin) { vehicle in
-                            SelectVehicleButton(vehicleVin: vehicle.vin, onClick: onVehicleSelected, isDisabled: areSelectionsDisabled)
+                            SelectVehicleButton(vehicle: vehicle, onClick: onVehicleSelected, isDisabled: areSelectionsDisabled)
                         }
                     }
                 } else {
@@ -169,7 +169,21 @@ struct ChangePrimaryVehicleButton: View {
 }
 
 struct SelectVehicleButton: View {
-    var vehicleVin: String;
+    init(vehicle: VehicleIdentification, onClick: @escaping (_ vin: String) -> Void, isDisabled: Bool) {
+        self.vehicle = vehicle;
+        self.onClick = onClick;
+        self.isDisabled = isDisabled;
+        
+        if (vehicle.modelName == vehicle.nickname) {
+            vehicleDisplayName = vehicle.modelName;
+        } else {
+            vehicleDisplayName = "\(vehicle.nickname) (\(vehicle.modelName))";
+        }
+    }
+    
+    var vehicle: VehicleIdentification;
+    
+    var vehicleDisplayName: String;
     
     var onClick: (_ vin: String) -> Void;
     
@@ -181,10 +195,17 @@ struct SelectVehicleButton: View {
         if !isLoading {
             Button() {
                 isLoading = true;
-                onClick(vehicleVin);
+                onClick(vehicle.vin);
             }
         label: {
-            Label("VIN: " + vehicleVin, systemImage: "number")
+            HStack {
+                Image(systemName: "number")
+                VStack (alignment: .leading) {
+                    Text(vehicleDisplayName)
+                    Text("VIN: \(vehicle.vin)")
+                        .font(.system(size: 12))
+                }
+            }
         }
         .disabled(isDisabled)
         } else {
