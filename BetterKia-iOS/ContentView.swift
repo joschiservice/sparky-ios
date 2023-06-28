@@ -82,7 +82,11 @@ struct ContentView: View {
             })
             .onAppear {
                 Task {
-                    await VehicleManager.shared.getPrimaryVehicle();
+                    VehicleManager.shared.loadCachedVehicleStatus();
+                }
+                
+                Task {
+                    _ = await VehicleManager.shared.getPrimaryVehicle();
                 }
             }
         } else {

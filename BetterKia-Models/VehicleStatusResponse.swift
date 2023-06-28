@@ -37,7 +37,7 @@ public struct CommonResponse<T> {
     let data: T?
 }
 
-public struct VehicleStatus : Decodable {
+public struct VehicleStatus : Codable {
     let engine: Bool
     let evStatus: EvStatus
     let time: Date
@@ -49,21 +49,21 @@ public struct VehicleStatus : Decodable {
     let doorLock: Bool
 }
 
-public struct EvStatus: Decodable {
+public struct EvStatus: Codable {
     let batteryCharge: Bool
     let batteryStatus: Int
     let drvDistance : [DriveDistance]
 }
 
-public struct DriveDistance: Decodable {
+public struct DriveDistance: Codable {
     let rangeByFuel: RangeByFuel
 }
 
-public struct RangeByFuel: Decodable {
+public struct RangeByFuel: Codable {
     let totalAvailableRange: RangeData
 }
 
-public struct RangeData: Decodable {
+public struct RangeData: Codable {
     let value: Int
     let unit: Int
 }

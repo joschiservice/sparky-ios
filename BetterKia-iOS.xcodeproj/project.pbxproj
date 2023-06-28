@@ -73,6 +73,8 @@
 		EB9EE7C52950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */; };
 		EB9EE7C62950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */; };
 		EB9EE7C92950B000009D4D6A /* BetterKia-iOSWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EB9EE7B52950AFFE009D4D6A /* BetterKia-iOSWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EBA46E4F2A4C8CA600FC4061 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBA46E4C2A4C8CA600FC4061 /* Main.xcdatamodeld */; };
+		EBA46E522A4C8DBF00FC4061 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA46E512A4C8DBF00FC4061 /* CoreDataStack.swift */; };
 		EBA8D230299E51EE00C2ACBA /* TempCodeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D22F299E51EE00C2ACBA /* TempCodeConverter.swift */; };
 		EBA8D232299E5E7000C2ACBA /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D231299E5E7000C2ACBA /* AuthManager.swift */; };
 		EBAD23C4299CE0A5005CF29F /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */; };
@@ -267,6 +269,9 @@
 		EB9EE7C12950AFFE009D4D6A /* VehicleStatusWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = VehicleStatusWidget.intentdefinition; sourceTree = "<group>"; };
 		EB9EE7C22950B000009D4D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB9EE7C42950B000009D4D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBA46E4D2A4C8CA600FC4061 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		EBA46E4E2A4C8CA600FC4061 /* VehicleData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VehicleData.xcdatamodel; sourceTree = "<group>"; };
+		EBA46E512A4C8DBF00FC4061 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		EBA8D22F299E51EE00C2ACBA /* TempCodeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCodeConverter.swift; sourceTree = "<group>"; };
 		EBA8D231299E5E7000C2ACBA /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
@@ -440,6 +445,7 @@
 		EB5FAE69294F7EDC00FF160E /* BetterKia-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EBA46E502A4C8DA800FC4061 /* CoreData */,
 				EBA1C91E29CF6FFA00726264 /* Delegates */,
 				EBA8D22E299E51DF00C2ACBA /* Converter */,
 				EBAD23C1299CE08E005CF29F /* Views */,
@@ -454,6 +460,7 @@
 				EB5FAE6E294F7EDD00FF160E /* Assets.xcassets */,
 				EB5FAE70294F7EDD00FF160E /* Preview Content */,
 				EB77092429992F29008F9952 /* SceneDelegate.swift */,
+				EBA46E4C2A4C8CA600FC4061 /* Main.xcdatamodeld */,
 			);
 			path = "BetterKia-iOS";
 			sourceTree = "<group>";
@@ -568,6 +575,14 @@
 				EBE11D7929D06A1A005863DC /* ProductFetcher.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		EBA46E502A4C8DA800FC4061 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EBA46E512A4C8DBF00FC4061 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		EBA8D22E299E51DF00C2ACBA /* Converter */ = {
@@ -916,7 +931,9 @@
 				EBEBB7512955BA2C00296FBB /* ApiClient.swift in Sources */,
 				EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */,
 				EB03235229A2305200256B66 /* HvacControlItem.swift in Sources */,
+				EBA46E522A4C8DBF00FC4061 /* CoreDataStack.swift in Sources */,
 				EB7709282999387B008F9952 /* VehicleManager.swift in Sources */,
+				EBA46E4F2A4C8CA600FC4061 /* Main.xcdatamodeld in Sources */,
 				EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */,
 				EB4321DC295DE03000A6BA52 /* Schedule.swift in Sources */,
 				EBC8F7772A3DD9E2007EDFB9 /* ShareView.swift in Sources */,
@@ -1754,6 +1771,20 @@
 			productName = SentrySwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		EBA46E4C2A4C8CA600FC4061 /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EBA46E4D2A4C8CA600FC4061 /* Main.xcdatamodel */,
+				EBA46E4E2A4C8CA600FC4061 /* VehicleData.xcdatamodel */,
+			);
+			currentVersion = EBA46E4D2A4C8CA600FC4061 /* Main.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EB5FAE5F294F7EDC00FF160E /* Project object */;
 }

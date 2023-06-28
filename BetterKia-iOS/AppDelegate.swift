@@ -20,6 +20,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
     public var centralManager: CBCentralManager!
     var locationManager: CLLocationManager!
     
+    lazy var coreDataStack: CoreDataStack = .init(modelName: "Main")
+    
     func application(_ application: UIApplication,
                didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -31,7 +33,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
                 options.tracesSampleRate = 1.0
             }
         
-        print(TempCodeConverter.tempCodeToCelsius(code: "02H"))
+        
         
         // Setup Authentication service
         AuthManager.shared.initialize();

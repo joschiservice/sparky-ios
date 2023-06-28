@@ -10,6 +10,7 @@ import Dispatch
 import os
 import SwiftUI
 import MapKit
+import CoreData
 
 enum VehicleDataStatus {
     case Refreshing;
@@ -146,6 +147,8 @@ public class VehicleManager : ObservableObject {
             self.isHvacActive = response.data?.airCtrlOn ?? false;
             self.isVehicleLocked = response.data?.doorLock ?? false;
             self.isLoadingVehicleData = false;
+            
+            self.saveVehicleStatusToCache(status: response.data!)
         }
     }
     
@@ -240,6 +243,83 @@ public class VehicleManager : ObservableObject {
         
         DispatchQueue.main.async {
             self.isVehicleLocked = false;
+        }
+    }
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+            let container = NSPersistentContainer(name: "Main")
+            container.loadPersistentStores { description, error in
+                if let error = error {
+                    fatalError("Unable to load persistent stores: \(error)")
+                }
+            }
+            return container
+        }()
+    
+    private func saveVehicleStatusToCache(status: VehicleStatus) {
+        // Delete old record
+        let fetchRequest: NSFetchRequest<CacheEntry> = CacheEntry.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", "vehicle_status")
+        
+        let context = persistentContainer.viewContext
+
+        do {
+            let fetchedObjects = try context.fetch(fetchRequest)
+            
+            // Perform the deletion
+            for object in fetchedObjects {
+                context.delete(object)
+            }
+            
+            // Create new record
+            let person = NSEntityDescription.insertNewObject(forEntityName: "CacheEntry", into: context) as! CacheEntry
+
+            // Set the attribute values
+            person.id = "vehicle_status"
+            person.data = String(data: try JSONEncoder().encode(status), encoding: .utf8);
+            
+            // Save the context to persist the changes
+            try context.save()
+        } catch {
+            // Handle the error
+        }
+    }
+    
+    public func loadCachedVehicleStatus() {
+        let fetchRequest: NSFetchRequest<CacheEntry>
+        fetchRequest = CacheEntry.fetchRequest()
+
+        fetchRequest.predicate = NSPredicate(
+            format: "id == %@", "vehicle_status"
+        )
+
+        // Get a reference to a NSManagedObjectContext
+        let context = persistentContainer.viewContext
+
+        do {
+            let data = try context.fetch(fetchRequest).first
+            
+            if (data == nil || data!.data == nil) {
+                return;
+            }
+        
+            let decoder = JSONDecoder()
+            
+            let cachedStatus = try decoder.decode(VehicleStatus.self, from: data!.data!.data(using: .utf8)!);
+            
+            // Actual data loading was faster than getting the cache data
+            if (self.vehicleData != nil) {
+                return;
+            }
+            
+            DispatchQueue.main.async {
+                //self.lastVehicleDataUpdate = Date();
+                self.vehicleData = cachedStatus
+                self.isHvacActive = cachedStatus.airCtrlOn;
+                self.isVehicleLocked = cachedStatus.doorLock;
+            }
+        } catch let error {
+            logger.error("An error occured while loading the cached vehicle status: \(error.localizedDescription)")
         }
     }
 }
