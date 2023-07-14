@@ -140,6 +140,7 @@ public class VehicleManager : ObservableObject {
                 }
             } else {
                 self.vehicleDataStatus = VehicleDataStatus.Success;
+                self.saveVehicleStatusToCache(status: response.data!);
             }
             
             self.lastVehicleDataUpdate = Date();
@@ -147,8 +148,6 @@ public class VehicleManager : ObservableObject {
             self.isHvacActive = response.data?.airCtrlOn ?? false;
             self.isVehicleLocked = response.data?.doorLock ?? false;
             self.isLoadingVehicleData = false;
-            
-            self.saveVehicleStatusToCache(status: response.data!)
         }
     }
     
