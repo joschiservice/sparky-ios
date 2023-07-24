@@ -141,6 +141,7 @@ struct VehicleStatusWidgetEntryView : View {
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
         }
+        .widgetBackground(.black)
         .padding()
     }
 }
@@ -162,14 +163,13 @@ struct VehicleStatusWidget_Previews: PreviewProvider {
     static var previews: some View {
         VehicleStatusWidgetEntryView(entry: SimpleEntry(date: Date(), batPercentage: 100, remainingDistance: "230", isCharging: true, vehicleState: VehicleState.Parked))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .widgetBackground(.black)
             .preferredColorScheme(.dark)
     }
 }
 
 extension View {
     func widgetBackground(_ color: Color) -> some View {
-        if #available(iOSApplicationExtension 17.0, macOSApplicationExtension 14.0, *) {
+        if #available(iOSApplicationExtension 17.0, *) {
             return  containerBackground(color, for: .widget)
         } else {
             return background(color)
