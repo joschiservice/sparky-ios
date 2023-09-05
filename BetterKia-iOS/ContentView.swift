@@ -52,6 +52,8 @@ struct ContentView: View {
     @ObservedObject private var alertManager = AlertManager.shared
     @ObservedObject private var authManager = AuthManager.shared
     
+    @ObservedObject private var inCarManager = InCarManager.shared;
+    
     var body: some View {
         if authManager.isAuthenticated == true {
             TabView {
@@ -88,6 +90,9 @@ struct ContentView: View {
                 Task {
                     _ = await VehicleManager.shared.getPrimaryVehicle();
                 }
+            }
+            .fullScreenCover(isPresented: $inCarManager.isInCarUiActive) {
+                InCarView()
             }
         } else {
             OnBoardingView()

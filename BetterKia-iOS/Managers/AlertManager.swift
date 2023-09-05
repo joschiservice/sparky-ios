@@ -13,33 +13,33 @@ public class AlertManager : ObservableObject {
     @Published var showAlert = false {
         didSet {
             if (showAlert == true) {
-                return;
+                return
             }
             alertQueue.remove(at: 0)
             setNextAlert()
         }
     }
-    @Published var currentAlertTitle = "";
-    @Published var currentAlertDescription = "";
+    @Published var currentAlertTitle = ""
+    @Published var currentAlertDescription = ""
     
-    private var alertQueue: [AlertItem] = [];
+    private var alertQueue: [AlertItem] = []
     
     public func publishAlert(_ title: String, description: String) {
         if (alertQueue.count == 0) {
-            alertQueue.append(AlertItem(title: title, description: description));
-            setNextAlert();
-            return;
+            alertQueue.append(AlertItem(title: title, description: description))
+            setNextAlert()
+            return
         }
         
-        alertQueue.append(AlertItem(title: title, description: description));
+        alertQueue.append(AlertItem(title: title, description: description))
     }
     
     private func setNextAlert() {
         if (alertQueue.count > 0) {
             DispatchQueue.main.async {
-                self.currentAlertTitle = self.alertQueue.first!.title;
-                self.currentAlertDescription = self.alertQueue.first!.description;
-                self.showAlert = true;
+                self.currentAlertTitle = self.alertQueue.first!.title
+                self.currentAlertDescription = self.alertQueue.first!.description
+                self.showAlert = true
             }
         }
     }

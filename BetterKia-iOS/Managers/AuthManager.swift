@@ -7,88 +7,109 @@
 
 import Foundation
 import WidgetKit
+import os
 
 public class AuthManager : ObservableObject, ApiClientDelegate {
     public static let shared = AuthManager()
     
-    @Published var isAuthenticated = false;
+    /**
+     Represents the user's authentication state. True, if authenticated successfully or while validating the authentication on app launch and false, if user wasn't authenticated before or the authentication has expired.
+     */
+    @Published var isAuthenticated = false
+    
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "AuthManager")
     
     public func initialize() {
-        isAuthenticated = readTokens();
+        isAuthenticated = readTokens()
         
-        ApiClient.delegate = self;
+        ApiClient.delegate = self
     }
     
     /**
-     Use this function to authenticate a new user
+     Authenticates a user using the Kia Connect credentials.
      */
     public func authenticateUsingKia(email: String, password: String) async -> Bool {
-        let result = await ApiClient.authenticateUsingKia(email: email, password: password);
+        let result = await ApiClient.authenticateUsingKia(email: email, password: password)
         
         if (result == nil) {
-            return false;
+            return false
         }
         
-        let storeTokenResult = storeTokens(accessToken: result!.accessToken, refreshToken: result!.refreshToken);
+        let storeTokenResult = updateTokens(accessToken: result!.accessToken, refreshToken: result!.refreshToken)
         
         if (storeTokenResult == false) {
-            return false;
+            return false
         }
         
-        ApiClient.accessToken = result!.accessToken;
-        ApiClient.refreshToken = result!.refreshToken;
+        ApiClient.accessToken = result!.accessToken
+        ApiClient.refreshToken = result!.refreshToken
         
         DispatchQueue.main.async {
-            self.isAuthenticated = true;
+            self.isAuthenticated = true
         }
         
         // Reload widgets to display data
         WidgetCenter.shared.reloadAllTimelines()
         
-        return true;
+        return true
     }
     
+    /**
+     Authenticate a user using 'Sign in with Apple'. Not supported yet.
+     */
+    public func authenticateUsingApple() async -> Bool {
+        return true
+    }
+    
+    /**
+     Sign out the currently authenticated users. Stored tokens are cleared.
+     */
     public func signOut() {
+        // ToDo: Invalidate tokens in API
+        
         // Clear tokens in keychain
-        _ = storeTokens(accessToken: "", refreshToken: "")
+        _ = updateTokens(accessToken: "", refreshToken: "")
         
         // Clear tokens in memory
-        ApiClient.accessToken = "";
-        ApiClient.refreshToken = "";
+        ApiClient.accessToken = ""
+        ApiClient.refreshToken = ""
         
         // Update UI
         DispatchQueue.main.async {
-            self.isAuthenticated = false;
+            self.isAuthenticated = false
         }
     }
     
-    private func storeTokens(accessToken: String, refreshToken: String) -> Bool {
-        print("Saving new tokens. Access Token: '\(accessToken)' Refresh Token: '\(refreshToken)'");
+    /**
+     Updates access and refresh token in storage.
+     */
+    public func updateTokens(accessToken: String, refreshToken: String) -> Bool {
+        logger.debug("Saving new tokens. Access Token: '\(accessToken)' Refresh Token: '\(refreshToken)'")
         
-        let accessTokenResult = saveDataInKeychain(data: Data(accessToken.utf8), service: "access-token", account: "better-kia");
-        let refreshTokenResult = saveDataInKeychain(data: Data(refreshToken.utf8), service: "refresh-token", account: "better-kia");
+        let accessTokenResult = saveDataInKeychain(data: Data(accessToken.utf8), service: "access-token", account: "better-kia")
+        let refreshTokenResult = saveDataInKeychain(data: Data(refreshToken.utf8), service: "refresh-token", account: "better-kia")
         
-        return accessTokenResult && refreshTokenResult;
+        return accessTokenResult && refreshTokenResult
     }
     
     private func readTokens() -> Bool {
-        let accessTokenData = readDataInKeychain(service: "access-token", account: "better-kia");
+        let accessTokenData = readDataInKeychain(service: "access-token", account: "better-kia")
         
         if (accessTokenData == nil) {
-            return false;
+            return false
         }
         
-        ApiClient.accessToken = String(decoding: accessTokenData!, as: UTF8.self);
+        ApiClient.accessToken = String(decoding: accessTokenData!, as: UTF8.self)
         
-        let refreshTokenData = readDataInKeychain(service: "refresh-token", account: "better-kia");
+        let refreshTokenData = readDataInKeychain(service: "refresh-token", account: "better-kia")
         
         if (refreshTokenData == nil) {
-            return false;
+            return false
         }
         
-        ApiClient.refreshToken = String(decoding: refreshTokenData!, as: UTF8.self);
+        ApiClient.refreshToken = String(decoding: refreshTokenData!, as: UTF8.self)
         
-        return true;
+        return true
     }
     
     private func saveDataInKeychain(data: Data, service: String, account: String) -> Bool {
@@ -118,11 +139,11 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
                 // Update existing item
                 SecItemUpdate(query, attributesToUpdate)
         } else if status != errSecSuccess {
-            print("Error: An error occured while saving data in the keychain (\(account).\(service)) \(status)")
-            return false;
+            logger.error("Error: An error occured while saving data in the keychain (\(account).\(service)) \(status)")
+            return false
         }
         
-        return true;
+        return true
     }
     
     func readDataInKeychain(service: String, account: String) -> Data? {
@@ -141,18 +162,13 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
         return (result as? Data)
     }
     
-    /**
-     Use this function to authenticate a new user using 'Sign in with Apple'
-     */
-    public func authenticateUsingApple() async -> Bool {
-        return true;
-    }
+    // MARK: - ApiClientDelegate Implementation
     
     public func newTokensReceived(accessToken: String, refreshToken: String) {
-        _ = storeTokens(accessToken: accessToken, refreshToken: refreshToken)
+        _ = updateTokens(accessToken: accessToken, refreshToken: refreshToken)
     }
     
     public func sessionExpired() {
-        isAuthenticated = false;
+        isAuthenticated = false
     }
 }

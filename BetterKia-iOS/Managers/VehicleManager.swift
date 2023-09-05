@@ -13,10 +13,10 @@ import MapKit
 import CoreData
 
 enum VehicleDataStatus {
-    case Refreshing;
-    case UnknownError;
-    case Success;
-    case RateLimitedByOEM;
+    case Refreshing
+    case UnknownError
+    case Success
+    case RateLimitedByOEM
 }
 
 struct CarPosition: Identifiable {
@@ -26,69 +26,69 @@ struct CarPosition: Identifiable {
 }
 
 struct Vehicle {
-    let model: String;
-    let vin: String;
+    let model: String
+    let vin: String
 }
 
 public class VehicleManager : ObservableObject {
-    @Published var showClimateControlPopover = false;
-    @Published var isLoadingVehicleData = false;
-    @Published var vehicleData: VehicleStatus? = nil;
-    @Published var currentHvacTargetTemp: Int? = 21;
-    @Published var vehicleLocation: VehicleLocation? = nil;
-    @Published var isLoadingVehicleLocation = false;
-    @Published var isHvacActive = false;
-    @Published var vehicleDataStatus = VehicleDataStatus.Refreshing;
-    @Published var isVehicleLocked = true;
-    @Published var vehicleRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002));
-    var lastVehicleDataUpdate: Date? = nil;
-    @Published var vehiclePositionAnnotations: [CarPosition] = [];
+    public static var shared = VehicleManager()
+    
+    @Published var showClimateControlPopover = false
+    @Published var isLoadingVehicleData = false
+    @Published var vehicleData: VehicleStatus? = nil
+    @Published var currentHvacTargetTemp: Int? = 21
+    @Published var vehicleLocation: VehicleLocation? = nil
+    @Published var isLoadingVehicleLocation = false
+    @Published var isHvacActive = false
+    @Published var vehicleDataStatus = VehicleDataStatus.Refreshing
+    @Published var isVehicleLocked = true
+    @Published var vehicleRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
+    var lastVehicleDataUpdate: Date? = nil
+    @Published var vehiclePositionAnnotations: [CarPosition] = []
     
     let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "VehicleManager")
     
-    public static var shared = VehicleManager()
-    
-    @Published public var primaryVehicle: PrimaryVehicleInfo? = nil;
+    @Published public var primaryVehicle: PrimaryVehicleInfo? = nil
     
     public func start() async {
-        logger.log("Starting vehicle...");
+        logger.log("Starting vehicle...")
         
         DispatchQueue.main.async {
-            //self.showClimateControlPopover = true;
+            //self.showClimateControlPopover = true
         }
         
-        let result = await ApiClient.startVehicle();
+        let result = await ApiClient.startVehicle()
         
-        logger.log("Start: \(result?.code ?? "Unknown Error")");
+        logger.log("Start: \(result?.code ?? "Unknown Error")")
         
         if (result == nil || result?.code != "SUCCESS") {
-            logger.warning("StartVehicle: Received bad response. Checking vehicle status with a manual refresh...");
+            logger.warning("StartVehicle: Received bad response. Checking vehicle status with a manual refresh...")
             
             AlertManager.shared.publishAlert("Error: Start air conditioning", description: "We were not able to ensure that the air conditioning has been started as the KiaConnect service wasn't able to retrieve data from the car in time.")
-            return;
+            return
         }
         
         DispatchQueue.main.async {
-            self.isHvacActive = true;
+            self.isHvacActive = true
         }
     }
     
     public func getPrimaryVehicle(force: Bool = false) async -> PrimaryVehicleInfo? {
         if primaryVehicle != nil && !force {
-            return primaryVehicle;
+            return primaryVehicle
         }
         
         if IS_DEMO_MODE {
-            return PrimaryVehicleInfo(vin: "EXAMPLE_VIN", modelName: "EXAMPLE_MODEL");
+            return PrimaryVehicleInfo(vin: "EXAMPLE_VIN", modelName: "EXAMPLE_MODEL")
         }
         
-        let data = await ApiClient.getPrimaryVehicle();
+        let data = await ApiClient.getPrimaryVehicle()
         
         DispatchQueue.main.async {
-            self.primaryVehicle = data;
+            self.primaryVehicle = data
         }
         
-        return primaryVehicle;
+        return primaryVehicle
     }
     
     public func getVehicles() async -> [VehicleIdentification]? {
@@ -99,90 +99,91 @@ public class VehicleManager : ObservableObject {
             ]
         }
         
-        return await ApiClient.getVehicles();
+        return await ApiClient.getVehicles()
     }
     
     public func stop() async {
-        logger.log("Stopping vehicle...");
+        logger.log("Stopping vehicle...")
         
-        let result = await ApiClient.stopVehicle();
+        let result = await ApiClient.stopVehicle()
         
-        logger.log("Stop: \(result?.code ?? "Unknown Error")");
+        logger.log("Stop: \(result?.code ?? "Unknown Error")")
         
         if (result == nil || result?.code != "SUCCESS") {
             AlertManager.shared.publishAlert("Stop air conditioning", description: "We were not able to ensure that the air conditioning has been stopped as the KiaConnect service wasn't able to retrieve data from the car in time.")
-            return;
+            return
         }
         
         DispatchQueue.main.async {
-            self.isHvacActive = false;
+            self.isHvacActive = false
         }
     }
     
     public func getVehicleData(forceRefresh: Bool = false) async {
         DispatchQueue.main.async {
-            self.isLoadingVehicleData = true;
-            self.vehicleDataStatus = VehicleDataStatus.Refreshing;
+            self.isLoadingVehicleData = true
+            self.vehicleDataStatus = VehicleDataStatus.Refreshing
         }
         
-        logger.log("Retrieving vehicle status data...");
-        let response = await ApiClient.getVehicleStatus(refreshData: forceRefresh);
+        logger.log("Retrieving vehicle status data...")
+        let response = await ApiClient.getVehicleStatus(refreshData: forceRefresh)
         
         DispatchQueue.main.async {
             if (response.failed) {
                 if (response.error == ApiErrorType.RateLimitedByOEM) {
-                    self.vehicleDataStatus = VehicleDataStatus.RateLimitedByOEM;
+                    self.vehicleDataStatus = VehicleDataStatus.RateLimitedByOEM
                 } else if (response.error == ApiErrorType.InvalidBrandSession) {
-                    self.vehicleDataStatus = VehicleDataStatus.UnknownError;
+                    self.vehicleDataStatus = VehicleDataStatus.UnknownError
                     AlertManager.shared.publishAlert("Reconnect your Kia account", description: "The connection with the KiaConnect service has expired. Please reconnect your Kia account in the settings to continue using Sparky.")
                 } else {
-                    self.vehicleDataStatus = VehicleDataStatus.UnknownError;
+                    self.vehicleDataStatus = VehicleDataStatus.UnknownError
                 }
             } else {
-                self.vehicleDataStatus = VehicleDataStatus.Success;
-                self.saveVehicleStatusToCache(status: response.data!);
+                self.vehicleDataStatus = VehicleDataStatus.Success
+                self.saveVehicleStatusToCache(status: response.data!)
             }
             
-            self.lastVehicleDataUpdate = Date();
-            self.vehicleData = response.data;
-            self.isHvacActive = response.data?.airCtrlOn ?? false;
-            self.isVehicleLocked = response.data?.doorLock ?? false;
-            self.isLoadingVehicleData = false;
+            self.lastVehicleDataUpdate = Date()
+            self.vehicleData = response.data
+            self.isHvacActive = response.data?.airCtrlOn ?? false
+            self.isVehicleLocked = response.data?.doorLock ?? false
+            self.isLoadingVehicleData = false
         }
     }
     
     public func getVehicleLocation() async {
         // DEMO
         DispatchQueue.main.async {
-            self.logger.log("Location: setting demo data");
+            self.logger.log("Location: setting demo data")
             self.vehicleLocation = VehicleLocation(latitude: 53.546925, longitude: 9.998855, speed:VehicleSpeed(unit: 1, value: 0), heading: 0)
             
             let mapLocation = CLLocationCoordinate2D(latitude: self.vehicleLocation!.latitude, longitude: self.vehicleLocation!.longitude)
             
             self.vehicleRegion = MKCoordinateRegion(center: mapLocation, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
             
-            self.vehiclePositionAnnotations.append(CarPosition(name: "Car", coordinate: self.vehicleRegion.center));
+            self.vehiclePositionAnnotations.append(CarPosition(name: "Car", coordinate: self.vehicleRegion.center))
             
-            self.isLoadingVehicleLocation = false;
-        }
-        return;
-        DispatchQueue.main.async {
-            self.isLoadingVehicleLocation = true;
+            self.isLoadingVehicleLocation = false
         }
         
-        logger.log("Retrieving vehicle location...");
-        let data = await ApiClient.getVehicleLocation();
+        /*
+        DispatchQueue.main.async {
+            self.isLoadingVehicleLocation = true
+        }
+        
+        logger.log("Retrieving vehicle location...")
+        let data = await ApiClient.getVehicleLocation()
         
         DispatchQueue.main.async {
-            self.logger.log("Location: request finished");
+            self.logger.log("Location: request finished")
             if (data != nil && !data!.error) {
-                self.vehicleLocation = data?.message;
+                self.vehicleLocation = data?.message
             } else {
-                self.logger.log("Location: no data avilable");
-                self.vehicleLocation = nil;
+                self.logger.log("Location: no data avilable")
+                self.vehicleLocation = nil
             }
-            self.isLoadingVehicleLocation = false;
-        }
+            self.isLoadingVehicleLocation = false
+        }*/
     }
     
     public func getCurrentTemperature(startTemp: Double, targetTemp: Double, startTime: Date) -> Double {
@@ -203,45 +204,45 @@ public class VehicleManager : ObservableObject {
      Returns an instance of VehicleManager, that is optimized for usage in preview environments.
      */
     public static func getPreviewInstance() -> VehicleManager {
-        let vmanager = VehicleManager();
+        let vmanager = VehicleManager()
         vmanager.currentHvacTargetTemp = 22
         vmanager.vehicleData = VehicleStatus(
             engine: false, evStatus: EvStatus(batteryCharge: true, batteryStatus: 20, drvDistance: [DriveDistance(rangeByFuel: RangeByFuel(totalAvailableRange: RangeData(value: 320, unit: 1)))]),
             time: Date(), acc: true, sideBackWindowHeat: 1, steerWheelHeat: 1, defrost: true, airCtrlOn: false, doorLock: false)
-        vmanager.vehicleLocation = VehicleLocation(latitude: 54.19478906001295, longitude: 9.093066782003024, speed: VehicleSpeed(unit: 0, value: 0), heading: 0);
-        vmanager.isHvacActive = true;
-        return vmanager;
+        vmanager.vehicleLocation = VehicleLocation(latitude: 54.19478906001295, longitude: 9.093066782003024, speed: VehicleSpeed(unit: 0, value: 0), heading: 0)
+        vmanager.isHvacActive = true
+        return vmanager
     }
     
     public func lock() async {
-        let result = await ApiClient.lockVehicle();
+        let result = await ApiClient.lockVehicle()
         
         if (result == nil || result?.code != "SUCCESS") {
-            logger.warning("LockVehicle: Received bad response. Checking vehicle status with a manual refresh...");
+            logger.warning("LockVehicle: Received bad response. Checking vehicle status with a manual refresh...")
             
             AlertManager.shared.publishAlert("Error: Start air conditioning", description: "We were not able to ensure that the air conditioning has been started as the KiaConnect service wasn't able to retrieve data from the car in time.")
             
-            return;
+            return
         }
         
         DispatchQueue.main.async {
-            self.isVehicleLocked = true;
+            self.isVehicleLocked = true
         }
     }
     
     public func unlock() async {
-        let result = await ApiClient.unlockVehicle();
+        let result = await ApiClient.unlockVehicle()
         
         if (result == nil || result?.code != "SUCCESS") {
-            logger.warning("UnlockVehicle: Received bad response. Checking vehicle status with a manual refresh...");
+            logger.warning("UnlockVehicle: Received bad response. Checking vehicle status with a manual refresh...")
             
             AlertManager.shared.publishAlert("Error: Unlock vehicle", description: "We were not able to ensure that the vehicle has been unlocked as the KiaConnect service wasn't able to retrieve data from the car in time.")
             
-            return;
+            return
         }
         
         DispatchQueue.main.async {
-            self.isVehicleLocked = false;
+            self.isVehicleLocked = false
         }
     }
     
@@ -275,7 +276,7 @@ public class VehicleManager : ObservableObject {
 
             // Set the attribute values
             person.id = "vehicle_status"
-            person.data = String(data: try JSONEncoder().encode(status), encoding: .utf8);
+            person.data = String(data: try JSONEncoder().encode(status), encoding: .utf8)
             
             // Save the context to persist the changes
             try context.save()
@@ -299,23 +300,22 @@ public class VehicleManager : ObservableObject {
             let data = try context.fetch(fetchRequest).first
             
             if (data == nil || data!.data == nil) {
-                return;
+                return
             }
         
             let decoder = JSONDecoder()
             
-            let cachedStatus = try decoder.decode(VehicleStatus.self, from: data!.data!.data(using: .utf8)!);
+            let cachedStatus = try decoder.decode(VehicleStatus.self, from: data!.data!.data(using: .utf8)!)
             
             // Actual data loading was faster than getting the cache data
             if (self.vehicleData != nil) {
-                return;
+                return
             }
             
             DispatchQueue.main.async {
-                //self.lastVehicleDataUpdate = Date();
                 self.vehicleData = cachedStatus
-                self.isHvacActive = cachedStatus.airCtrlOn;
-                self.isVehicleLocked = cachedStatus.doorLock;
+                self.isHvacActive = cachedStatus.airCtrlOn
+                self.isVehicleLocked = cachedStatus.doorLock
             }
         } catch let error {
             logger.error("An error occured while loading the cached vehicle status: \(error.localizedDescription)")
