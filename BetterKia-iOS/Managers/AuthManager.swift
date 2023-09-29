@@ -139,7 +139,7 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
                 // Update existing item
                 SecItemUpdate(query, attributesToUpdate)
         } else if status != errSecSuccess {
-            logger.error("Error: An error occured while saving data in the keychain (\(account).\(service)) \(status)")
+            logger.error("Error: An error occured while saving data in the keychain (\(account).\(service)) \(status.description)")
             return false
         }
         

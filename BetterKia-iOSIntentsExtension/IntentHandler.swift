@@ -15,7 +15,7 @@ class IntentHandler: INExtension {
         return GetCarsListHandler()
     } else if intent is INSetCarLockStatusIntent {
         return SetCarLockStatusHandler()
-    } else if intent is StartClimateControlIntent {
+    } else if intent is StartPreconditioningIntent {
         return StartClimateControlHandler()
     }
     return .none

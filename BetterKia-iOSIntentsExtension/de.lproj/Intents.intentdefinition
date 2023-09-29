@@ -9,22 +9,42 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>haMka0</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>22C65</string>
+	<string>23A344</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>14C18</string>
+	<string>15A240d</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>14.2</string>
+	<string>15.0</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
 			<key>INIntentCategory</key>
 			<string>start</string>
+			<key>INIntentConfigurable</key>
+			<true/>
 			<key>INIntentDescription</key>
-			<string>Starte die Vorklimatisierung eines Fahrzeuges</string>
+			<string>Starts the preconditioning of your active vehicle</string>
 			<key>INIntentDescriptionID</key>
 			<string>UNYaDt</string>
+			<key>INIntentInput</key>
+			<string>temperature</string>
+			<key>INIntentLastParameterTag</key>
+			<integer>2</integer>
+			<key>INIntentManagedParameterCombinations</key>
+			<dict>
+				<key>temperature</key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Start Preconditioning</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>wwcLrO</string>
+					<key>INIntentParameterCombinationUpdatesLinked</key>
+					<true/>
+				</dict>
+			</dict>
 			<key>INIntentName</key>
-			<string>StartClimateControl</string>
+			<string>StartPreconditioning</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
 				<key></key>
@@ -42,14 +62,123 @@
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>nX8dtr</string>
 				</dict>
+				<key>temperature</key>
+				<dict>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string>Starts the preconditioning for your active vehicle to get ready to drive</string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>OmeeKs</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Start Preconditioning</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>g6Hkjy</string>
+				</dict>
 			</dict>
+			<key>INIntentParameters</key>
+			<array>
+				<dict>
+					<key>INIntentParameterConfigurable</key>
+					<true/>
+					<key>INIntentParameterCustomDisambiguation</key>
+					<true/>
+					<key>INIntentParameterDisplayName</key>
+					<string>Temperature</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>Ngb6Ul</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>1</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataDefaultValue</key>
+						<real>22</real>
+						<key>INIntentParameterMetadataMaximumValue</key>
+						<real>27</real>
+						<key>INIntentParameterMetadataMinimumValue</key>
+						<real>17</real>
+						<key>INIntentParameterMetadataType</key>
+						<string>Slider</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>temperature</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Configuration</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>To which temperature would you like to precondition your vehicle?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>Lz6cxx</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Just to confirm, you wanted ‘${temperature}’ degrees?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>0WbAGX</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Confirmation</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>2</integer>
+					<key>INIntentParameterType</key>
+					<string>Decimal</string>
+					<key>INIntentParameterUnsupportedReasons</key>
+					<array>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>negativeNumbersNotSupported</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can’t be negative.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>FI4Dur</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>greaterThanMaximumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can’t be higher than ${maximumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>2WFKX1</string>
+						</dict>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>lessThanMinimumValue</string>
+							<key>INIntentParameterUnsupportedReasonDefault</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>${displayName} can’t be lower than ${minimumValue}.</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>rkV290</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Vorklimatisierung erfolgreich gestartet</string>
+						<string>Preconditioning for your vehicle has been started</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>YwsNs7</string>
 						<key>INIntentResponseCodeName</key>
@@ -59,16 +188,48 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Ein Fehler ist aufgetreten</string>
+						<string>An error occurred. while trying to start preconditioning your vehicle</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>yqppSi</string>
 						<key>INIntentResponseCodeName</key>
 						<string>failure</string>
 					</dict>
 				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>2</integer>
+				<key>INIntentResponseOutput</key>
+				<string>wasSuccessful</string>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Was Successful</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>ZRSLzY</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterMetadata</key>
+						<dict>
+							<key>INIntentResponseParameterMetadataFalseDisplayName</key>
+							<string>false</string>
+							<key>INIntentResponseParameterMetadataFalseDisplayNameID</key>
+							<string>k1zh3B</string>
+							<key>INIntentResponseParameterMetadataTrueDisplayName</key>
+							<string>true</string>
+							<key>INIntentResponseParameterMetadataTrueDisplayNameID</key>
+							<string>2Ac7mC</string>
+						</dict>
+						<key>INIntentResponseParameterName</key>
+						<string>wasSuccessful</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>2</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>Boolean</string>
+					</dict>
+				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Starte Vorklimatisierung</string>
+			<string>Start Preconditioning</string>
 			<key>INIntentTitleID</key>
 			<string>Y0ktAx</string>
 			<key>INIntentType</key>

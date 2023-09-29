@@ -15,7 +15,7 @@
 				<string>INGetCarPowerLevelStatusIntent</string>
 				<string>INListCarsIntent</string>
 				<string>INSetCarLockStatusIntent</string>
-				<string>StartClimateControlIntent</string>
+				<string>StartPreconditioningIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>

@@ -13,6 +13,8 @@ struct SettingsView: View {
     @ObservedObject var vehicleManager = VehicleManager.shared
     
     @State var isBleAutoUnlockActivated = false;
+    @State var disableObd2BleConnection = false;
+    @State var selectedAmbientLightMode = "None";
     @State var obd2Uuid = "";
     
     var body: some View {
@@ -24,7 +26,25 @@ struct SettingsView: View {
                     ChangePrimaryVehicleButton()
                 }
                 
-                Section() {
+                Section("Ambient Light") {
+                    NavigationLink("Advanced") {
+                        List {
+                            Toggle("Disable OBD2 BLE connection", isOn: $disableObd2BleConnection)
+                            
+                            Picker("Force light mode", selection: $selectedAmbientLightMode) {
+                                Text("None")
+                                    .tag("None")
+                                Text("Day")
+                                    .tag("Day")
+                                Text("Night")
+                                    .tag("Night")
+                            }
+                        }
+                        .navigationTitle("Advanced")
+                    }
+                }
+                
+                Section("Developer") {
                     NavigationLink("Experimental Features") {
                         List {
                             Section(footer: Text("AutoLock measures the distance between your smartphone and the OBD2 adapter in your car to determine, when you walk away from your vehicle.")) {

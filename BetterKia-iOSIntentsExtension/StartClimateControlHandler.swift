@@ -10,12 +10,24 @@ import Intents
 import os
 import UIKit
 
-class StartClimateControlHandler: NSObject, StartClimateControlIntentHandling {
-  func handle(intent: StartClimateControlIntent,
-              completion: @escaping (StartClimateControlIntentResponse) -> Void) {
+class StartClimateControlHandler: NSObject, StartPreconditioningIntentHandling {
+    func resolveTemperature(for intent: StartPreconditioningIntent, with completion: @escaping (StartPreconditioningTemperatureResolutionResult) -> Void) {
+        var result: StartPreconditioningTemperatureResolutionResult;
+        
+        if let temperature = intent.temperature {
+            result = StartPreconditioningTemperatureResolutionResult.success(with: temperature.doubleValue)
+        } else {
+            result = StartPreconditioningTemperatureResolutionResult.needsValue();
+        }
+        
+        completion(result);
+    }
+    
+  func handle(intent: StartPreconditioningIntent,
+              completion: @escaping (StartPreconditioningIntentResponse) -> Void) {
       let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "main")
       logger.debug("hi33312")
-      let response = StartClimateControlIntentResponse(code: .success, userActivity: .none)
+      let response = StartPreconditioningIntentResponse(code: .success, userActivity: .none)
       
       completion(response)
   }

@@ -20,6 +20,8 @@
 		EB0FB988296EC1DE00898ADA /* ClimateControlScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */; };
 		EB0FB98B296F2C3000898ADA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EB0FB98A296F2C3000898ADA /* Lottie */; };
 		EB0FB98D296F2CD100898ADA /* air-conditioner-and-heater-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */; };
+		EB17A4EB2AC5F0B70037E5CF /* StartPreconditioningIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17A4EA2AC5F0B70037E5CF /* StartPreconditioningIntent.swift */; };
+		EB17A4ED2AC5F1750037E5CF /* BetterKiaShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17A4EC2AC5F1750037E5CF /* BetterKiaShortcuts.swift */; };
 		EB28828E29CE42EA0001E44C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28828D29CE42EA0001E44C /* SettingsView.swift */; };
 		EB2C14CA29A2D13500ED944C /* LockControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C14C929A2D13500ED944C /* LockControlItem.swift */; };
 		EB3374812AA1D23E001DF0E4 /* BluetoothDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3374802AA1D23E001DF0E4 /* BluetoothDelegate.swift */; };
@@ -224,6 +226,8 @@
 		EB03AFDF2A3CEA3D00833D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB0FB987296EC1DE00898ADA /* ClimateControlScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateControlScheduleView.swift; sourceTree = "<group>"; };
 		EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "air-conditioner-and-heater-lottie.json"; sourceTree = "<group>"; };
+		EB17A4EA2AC5F0B70037E5CF /* StartPreconditioningIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPreconditioningIntent.swift; sourceTree = "<group>"; };
+		EB17A4EC2AC5F1750037E5CF /* BetterKiaShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKiaShortcuts.swift; sourceTree = "<group>"; };
 		EB28828D29CE42EA0001E44C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB2C14C929A2D13500ED944C /* LockControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockControlItem.swift; sourceTree = "<group>"; };
 		EB3374802AA1D23E001DF0E4 /* BluetoothDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDelegate.swift; sourceTree = "<group>"; };
@@ -402,6 +406,15 @@
 			path = "BetterKia-iOSShareExt";
 			sourceTree = "<group>";
 		};
+		EB17A4E92AC5F0A30037E5CF /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				EB17A4EA2AC5F0B70037E5CF /* StartPreconditioningIntent.swift */,
+				EB17A4EC2AC5F1750037E5CF /* BetterKiaShortcuts.swift */,
+			);
+			path = AppIntents;
+			sourceTree = "<group>";
+		};
 		EB3374822AA1E1FC001DF0E4 /* Bluetooth */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +479,7 @@
 		EB5FAE69294F7EDC00FF160E /* BetterKia-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				EB17A4E92AC5F0A30037E5CF /* AppIntents */,
 				EBA46E502A4C8DA800FC4061 /* CoreData */,
 				EBA1C91E29CF6FFA00726264 /* Delegates */,
 				EBA8D22E299E51DF00C2ACBA /* Converter */,
@@ -979,11 +993,13 @@
 				EB3374842AA1E215001DF0E4 /* MainEcuDelegate.swift in Sources */,
 				EB28828E29CE42EA0001E44C /* SettingsView.swift in Sources */,
 				EB645C662A114F760080AED1 /* HistoryView.swift in Sources */,
+				EB17A4EB2AC5F0B70037E5CF /* StartPreconditioningIntent.swift in Sources */,
 				EB0FB988296EC1DE00898ADA /* ClimateControlScheduleView.swift in Sources */,
 				EBE11D7A29D06A1A005863DC /* ProductFetcher.swift in Sources */,
 				EBA8D232299E5E7000C2ACBA /* AuthManager.swift in Sources */,
 				EB46C69F299ECBDB00AAB8AE /* DashboardView.swift in Sources */,
 				EB77092A29993C8C008F9952 /* StartInfoView.swift in Sources */,
+				EB17A4ED2AC5F1750037E5CF /* BetterKiaShortcuts.swift in Sources */,
 				EBAD23C4299CE0A5005CF29F /* OnBoardingView.swift in Sources */,
 				EB3374862AA1EA0F001DF0E4 /* InCarManager.swift in Sources */,
 				EBF623ED29A26120003044AC /* AlertManager.swift in Sources */,

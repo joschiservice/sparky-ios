@@ -20,7 +20,7 @@ public class InCarManager: ObservableObject {
     @Published var isConnecting = false;
     
     // UI
-    @Published var isInCarUiActive = true;
+    @Published var isInCarUiActive = false;
     
     // InCar-related data
     @Published var ambientLightColor: Color?

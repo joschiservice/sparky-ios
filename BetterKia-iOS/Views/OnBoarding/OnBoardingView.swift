@@ -44,11 +44,7 @@ struct OnBoardingView: View {
                 LinearGradient(colors: [.blue, .init(red: 187/255, green: 22/255, blue: 44/255)], startPoint: .topLeading, endPoint: .bottomTrailing)
                     .hueRotation(.degrees(animateGradient ? 25 : 0))
                     .ignoresSafeArea()
-                    .onAppear {
-                            withAnimation(.easeInOut(duration: 10.0).repeatForever(autoreverses: true)) {
-                                animateGradient.toggle()
-                            }
-                        }
+ 
             )
             .preferredColorScheme(.dark)
             .navigationDestination(
