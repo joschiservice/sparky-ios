@@ -50,14 +50,19 @@ public class VehicleManager : ObservableObject {
     
     @Published public var primaryVehicle: PrimaryVehicleInfo? = nil
     
-    public func start() async {
+    public func start(data: StartVehicleRequest? = nil) async {
+        var actualData = data;
         logger.log("Starting vehicle...")
         
         DispatchQueue.main.async {
             //self.showClimateControlPopover = true
         }
         
-        let result = await ApiClient.startVehicle()
+        if actualData == nil {
+            actualData = StartVehicleRequest(temperature: 22, withLiveActivityTip: false, durationMinutes: 10)
+        }
+        
+        let result = await ApiClient.startVehicle(data: actualData!)
         
         logger.log("Start: \(result?.code ?? "Unknown Error")")
         

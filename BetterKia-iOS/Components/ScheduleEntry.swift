@@ -71,7 +71,7 @@ struct ScheduleEntry: View {
                     .aspectRatio(contentMode: .fill)
                     
                     Toggle(isOn: schedule.isActiveOnSunday) {
-                            Text("So")
+                            Text("Su")
                     }
                     .toggleStyle(.button)
                     .aspectRatio(contentMode: .fill)

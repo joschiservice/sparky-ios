@@ -11,7 +11,8 @@ struct BetterKiaShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
             intent: StartPreconditioningIntent(),
-            phrases: ["Start Preconditioning using \(.applicationName)"]
+            phrases: ["Start Preconditioning using \(.applicationName)"],
+            systemImageName: "car.front.waves.up.fill"
         )
     }
 }

@@ -42,6 +42,27 @@ struct SettingsView: View {
                         }
                         .navigationTitle("Advanced")
                     }
+                    
+                    NavigationLink() {
+                        VStack {
+                            ZStack {
+                                RoundedRectangle(cornerSize: .init(width: 8, height: 8))
+                                    .fill(.red)
+                                    .frame(height: 100)
+                                    .shadow(color: .red, radius: 24)
+                                
+                                Text("Sport")
+                                    .foregroundColor(.white)
+                                    .opacity(0.8)
+                                    .font(.system(size: 32, weight: .heavy))
+                            }
+                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+                        }
+                        .navigationTitle("Select Theme")
+                    } label: {
+                        Text("Theme")
+                            .badge("Sport")
+                    }
                 }
                 
                 Section("Developer") {

@@ -51,6 +51,7 @@
 		EB7709282999387B008F9952 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7709272999387B008F9952 /* VehicleManager.swift */; };
 		EB77092A29993C8C008F9952 /* StartInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB77092929993C8C008F9952 /* StartInfoView.swift */; };
 		EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7BD2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift */; };
+		EB9C9AFF2AC6E11700486281 /* AuthAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9C9AFE2AC6E11700486281 /* AuthAppIntent.swift */; };
 		EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */; };
 		EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE77A295080FD009D4D6A /* ContentView.swift */; };
 		EB9EE77D295080FE009D4D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9EE77C295080FE009D4D6A /* Assets.xcassets */; };
@@ -260,6 +261,7 @@
 		EB77092429992F29008F9952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EB7709272999387B008F9952 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
 		EB77092929993C8C008F9952 /* StartInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInfoView.swift; sourceTree = "<group>"; };
+		EB9C9AFE2AC6E11700486281 /* AuthAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppIntent.swift; sourceTree = "<group>"; };
 		EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BetterKia Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKiaApp.swift; sourceTree = "<group>"; };
 		EB9EE77A295080FD009D4D6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			children = (
 				EB17A4EA2AC5F0B70037E5CF /* StartPreconditioningIntent.swift */,
 				EB17A4EC2AC5F1750037E5CF /* BetterKiaShortcuts.swift */,
+				EB9C9AFE2AC6E11700486281 /* AuthAppIntent.swift */,
 			);
 			path = AppIntents;
 			sourceTree = "<group>";
@@ -983,6 +986,7 @@
 				EB03234B29A22FD500256B66 /* VehicleStatusWidget.swift in Sources */,
 				EBFCC1D129B8F97500736F76 /* SignInUsingKiaView.swift in Sources */,
 				EB03235029A2302C00256B66 /* ControlItem.swift in Sources */,
+				EB9C9AFF2AC6E11700486281 /* AuthAppIntent.swift in Sources */,
 				EB3374812AA1D23E001DF0E4 /* BluetoothDelegate.swift in Sources */,
 				EBA8D230299E51EE00C2ACBA /* TempCodeConverter.swift in Sources */,
 				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,

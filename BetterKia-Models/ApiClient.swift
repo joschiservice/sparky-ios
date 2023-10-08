@@ -463,9 +463,13 @@ public class ApiClient {
         return nil;
     }
     
-    static func startVehicle() async -> CommandResponse? {
+    static func startVehicle(data: StartVehicleRequest) async -> CommandResponse? {
         do {
-            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/start")
+            let jsonEncoder = JSONEncoder()
+            jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
+            let jsonData = try? jsonEncoder.encode(data);
+            
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/start", method: "POST", jsonData: jsonData)
             
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode == 200) {
@@ -536,4 +540,11 @@ public class ApiClient {
 struct SignInUsingKiaRequest: Encodable {
     let email: String
     let password: String
+}
+
+public struct StartVehicleRequest: Encodable {
+    let temperature: UInt;
+    let defrost: Bool? = nil;
+    let withLiveActivityTip: Bool;
+    let durationMinutes: UInt;
 }
