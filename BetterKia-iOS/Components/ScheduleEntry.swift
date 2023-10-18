@@ -8,10 +8,30 @@
 import Foundation
 import SwiftUI
 
+struct WeekDayToggleData {
+    public let shortName: String;
+    public let getIsActiveBinding: (_: Binding<Schedule>) -> Binding<Bool>;
+    
+    init(_ shortName: String, _ getIsActiveBinding: @escaping (_: Binding<Schedule>) -> Binding<Bool>) {
+        self.shortName = shortName
+        self.getIsActiveBinding = getIsActiveBinding
+    }
+}
+
 struct ScheduleEntry: View {
     @State private var isOn = false
     @State private var isAlertPresented = false
     @State private var newScheduleName = ""
+    
+    static let Weekdays: [WeekDayToggleData] = [
+        WeekDayToggleData("Mo", { s in s.isActiveOnMonday }),
+        WeekDayToggleData("Tu", { s in s.isActiveOnTuesday }),
+        WeekDayToggleData("We", { s in s.isActiveOnWednesday }),
+        WeekDayToggleData("Th", { s in s.isActiveOnThursday }),
+        WeekDayToggleData("Fr", { s in s.isActiveOnFriday }),
+        WeekDayToggleData("Sa", { s in s.isActiveOnSaturday }),
+        WeekDayToggleData("Su", { s in s.isActiveOnSunday })
+    ];
     
     var schedule: Binding<Schedule>
     
@@ -34,47 +54,13 @@ struct ScheduleEntry: View {
         ) {
             VStack(spacing: 20) {
                 HStack {
-                    Toggle(isOn: schedule.isActiveOnMonday) {
-                            Text("Mo")
+                    ForEach(ScheduleEntry.Weekdays, id: \.shortName) {weekday in
+                        Toggle(isOn: weekday.getIsActiveBinding(schedule)) {
+                            Text(weekday.shortName)
+                        }
+                        .toggleStyle(.button)
+                        .aspectRatio(contentMode: .fill)
                     }
-                    .toggleStyle(.button)
-                    .aspectRatio(contentMode: .fill)
-                    
-                    Toggle(isOn: schedule.isActiveOnTuesday) {
-                            Text("Tu")
-                    }
-                    .toggleStyle(.button)
-                    .aspectRatio(contentMode: .fill)
-                    
-                    Toggle(isOn: schedule.isActiveOnWednesday) {
-                            Text("We")
-                    }
-                    .toggleStyle(.button)
-                    .aspectRatio(contentMode: .fill)
-                    
-                    Toggle(isOn: schedule.isActiveOnThursday) {
-                            Text("Th")
-                    }
-                    .toggleStyle(.button)
-                    .aspectRatio(contentMode: .fill)
-                    
-                    Toggle(isOn: schedule.isActiveOnFriday) {
-                            Text("Fr")
-                    }
-                    .toggleStyle(.button)
-                    .aspectRatio(contentMode: .fill)
-                    
-                    Toggle(isOn: schedule.isActiveOnSaturday) {
-                            Text("Sa")
-                    }
-                    .toggleStyle(.button)
-                    .aspectRatio(contentMode: .fill)
-                    
-                    Toggle(isOn: schedule.isActiveOnSunday) {
-                            Text("Su")
-                    }
-                    .toggleStyle(.button)
-                    .aspectRatio(contentMode: .fill)
                 }
                 Toggle(isOn: schedule.isActivated) {
                     Label("Activate Air Conditioning", systemImage: "air.conditioner.vertical")

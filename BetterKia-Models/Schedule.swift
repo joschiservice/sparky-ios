@@ -32,7 +32,6 @@ public struct Schedule: Hashable {
     }
     
     func toScheduleActionData() -> ScheduleActionData {
-        
         // Convert time to server time
         var calendar = Calendar.current
         calendar.timeZone = .gmt

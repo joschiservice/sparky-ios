@@ -21,6 +21,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
     
     lazy var coreDataStack: CoreDataStack = .init(modelName: "Main")
     
+    /**
+     Called when starting the app
+     */
     func application(_ application: UIApplication,
                didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -55,6 +58,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
         return true
     }
 
+    /**
+     Called when device is registered for remote notifications
+     */
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken
                      deviceToken: Data) {
