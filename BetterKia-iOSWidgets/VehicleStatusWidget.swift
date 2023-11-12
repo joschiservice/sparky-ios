@@ -114,6 +114,7 @@ struct VehicleStatusWidgetEntryView : View {
                         .foregroundColor(.white)
                 }
             }
+            
             HStack(spacing: 1) {
                 Text(entry.getStatusText())
                     .font(.footnote)
@@ -126,19 +127,21 @@ struct VehicleStatusWidgetEntryView : View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(EdgeInsets(top: 8, leading: 2, bottom: 0, trailing: 0))
-            Image("KiaIconWhite")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100)
-                .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
             
-            HStack(spacing: 1) {
+            Spacer()
+            
+            HStack(spacing: 0) {
+                Image("KiaIconWhite")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 20))
+                
                 Text(entry.getTimeString())
                     .font(.system(size: 12))
                     .opacity(0.6)
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 10))
             
         }
         .widgetBackground(.black)
