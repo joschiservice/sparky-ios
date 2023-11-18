@@ -43,15 +43,10 @@ struct HvacWidget: View {
         .disabled(vehicleManager.currentHvacTargetTemp != nil && vehicleManager.currentHvacTargetTemp == HVAC_MAX_TEMP)
             
             HStack {
-                Image(systemName: "heater.vertical.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor((vehicleManager.vehicleData?.acc ?? false) ? .white : .gray)
-                    .frame(height: 26)
                 Text("\(vehicleManager.currentHvacTargetTemp != nil ? "\( vehicleManager.currentHvacTargetTemp!)°" : "-")")
-                    .font(.system(size: 24))
+                    .font(.system(size: 28))
             }
-            .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+            .padding(EdgeInsets(top: 10, leading: 8, bottom: 8, trailing: 0))
             
             Button {
                 decreaseHvacTemp()

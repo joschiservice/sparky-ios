@@ -10,7 +10,6 @@ import Dispatch
 import os
 import SwiftUI
 import MapKit
-import CoreData
 
 enum VehicleDataStatus {
     case Refreshing
@@ -50,34 +49,24 @@ public class VehicleManager : ObservableObject {
     
     @Published public var primaryVehicle: PrimaryVehicleInfo? = nil
     
-    public func start(data: StartVehicleRequest? = nil) async {
-        var actualData = data;
-        logger.log("Starting vehicle...")
-        
-        DispatchQueue.main.async {
-            //self.showClimateControlPopover = true
-        }
-        
-        if actualData == nil {
-            actualData = StartVehicleRequest(temperature: 22, withLiveActivityTip: false, durationMinutes: 10)
-        }
-        
-        let result = await ApiClient.startVehicle(data: actualData!)
-        
-        logger.log("Start: \(result?.code ?? "Unknown Error")")
-        
-        if (result == nil || result?.code != "SUCCESS") {
-            logger.warning("StartVehicle: Received bad response. Checking vehicle status with a manual refresh...")
-            
-            AlertManager.shared.publishAlert("Error: Start air conditioning", description: "We were not able to ensure that the air conditioning has been started as the KiaConnect service wasn't able to retrieve data from the car in time.")
-            return
-        }
-        
-        DispatchQueue.main.async {
-            self.isHvacActive = true
-        }
+    /**
+     Returns an instance of VehicleManager, that is optimized for usage in preview environments.
+     */
+    public static func getPreviewInstance() -> VehicleManager {
+        let vmanager = VehicleManager()
+        vmanager.currentHvacTargetTemp = 22
+        vmanager.vehicleData = VehicleStatus(
+            engine: false, evStatus: EvStatus(batteryCharge: true, batteryStatus: 20, drvDistance: [DriveDistance(rangeByFuel: RangeByFuel(totalAvailableRange: RangeData(value: 320, unit: 1)))]),
+            time: Date(), acc: true, sideBackWindowHeat: 1, steerWheelHeat: 1, defrost: true, airCtrlOn: false, doorLock: false)
+        vmanager.vehicleLocation = VehicleLocation(latitude: 54.19478906001295, longitude: 9.093066782003024, speed: VehicleSpeed(unit: 0, value: 0), heading: 0)
+        vmanager.isHvacActive = true
+        vmanager.vehicleDataStatus = VehicleDataStatus.Success;
+        return vmanager
     }
     
+    /**
+     Get the primary/active vehicle for currently authenticated account.
+     */
     public func getPrimaryVehicle(force: Bool = false) async -> PrimaryVehicleInfo? {
         if primaryVehicle != nil && !force {
             return primaryVehicle
@@ -96,6 +85,9 @@ public class VehicleManager : ObservableObject {
         return primaryVehicle
     }
     
+    /**
+     Get all vehicle the user has access to.
+     */
     public func getVehicles() async -> [VehicleIdentification]? {
         if IS_DEMO_MODE {
             return [
@@ -107,6 +99,37 @@ public class VehicleManager : ObservableObject {
         return await ApiClient.getVehicles()
     }
     
+    /**
+     Start the vehicle using predefined parameters or default values.
+     */
+    public func start(inputData: StartVehicleRequest? = nil) async {
+        var requestData = inputData
+        
+        if requestData == nil {
+            requestData = StartVehicleRequest(temperature: 22, withLiveActivityTip: false, durationMinutes: 10)
+        }
+        
+        logger.log("Sending start vehicle request...")
+        
+        let result = await ApiClient.startVehicle(data: requestData!)
+        
+        logger.log("Start: \(result?.code ?? "Unknown Error")")
+        
+        if (result == nil || result?.code != "SUCCESS") {
+            logger.warning("StartVehicle: Received bad response. Checking vehicle status with a manual refresh...")
+            
+            AlertManager.shared.publishAlert("Error: Start air conditioning", description: "We were not able to ensure that the air conditioning has been started as the KiaConnect service wasn't able to retrieve data from the car in time.")
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.isHvacActive = true
+        }
+    }
+    
+    /**
+     Stops the vehicle.
+     */
     public func stop() async {
         logger.log("Stopping vehicle...")
         
@@ -124,6 +147,9 @@ public class VehicleManager : ObservableObject {
         }
     }
     
+    /**
+     Get the latest reported vehicle status data (e.g. range, doors, etc.).
+     */
     public func getVehicleData(forceRefresh: Bool = false) async {
         DispatchQueue.main.async {
             self.isLoadingVehicleData = true
@@ -145,7 +171,7 @@ public class VehicleManager : ObservableObject {
                 }
             } else {
                 self.vehicleDataStatus = VehicleDataStatus.Success
-                self.saveVehicleStatusToCache(status: response.data!)
+                CacheManager.shared.saveVehicleStatusToCache(status: response.data!)
             }
             
             self.lastVehicleDataUpdate = Date()
@@ -156,6 +182,9 @@ public class VehicleManager : ObservableObject {
         }
     }
     
+    /**
+     Get the latest reported position of the vehicle.
+     */
     public func getVehicleLocation() async {
         // DEMO
         DispatchQueue.main.async {
@@ -191,6 +220,7 @@ public class VehicleManager : ObservableObject {
         }*/
     }
     
+    // ToDo: move this helper func for predecting current preheating aircon temperature
     public func getCurrentTemperature(startTemp: Double, targetTemp: Double, startTime: Date) -> Double {
         let timeToHeatUp = 15.0 // in minutes
         let timeElapsed = min(timeToHeatUp, (Date().timeIntervalSince1970 - startTime.timeIntervalSince1970) / 60) // in minutes
@@ -206,19 +236,8 @@ public class VehicleManager : ObservableObject {
     }
     
     /**
-     Returns an instance of VehicleManager, that is optimized for usage in preview environments.
+     Lock the active vehicle.
      */
-    public static func getPreviewInstance() -> VehicleManager {
-        let vmanager = VehicleManager()
-        vmanager.currentHvacTargetTemp = 22
-        vmanager.vehicleData = VehicleStatus(
-            engine: false, evStatus: EvStatus(batteryCharge: true, batteryStatus: 20, drvDistance: [DriveDistance(rangeByFuel: RangeByFuel(totalAvailableRange: RangeData(value: 320, unit: 1)))]),
-            time: Date(), acc: true, sideBackWindowHeat: 1, steerWheelHeat: 1, defrost: true, airCtrlOn: false, doorLock: false)
-        vmanager.vehicleLocation = VehicleLocation(latitude: 54.19478906001295, longitude: 9.093066782003024, speed: VehicleSpeed(unit: 0, value: 0), heading: 0)
-        vmanager.isHvacActive = true
-        return vmanager
-    }
-    
     public func lock() async {
         let result = await ApiClient.lockVehicle()
         
@@ -235,6 +254,9 @@ public class VehicleManager : ObservableObject {
         }
     }
     
+    /**
+     Unlock the active vehicle.
+     */
     public func unlock() async {
         let result = await ApiClient.unlockVehicle()
         
@@ -248,82 +270,6 @@ public class VehicleManager : ObservableObject {
         
         DispatchQueue.main.async {
             self.isVehicleLocked = false
-        }
-    }
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-            let container = NSPersistentContainer(name: "Main")
-            container.loadPersistentStores { description, error in
-                if let error = error {
-                    fatalError("Unable to load persistent stores: \(error)")
-                }
-            }
-            return container
-        }()
-    
-    private func saveVehicleStatusToCache(status: VehicleStatus) {
-        // Delete old record
-        let fetchRequest: NSFetchRequest<CacheEntry> = CacheEntry.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", "vehicle_status")
-        
-        let context = persistentContainer.viewContext
-
-        do {
-            let fetchedObjects = try context.fetch(fetchRequest)
-            
-            // Perform the deletion
-            for object in fetchedObjects {
-                context.delete(object)
-            }
-            
-            // Create new record
-            let person = NSEntityDescription.insertNewObject(forEntityName: "CacheEntry", into: context) as! CacheEntry
-
-            // Set the attribute values
-            person.id = "vehicle_status"
-            person.data = String(data: try JSONEncoder().encode(status), encoding: .utf8)
-            
-            // Save the context to persist the changes
-            try context.save()
-        } catch {
-            // Handle the error
-        }
-    }
-    
-    public func loadCachedVehicleStatus() {
-        let fetchRequest: NSFetchRequest<CacheEntry>
-        fetchRequest = CacheEntry.fetchRequest()
-
-        fetchRequest.predicate = NSPredicate(
-            format: "id == %@", "vehicle_status"
-        )
-
-        // Get a reference to a NSManagedObjectContext
-        let context = persistentContainer.viewContext
-
-        do {
-            let data = try context.fetch(fetchRequest).first
-            
-            if (data == nil || data!.data == nil) {
-                return
-            }
-        
-            let decoder = JSONDecoder()
-            
-            let cachedStatus = try decoder.decode(VehicleStatus.self, from: data!.data!.data(using: .utf8)!)
-            
-            // Actual data loading was faster than getting the cache data
-            if (self.vehicleData != nil) {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.vehicleData = cachedStatus
-                self.isHvacActive = cachedStatus.airCtrlOn
-                self.isVehicleLocked = cachedStatus.doorLock
-            }
-        } catch let error {
-            logger.error("An error occured while loading the cached vehicle status: \(error.localizedDescription)")
         }
     }
 }

@@ -23,118 +23,103 @@ struct CommandResponse: Decodable {
     let code: String
 }
 
-struct SignInResponse: Decodable {
-    let accessToken: String
-    let refreshToken: String
-}
-
-struct RefreshTokenResponse: Decodable {
-    let accessToken: String
-    let refreshToken: String
-}
-
-struct RefreshTokenRequest: Encodable {
-    let refreshToken: String
-}
-
-enum SessionExpiredError: Error {
-    case runtimeError(String)
-}
-
 public protocol ApiClientDelegate : AnyObject {
     func newTokensReceived(accessToken: String, refreshToken: String)
     func sessionExpired()
 }
-
-public let IS_DEMO_MODE = ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil;
 
 public class ApiClient {
     private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ApiClient")
     
     private static let serverUrl = "https://better-kia-api.vercel.app/"
     
-    public static var accessToken = "";
+    public static var accessToken = ""
     
-    public static var refreshToken = "";
+    public static var refreshToken = ""
     
     public static weak var delegate : ApiClientDelegate?
     
-    private static var isRefreshingToken = false;
+    /**
+     Is true if a refresh token request is pending
+     */
+    private static var isRefreshingToken = false
     
     static func doRequest(urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
-        
-        // Don't allow requests when running in XCode Canvas
         if IS_DEMO_MODE {
-            return (Data(), URLResponse());
+            return (Data(), URLResponse())
         }
         
-        var authHeaderValue = "Bearer " + accessToken;
-        
-        var requestResult = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: urlString, method: method, jsonData: jsonData)
+        var requestResult = try await doRequestInternal(urlString: urlString, method: method, jsonData: jsonData)
         let requestResponse = requestResult.1;
         
         if let httpResponse = requestResponse as? HTTPURLResponse {
-            if (httpResponse.statusCode == 401) {
-                if (isRefreshingToken) {
-                    while (isRefreshingToken) {
+            switch httpResponse.statusCode {
+            // Unauthorized
+            case 401:
+                // Wait, if a token refresh request has already been sent
+                if isRefreshingToken {
+                    while isRefreshingToken {
                         usleep(100);
                     }
                     
-                    authHeaderValue = "Bearer " + accessToken;
-                    
-                    return try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: urlString, method: method, jsonData: jsonData);
+                    return try await doRequestInternal(urlString: urlString, method: method, jsonData: jsonData);
                 }
                 
+                // Start refresh token operation
                 isRefreshingToken = true;
                 
                 logger.debug("Request to \(urlString) returned Unauthorized. Refreshing access token...")
                 
-                // In this case we need to refresh the access token
                 let jsonEncoder = JSONEncoder()
                 jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
                 let jsonDataRefresh = try? jsonEncoder.encode(RefreshTokenRequest(refreshToken: refreshToken))
                 
-                let (refreshTokenData, refreshTokenResponse) = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: serverUrl + "api/auth/refresh", method: "POST", jsonData: jsonDataRefresh);
+                let (refreshTokenData, refreshTokenResponse) = try await doRequestInternal(urlString: "\(serverUrl)api/auth/refresh", method: "POST", jsonData: jsonDataRefresh);
                 
-                if let refreshTokenhHttpResponse = refreshTokenResponse as? HTTPURLResponse {
-                    if (refreshTokenhHttpResponse.statusCode == 200) {
-                        let refreshTokenParsedData = try? JSONDecoder().decode(RefreshTokenResponse.self, from: refreshTokenData)
-                        
-                        // Store new tokens
-                        accessToken = refreshTokenParsedData!.accessToken;
-                        refreshToken = refreshTokenParsedData!.refreshToken;
-                        
-                        delegate?.newTokensReceived(accessToken: accessToken, refreshToken: refreshToken);
-                        
-                        isRefreshingToken = false;
-                        
-                        // Do the request again
-                        authHeaderValue = "Bearer " + accessToken;
-                        
-                        requestResult = try await doRequestInternal(authHeaderValue: authHeaderValue, urlString: urlString, method: method, jsonData: jsonData)
-                        
-                        return requestResult;
-                    } else {
-                        logger.debug("Session expired and couldn't be restored.");
-                        logger.debug("Refresh token response: \(String(decoding: refreshTokenData, as: UTF8.self))");
-                        
-                        // log out user
-                        delegate?.sessionExpired()
-                        
-                        isRefreshingToken = false;
-                        
-                        throw SessionExpiredError.runtimeError("The refresh token of the session has expired.")
-                    }
+                guard let refreshTokenhHttpResponse = refreshTokenResponse as? HTTPURLResponse else {
+                    logger.debug("Session expired and refresh token request failed (unexpected type)");
+                    
+                    // log out user
+                    delegate?.sessionExpired()
+                    
+                    isRefreshingToken = false;
+                    
+                    throw SessionExpiredError.runtimeError("The refresh token of the session has expired.");
                 }
                 
+                if refreshTokenhHttpResponse.statusCode != 200 {
+                    logger.debug("Session expired and couldn't be restored.");
+                    logger.debug("Refresh token response: \(String(decoding: refreshTokenData, as: UTF8.self))");
+                    
+                    // log out user
+                    delegate?.sessionExpired()
+                    
+                    isRefreshingToken = false;
+                    
+                    throw SessionExpiredError.runtimeError("The refresh token of the session has expired.")
+                }
+                
+                let refreshTokenParsedData = try? JSONDecoder().decode(RefreshTokenResponse.self, from: refreshTokenData)
+                
+                // Store new tokens
+                accessToken = refreshTokenParsedData!.accessToken;
+                refreshToken = refreshTokenParsedData!.refreshToken;
+                
+                delegate?.newTokensReceived(accessToken: accessToken, refreshToken: refreshToken);
+                
                 isRefreshingToken = false;
+                
+                requestResult = try await doRequestInternal(urlString: urlString, method: method, jsonData: jsonData)
+                
+            default:
+                break;
             }
         }
         
         return requestResult;
     }
     
-    private static func doRequestInternal(authHeaderValue: String, urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
+    private static func doRequestInternal(urlString: String, method: String = "GET", jsonData: Data? = nil) async throws -> (Data, URLResponse) {
         let url = URL(string: urlString)!
         
         var request = URLRequest(url: url)
@@ -148,7 +133,7 @@ public class ApiClient {
         let sessionConfiguration = URLSessionConfiguration.default;
 
         sessionConfiguration.httpAdditionalHeaders = [
-            "Authorization": authHeaderValue
+            "Authorization": "Bearer \(accessToken)"
         ]
 
         let session = URLSession(configuration: sessionConfiguration)
@@ -535,16 +520,4 @@ public class ApiClient {
         logger.error("Failed to login using Kia")
         return nil;
     }
-}
-
-struct SignInUsingKiaRequest: Encodable {
-    let email: String
-    let password: String
-}
-
-public struct StartVehicleRequest: Encodable {
-    let temperature: UInt;
-    let defrost: Bool? = nil;
-    let withLiveActivityTip: Bool;
-    let durationMinutes: UInt;
 }

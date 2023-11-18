@@ -29,6 +29,12 @@ public class AuthManager : ObservableObject, ApiClientDelegate {
      Authenticates a user using the Kia Connect credentials.
      */
     public func authenticateUsingKia(email: String, password: String) async -> Bool {
+        if IS_DEMO_MODE {
+            DispatchQueue.main.async {
+                self.isAuthenticated = true
+            }
+        }
+        
         let result = await ApiClient.authenticateUsingKia(email: email, password: password)
         
         if (result == nil) {

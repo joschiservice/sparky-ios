@@ -28,12 +28,104 @@
 		EB3374842AA1E215001DF0E4 /* MainEcuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3374832AA1E215001DF0E4 /* MainEcuDelegate.swift */; };
 		EB3374862AA1EA0F001DF0E4 /* InCarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3374852AA1EA0F001DF0E4 /* InCarManager.swift */; };
 		EB3398B0295F16F300E4B2B2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
+		EB34908E2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34908D2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift */; };
+		EB34908F2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34908D2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift */; };
+		EB3490902B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34908D2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift */; };
+		EB3490912B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34908D2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift */; };
+		EB3490922B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34908D2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift */; };
+		EB3490952B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490942B0822A000D0F5B3 /* StartVehicleRequest.swift */; };
+		EB3490962B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490942B0822A000D0F5B3 /* StartVehicleRequest.swift */; };
+		EB3490972B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490942B0822A000D0F5B3 /* StartVehicleRequest.swift */; };
+		EB3490982B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490942B0822A000D0F5B3 /* StartVehicleRequest.swift */; };
+		EB3490992B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490942B0822A000D0F5B3 /* StartVehicleRequest.swift */; };
+		EB34909B2B0822D200D0F5B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34909A2B0822D200D0F5B3 /* Constants.swift */; };
+		EB34909C2B0822D200D0F5B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34909A2B0822D200D0F5B3 /* Constants.swift */; };
+		EB34909D2B0822D200D0F5B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34909A2B0822D200D0F5B3 /* Constants.swift */; };
+		EB34909E2B0822D200D0F5B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34909A2B0822D200D0F5B3 /* Constants.swift */; };
+		EB34909F2B0822D200D0F5B3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34909A2B0822D200D0F5B3 /* Constants.swift */; };
+		EB3490A22B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490A12B0823F000D0F5B3 /* SessionExpiredError.swift */; };
+		EB3490A32B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490A12B0823F000D0F5B3 /* SessionExpiredError.swift */; };
+		EB3490A42B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490A12B0823F000D0F5B3 /* SessionExpiredError.swift */; };
+		EB3490A52B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490A12B0823F000D0F5B3 /* SessionExpiredError.swift */; };
+		EB3490A62B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490A12B0823F000D0F5B3 /* SessionExpiredError.swift */; };
+		EB3490A92B08264900D0F5B3 /* LoginOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3490A82B08264900D0F5B3 /* LoginOverviewView.swift */; };
 		EB40F539295F149E00064F1F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB40F53A295F149E00064F1F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB40F53B295F149F00064F1F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB4321DA295DE00600A6BA52 /* ScheduleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321D9295DE00600A6BA52 /* ScheduleEntry.swift */; };
 		EB4321DC295DE03000A6BA52 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4321DB295DE03000A6BA52 /* Schedule.swift */; };
 		EB46C69F299ECBDB00AAB8AE /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46C69E299ECBDB00AAB8AE /* DashboardView.swift */; };
+		EB56987E2B0520D20011594B /* VehicleLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56987D2B0520D20011594B /* VehicleLocationResponse.swift */; };
+		EB5698812B0521050011594B /* VehicleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698802B0521050011594B /* VehicleLocation.swift */; };
+		EB5698832B05210C0011594B /* VehicleSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698822B05210C0011594B /* VehicleSpeed.swift */; };
+		EB5698852B05213E0011594B /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698842B05213E0011594B /* CommonResponse.swift */; };
+		EB5698882B0521680011594B /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698872B0521680011594B /* ApiErrorType.swift */; };
+		EB56988A2B05217F0011594B /* VehicleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698892B05217F0011594B /* VehicleStatus.swift */; };
+		EB56988C2B0521A50011594B /* EvStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988B2B0521A50011594B /* EvStatus.swift */; };
+		EB56988F2B0522160011594B /* SetPrimaryVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988E2B0522160011594B /* SetPrimaryVehicleRequest.swift */; };
+		EB5698912B05223E0011594B /* DriveDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698902B05223E0011594B /* DriveDistance.swift */; };
+		EB5698932B0522600011594B /* VehicleIdentifaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698922B0522600011594B /* VehicleIdentifaction.swift */; };
+		EB5698952B0522850011594B /* PrimaryVehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698942B0522850011594B /* PrimaryVehicleInfo.swift */; };
+		EB5698982B0522AC0011594B /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698972B0522AC0011594B /* SignInResponse.swift */; };
+		EB56989B2B0522D80011594B /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989A2B0522D80011594B /* RefreshTokenRequest.swift */; };
+		EB56989D2B0522ED0011594B /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989C2B0522ED0011594B /* RefreshTokenResponse.swift */; };
+		EB56989E2B0523350011594B /* SetPrimaryVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988E2B0522160011594B /* SetPrimaryVehicleRequest.swift */; };
+		EB56989F2B0523350011594B /* VehicleIdentifaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698922B0522600011594B /* VehicleIdentifaction.swift */; };
+		EB5698A02B0523350011594B /* VehicleSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698822B05210C0011594B /* VehicleSpeed.swift */; };
+		EB5698A12B0523350011594B /* VehicleLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56987D2B0520D20011594B /* VehicleLocationResponse.swift */; };
+		EB5698A22B0523350011594B /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989A2B0522D80011594B /* RefreshTokenRequest.swift */; };
+		EB5698A32B0523350011594B /* VehicleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698802B0521050011594B /* VehicleLocation.swift */; };
+		EB5698A42B0523350011594B /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698972B0522AC0011594B /* SignInResponse.swift */; };
+		EB5698A52B0523350011594B /* VehicleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698892B05217F0011594B /* VehicleStatus.swift */; };
+		EB5698A62B0523350011594B /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698872B0521680011594B /* ApiErrorType.swift */; };
+		EB5698A72B0523350011594B /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698842B05213E0011594B /* CommonResponse.swift */; };
+		EB5698A82B0523350011594B /* DriveDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698902B05223E0011594B /* DriveDistance.swift */; };
+		EB5698A92B0523350011594B /* EvStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988B2B0521A50011594B /* EvStatus.swift */; };
+		EB5698AA2B0523350011594B /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989C2B0522ED0011594B /* RefreshTokenResponse.swift */; };
+		EB5698AB2B0523350011594B /* PrimaryVehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698942B0522850011594B /* PrimaryVehicleInfo.swift */; };
+		EB5698AC2B0523350011594B /* SetPrimaryVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988E2B0522160011594B /* SetPrimaryVehicleRequest.swift */; };
+		EB5698AD2B0523350011594B /* VehicleIdentifaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698922B0522600011594B /* VehicleIdentifaction.swift */; };
+		EB5698AE2B0523350011594B /* VehicleSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698822B05210C0011594B /* VehicleSpeed.swift */; };
+		EB5698AF2B0523350011594B /* VehicleLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56987D2B0520D20011594B /* VehicleLocationResponse.swift */; };
+		EB5698B02B0523350011594B /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989A2B0522D80011594B /* RefreshTokenRequest.swift */; };
+		EB5698B12B0523350011594B /* VehicleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698802B0521050011594B /* VehicleLocation.swift */; };
+		EB5698B22B0523350011594B /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698972B0522AC0011594B /* SignInResponse.swift */; };
+		EB5698B32B0523350011594B /* VehicleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698892B05217F0011594B /* VehicleStatus.swift */; };
+		EB5698B42B0523350011594B /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698872B0521680011594B /* ApiErrorType.swift */; };
+		EB5698B52B0523350011594B /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698842B05213E0011594B /* CommonResponse.swift */; };
+		EB5698B62B0523350011594B /* DriveDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698902B05223E0011594B /* DriveDistance.swift */; };
+		EB5698B72B0523350011594B /* EvStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988B2B0521A50011594B /* EvStatus.swift */; };
+		EB5698B82B0523350011594B /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989C2B0522ED0011594B /* RefreshTokenResponse.swift */; };
+		EB5698B92B0523350011594B /* PrimaryVehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698942B0522850011594B /* PrimaryVehicleInfo.swift */; };
+		EB5698BA2B0523360011594B /* SetPrimaryVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988E2B0522160011594B /* SetPrimaryVehicleRequest.swift */; };
+		EB5698BB2B0523360011594B /* VehicleIdentifaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698922B0522600011594B /* VehicleIdentifaction.swift */; };
+		EB5698BC2B0523360011594B /* VehicleSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698822B05210C0011594B /* VehicleSpeed.swift */; };
+		EB5698BD2B0523360011594B /* VehicleLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56987D2B0520D20011594B /* VehicleLocationResponse.swift */; };
+		EB5698BE2B0523360011594B /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989A2B0522D80011594B /* RefreshTokenRequest.swift */; };
+		EB5698BF2B0523360011594B /* VehicleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698802B0521050011594B /* VehicleLocation.swift */; };
+		EB5698C02B0523360011594B /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698972B0522AC0011594B /* SignInResponse.swift */; };
+		EB5698C12B0523360011594B /* VehicleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698892B05217F0011594B /* VehicleStatus.swift */; };
+		EB5698C22B0523360011594B /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698872B0521680011594B /* ApiErrorType.swift */; };
+		EB5698C32B0523360011594B /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698842B05213E0011594B /* CommonResponse.swift */; };
+		EB5698C42B0523360011594B /* DriveDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698902B05223E0011594B /* DriveDistance.swift */; };
+		EB5698C52B0523360011594B /* EvStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988B2B0521A50011594B /* EvStatus.swift */; };
+		EB5698C62B0523360011594B /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989C2B0522ED0011594B /* RefreshTokenResponse.swift */; };
+		EB5698C72B0523360011594B /* PrimaryVehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698942B0522850011594B /* PrimaryVehicleInfo.swift */; };
+		EB5698C82B0523380011594B /* SetPrimaryVehicleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988E2B0522160011594B /* SetPrimaryVehicleRequest.swift */; };
+		EB5698C92B0523380011594B /* VehicleIdentifaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698922B0522600011594B /* VehicleIdentifaction.swift */; };
+		EB5698CA2B0523380011594B /* VehicleSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698822B05210C0011594B /* VehicleSpeed.swift */; };
+		EB5698CB2B0523380011594B /* VehicleLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56987D2B0520D20011594B /* VehicleLocationResponse.swift */; };
+		EB5698CC2B0523380011594B /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989A2B0522D80011594B /* RefreshTokenRequest.swift */; };
+		EB5698CD2B0523380011594B /* VehicleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698802B0521050011594B /* VehicleLocation.swift */; };
+		EB5698CE2B0523380011594B /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698972B0522AC0011594B /* SignInResponse.swift */; };
+		EB5698CF2B0523380011594B /* VehicleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698892B05217F0011594B /* VehicleStatus.swift */; };
+		EB5698D02B0523380011594B /* ApiErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698872B0521680011594B /* ApiErrorType.swift */; };
+		EB5698D12B0523380011594B /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698842B05213E0011594B /* CommonResponse.swift */; };
+		EB5698D22B0523380011594B /* DriveDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698902B05223E0011594B /* DriveDistance.swift */; };
+		EB5698D32B0523380011594B /* EvStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56988B2B0521A50011594B /* EvStatus.swift */; };
+		EB5698D42B0523380011594B /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56989C2B0522ED0011594B /* RefreshTokenResponse.swift */; };
+		EB5698D52B0523380011594B /* PrimaryVehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698942B0522850011594B /* PrimaryVehicleInfo.swift */; };
+		EB5698D72B0528980011594B /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5698D62B0528980011594B /* CacheManager.swift */; };
 		EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */; };
 		EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAE6C294F7EDC00FF160E /* ContentView.swift */; };
 		EB5FAE6F294F7EDD00FF160E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5FAE6E294F7EDD00FF160E /* Assets.xcassets */; };
@@ -63,8 +155,6 @@
 		EB9EE7982950813C009D4D6A /* GetCarsListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29432950687900B3457A /* GetCarsListHandler.swift */; };
 		EB9EE7992950813C009D4D6A /* SetCarLockStatusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */; };
 		EB9EE79A2950813C009D4D6A /* GetChargeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */; };
-		EB9EE79C29508174009D4D6A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
-		EB9EE79D29508177009D4D6A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EB9EE7A1295093BB009D4D6A /* StartClimateControlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7A0295093BB009D4D6A /* StartClimateControlHandler.swift */; };
 		EB9EE7A3295093DC009D4D6A /* StartClimateControlHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7A0295093BB009D4D6A /* StartClimateControlHandler.swift */; };
 		EB9EE7A5295095E5009D4D6A /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7A8295095E5009D4D6A /* Intents.intentdefinition */; };
@@ -84,15 +174,12 @@
 		EBA8D230299E51EE00C2ACBA /* TempCodeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D22F299E51EE00C2ACBA /* TempCodeConverter.swift */; };
 		EBA8D232299E5E7000C2ACBA /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8D231299E5E7000C2ACBA /* AuthManager.swift */; };
 		EBAD23C4299CE0A5005CF29F /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */; };
-		EBC1F73E2950DF7900BBEE5E /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EBC8F7762A3DD93D007EDFB9 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC8F7752A3DD93D007EDFB9 /* ShareView.swift */; };
 		EBC8F7772A3DD9E2007EDFB9 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC8F7752A3DD93D007EDFB9 /* ShareView.swift */; };
 		EBE11D7429D06614005863DC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE11D7329D06614005863DC /* StoreKit.framework */; };
 		EBE11D7629D06778005863DC /* SelectSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE11D7529D06778005863DC /* SelectSubscriptionView.swift */; };
 		EBE11D7A29D06A1A005863DC /* ProductFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE11D7929D06A1A005863DC /* ProductFetcher.swift */; };
 		EBEA29192950613E00B3457A /* GetChargeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5FAEA7294F7F9000FF160E /* GetChargeRequestHandler.swift */; };
-		EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
-		EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29402950633500B3457A /* VehicleStatusResponse.swift */; };
 		EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA29432950687900B3457A /* GetCarsListHandler.swift */; };
 		EBEA294729506FCC00B3457A /* SetCarLockStatusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */; };
 		EBEBB7512955BA2C00296FBB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBB7502955BA2C00296FBB /* ApiClient.swift */; };
@@ -234,11 +321,31 @@
 		EB3374802AA1D23E001DF0E4 /* BluetoothDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDelegate.swift; sourceTree = "<group>"; };
 		EB3374832AA1E215001DF0E4 /* MainEcuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEcuDelegate.swift; sourceTree = "<group>"; };
 		EB3374852AA1EA0F001DF0E4 /* InCarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCarManager.swift; sourceTree = "<group>"; };
+		EB34908D2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUsingKiaRequest.swift; sourceTree = "<group>"; };
+		EB3490942B0822A000D0F5B3 /* StartVehicleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVehicleRequest.swift; sourceTree = "<group>"; };
+		EB34909A2B0822D200D0F5B3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EB3490A12B0823F000D0F5B3 /* SessionExpiredError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionExpiredError.swift; sourceTree = "<group>"; };
+		EB3490A82B08264900D0F5B3 /* LoginOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOverviewView.swift; sourceTree = "<group>"; };
 		EB4321D9295DE00600A6BA52 /* ScheduleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEntry.swift; sourceTree = "<group>"; };
 		EB4321DB295DE03000A6BA52 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		EB46C69E299ECBDB00AAB8AE /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		EB4CECFE29BC89FC00C1B899 /* BetterKia-iOSWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia-iOSWidgets.entitlements"; sourceTree = "<group>"; };
 		EB4CECFF29BC8A0F00C1B899 /* BetterKia-iOSIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BetterKia-iOSIntentsExtension.entitlements"; sourceTree = "<group>"; };
+		EB56987D2B0520D20011594B /* VehicleLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleLocationResponse.swift; sourceTree = "<group>"; };
+		EB5698802B0521050011594B /* VehicleLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleLocation.swift; sourceTree = "<group>"; };
+		EB5698822B05210C0011594B /* VehicleSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSpeed.swift; sourceTree = "<group>"; };
+		EB5698842B05213E0011594B /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonResponse.swift; sourceTree = "<group>"; };
+		EB5698872B0521680011594B /* ApiErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorType.swift; sourceTree = "<group>"; };
+		EB5698892B05217F0011594B /* VehicleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatus.swift; sourceTree = "<group>"; };
+		EB56988B2B0521A50011594B /* EvStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvStatus.swift; sourceTree = "<group>"; };
+		EB56988E2B0522160011594B /* SetPrimaryVehicleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPrimaryVehicleRequest.swift; sourceTree = "<group>"; };
+		EB5698902B05223E0011594B /* DriveDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveDistance.swift; sourceTree = "<group>"; };
+		EB5698922B0522600011594B /* VehicleIdentifaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleIdentifaction.swift; sourceTree = "<group>"; };
+		EB5698942B0522850011594B /* PrimaryVehicleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryVehicleInfo.swift; sourceTree = "<group>"; };
+		EB5698972B0522AC0011594B /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		EB56989A2B0522D80011594B /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
+		EB56989C2B0522ED0011594B /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
+		EB5698D62B0528980011594B /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		EB5FAE67294F7EDC00FF160E /* BetterKia-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BetterKia-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5FAE6A294F7EDC00FF160E /* BetterKia_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKia_iOSApp.swift; sourceTree = "<group>"; };
 		EB5FAE6C294F7EDC00FF160E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -294,7 +401,6 @@
 		EBE11D7329D06614005863DC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EBE11D7529D06778005863DC /* SelectSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubscriptionView.swift; sourceTree = "<group>"; };
 		EBE11D7929D06A1A005863DC /* ProductFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFetcher.swift; sourceTree = "<group>"; };
-		EBEA29402950633500B3457A /* VehicleStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleStatusResponse.swift; sourceTree = "<group>"; };
 		EBEA29432950687900B3457A /* GetCarsListHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarsListHandler.swift; sourceTree = "<group>"; };
 		EBEA294529506D6A00B3457A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EBEA294629506FCC00B3457A /* SetCarLockStatusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCarLockStatusHandler.swift; sourceTree = "<group>"; };
@@ -427,6 +533,31 @@
 			path = Bluetooth;
 			sourceTree = "<group>";
 		};
+		EB3490932B08229300D0F5B3 /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				EB3490942B0822A000D0F5B3 /* StartVehicleRequest.swift */,
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		EB3490A02B0823E000D0F5B3 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				EB3490A12B0823F000D0F5B3 /* SessionExpiredError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		EB3490A72B08263700D0F5B3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EB3490A82B08264900D0F5B3 /* LoginOverviewView.swift */,
+				EBFCC1D029B8F97500736F76 /* SignInUsingKiaView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		EB4321D8295DDFEC00A6BA52 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +575,66 @@
 				EB46C69E299ECBDB00AAB8AE /* DashboardView.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		EB56987C2B0520B50011594B /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				EB5698962B05229C0011594B /* Auth */,
+				EB56987D2B0520D20011594B /* VehicleLocationResponse.swift */,
+				EB5698842B05213E0011594B /* CommonResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		EB56987F2B0520F40011594B /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				EB5698802B0521050011594B /* VehicleLocation.swift */,
+				EB5698822B05210C0011594B /* VehicleSpeed.swift */,
+				EB5698892B05217F0011594B /* VehicleStatus.swift */,
+				EB56988B2B0521A50011594B /* EvStatus.swift */,
+				EB5698902B05223E0011594B /* DriveDistance.swift */,
+				EB5698922B0522600011594B /* VehicleIdentifaction.swift */,
+				EB5698942B0522850011594B /* PrimaryVehicleInfo.swift */,
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		EB5698862B05215E0011594B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				EB5698872B0521680011594B /* ApiErrorType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		EB56988D2B0521FE0011594B /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				EB3490932B08229300D0F5B3 /* Vehicle */,
+				EB5698992B0522CB0011594B /* Auth */,
+				EB56988E2B0522160011594B /* SetPrimaryVehicleRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		EB5698962B05229C0011594B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EB5698972B0522AC0011594B /* SignInResponse.swift */,
+				EB56989C2B0522ED0011594B /* RefreshTokenResponse.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		EB5698992B0522CB0011594B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EB56989A2B0522D80011594B /* RefreshTokenRequest.swift */,
+				EB34908D2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		EB5FAE5E294F7EDC00FF160E = {
@@ -484,12 +675,12 @@
 			children = (
 				EB17A4E92AC5F0A30037E5CF /* AppIntents */,
 				EBA46E502A4C8DA800FC4061 /* CoreData */,
+				EB4321D8295DDFEC00A6BA52 /* Components */,
 				EBA1C91E29CF6FFA00726264 /* Delegates */,
 				EBA8D22E299E51DF00C2ACBA /* Converter */,
 				EBAD23C1299CE08E005CF29F /* Views */,
 				EB77092629993865008F9952 /* Managers */,
 				EB0FB98C296F2CD100898ADA /* air-conditioner-and-heater-lottie.json */,
-				EB4321D8295DDFEC00A6BA52 /* Components */,
 				EBEA294529506D6A00B3457A /* Info.plist */,
 				EB5FAEAD294F822700FF160E /* BetterKia-iOS.entitlements */,
 				EB5FAEA9294F80B300FF160E /* AppDelegate.swift */,
@@ -561,6 +752,7 @@
 				EBA8D231299E5E7000C2ACBA /* AuthManager.swift */,
 				EBF623EC29A26120003044AC /* AlertManager.swift */,
 				EB3374852AA1EA0F001DF0E4 /* InCarManager.swift */,
+				EB5698D62B0528980011594B /* CacheManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -636,6 +828,7 @@
 		EBAD23C1299CE08E005CF29F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB3490A72B08263700D0F5B3 /* Auth */,
 				EB46C69D299ECBD000AAB8AE /* Dashboard */,
 				EBAD23C2299CE095005CF29F /* OnBoarding */,
 				EB28828D29CE42EA0001E44C /* SettingsView.swift */,
@@ -650,7 +843,6 @@
 			isa = PBXGroup;
 			children = (
 				EBAD23C3299CE0A5005CF29F /* OnBoardingView.swift */,
-				EBFCC1D029B8F97500736F76 /* SignInUsingKiaView.swift */,
 				EBE11D7529D06778005863DC /* SelectSubscriptionView.swift */,
 			);
 			path = OnBoarding;
@@ -659,9 +851,14 @@
 		EBEA293F295062E800B3457A /* BetterKia-Models */ = {
 			isa = PBXGroup;
 			children = (
-				EBEA29402950633500B3457A /* VehicleStatusResponse.swift */,
+				EB3490A02B0823E000D0F5B3 /* Errors */,
+				EB56988D2B0521FE0011594B /* Requests */,
+				EB5698862B05215E0011594B /* Enums */,
+				EB56987F2B0520F40011594B /* Vehicle */,
+				EB56987C2B0520B50011594B /* Responses */,
 				EBEBB7502955BA2C00296FBB /* ApiClient.swift */,
 				EB4321DB295DE03000A6BA52 /* Schedule.swift */,
+				EB34909A2B0822D200D0F5B3 /* Constants.swift */,
 			);
 			path = "BetterKia-Models";
 			sourceTree = "<group>";
@@ -973,31 +1170,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB56987E2B0520D20011594B /* VehicleLocationResponse.swift in Sources */,
 				EBEBB7512955BA2C00296FBB /* ApiClient.swift in Sources */,
 				EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */,
+				EB5698882B0521680011594B /* ApiErrorType.swift in Sources */,
 				EBF795E52AA372E000BF9229 /* InCarView.swift in Sources */,
 				EB03235229A2305200256B66 /* HvacControlItem.swift in Sources */,
 				EBA46E522A4C8DBF00FC4061 /* CoreDataStack.swift in Sources */,
 				EB7709282999387B008F9952 /* VehicleManager.swift in Sources */,
+				EB5698932B0522600011594B /* VehicleIdentifaction.swift in Sources */,
+				EB5698812B0521050011594B /* VehicleLocation.swift in Sources */,
 				EBA46E4F2A4C8CA600FC4061 /* Main.xcdatamodeld in Sources */,
 				EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */,
+				EB5698832B05210C0011594B /* VehicleSpeed.swift in Sources */,
+				EB5698D72B0528980011594B /* CacheManager.swift in Sources */,
+				EB56988C2B0521A50011594B /* EvStatus.swift in Sources */,
 				EB4321DC295DE03000A6BA52 /* Schedule.swift in Sources */,
 				EBC8F7772A3DD9E2007EDFB9 /* ShareView.swift in Sources */,
 				EB03234B29A22FD500256B66 /* VehicleStatusWidget.swift in Sources */,
 				EBFCC1D129B8F97500736F76 /* SignInUsingKiaView.swift in Sources */,
 				EB03235029A2302C00256B66 /* ControlItem.swift in Sources */,
 				EB9C9AFF2AC6E11700486281 /* AuthAppIntent.swift in Sources */,
+				EB56989D2B0522ED0011594B /* RefreshTokenResponse.swift in Sources */,
+				EB3490A92B08264900D0F5B3 /* LoginOverviewView.swift in Sources */,
 				EB3374812AA1D23E001DF0E4 /* BluetoothDelegate.swift in Sources */,
 				EBA8D230299E51EE00C2ACBA /* TempCodeConverter.swift in Sources */,
-				EBEA29412950633500B3457A /* VehicleStatusResponse.swift in Sources */,
 				EB73FADE29A40B9D005B0A23 /* RefreshControlItem.swift in Sources */,
+				EB5698912B05223E0011594B /* DriveDistance.swift in Sources */,
+				EB5698982B0522AC0011594B /* SignInResponse.swift in Sources */,
 				EB03234D29A2300000256B66 /* MapWidget.swift in Sources */,
+				EB56988F2B0522160011594B /* SetPrimaryVehicleRequest.swift in Sources */,
 				EB5FAE6D294F7EDC00FF160E /* ContentView.swift in Sources */,
 				EB03234929A22FBF00256B66 /* HvacOptionsWidget.swift in Sources */,
 				EB3374842AA1E215001DF0E4 /* MainEcuDelegate.swift in Sources */,
 				EB28828E29CE42EA0001E44C /* SettingsView.swift in Sources */,
 				EB645C662A114F760080AED1 /* HistoryView.swift in Sources */,
 				EB17A4EB2AC5F0B70037E5CF /* StartPreconditioningIntent.swift in Sources */,
+				EB34909B2B0822D200D0F5B3 /* Constants.swift in Sources */,
+				EB56988A2B05217F0011594B /* VehicleStatus.swift in Sources */,
+				EB5698852B05213E0011594B /* CommonResponse.swift in Sources */,
+				EB3490952B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */,
 				EB0FB988296EC1DE00898ADA /* ClimateControlScheduleView.swift in Sources */,
 				EBE11D7A29D06A1A005863DC /* ProductFetcher.swift in Sources */,
 				EBA8D232299E5E7000C2ACBA /* AuthManager.swift in Sources */,
@@ -1005,17 +1217,21 @@
 				EB77092A29993C8C008F9952 /* StartInfoView.swift in Sources */,
 				EB17A4ED2AC5F1750037E5CF /* BetterKiaShortcuts.swift in Sources */,
 				EBAD23C4299CE0A5005CF29F /* OnBoardingView.swift in Sources */,
+				EB34908E2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */,
 				EB3374862AA1EA0F001DF0E4 /* InCarManager.swift in Sources */,
 				EBF623ED29A26120003044AC /* AlertManager.swift in Sources */,
+				EB56989B2B0522D80011594B /* RefreshTokenRequest.swift in Sources */,
 				EB77092529992F29008F9952 /* SceneDelegate.swift in Sources */,
 				EBE11D7629D06778005863DC /* SelectSubscriptionView.swift in Sources */,
 				EB03234729A22FA700256B66 /* HvacWidget.swift in Sources */,
 				EB4321DA295DE00600A6BA52 /* ScheduleEntry.swift in Sources */,
 				EB9EE7C62950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */,
+				EB3490A22B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */,
 				EB03235429A2307200256B66 /* Widget.swift in Sources */,
 				EB5FAE6B294F7EDC00FF160E /* BetterKia_iOSApp.swift in Sources */,
 				EB2C14CA29A2D13500ED944C /* LockControlItem.swift in Sources */,
 				EB03234429A22F5D00256B66 /* BatteryWidget.swift in Sources */,
+				EB5698952B0522850011594B /* PrimaryVehicleInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1041,13 +1257,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB9EE7A5295095E5009D4D6A /* Intents.intentdefinition in Sources */,
+				EB5698CC2B0523380011594B /* RefreshTokenRequest.swift in Sources */,
+				EB34908F2B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */,
 				EB5FAE9E294F7F4B00FF160E /* IntentHandler.swift in Sources */,
+				EB5698D02B0523380011594B /* ApiErrorType.swift in Sources */,
 				EB9EE7A1295093BB009D4D6A /* StartClimateControlHandler.swift in Sources */,
 				EB3398B0295F16F300E4B2B2 /* Schedule.swift in Sources */,
+				EB34909C2B0822D200D0F5B3 /* Constants.swift in Sources */,
+				EB5698C82B0523380011594B /* SetPrimaryVehicleRequest.swift in Sources */,
+				EB5698CE2B0523380011594B /* SignInResponse.swift in Sources */,
+				EB3490962B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */,
 				EBEBB7522955BA2C00296FBB /* ApiClient.swift in Sources */,
+				EB5698D52B0523380011594B /* PrimaryVehicleInfo.swift in Sources */,
+				EB5698CF2B0523380011594B /* VehicleStatus.swift in Sources */,
+				EB5698D32B0523380011594B /* EvStatus.swift in Sources */,
+				EB5698CD2B0523380011594B /* VehicleLocation.swift in Sources */,
+				EB5698D22B0523380011594B /* DriveDistance.swift in Sources */,
+				EB5698CA2B0523380011594B /* VehicleSpeed.swift in Sources */,
+				EB5698D42B0523380011594B /* RefreshTokenResponse.swift in Sources */,
 				EBEA29192950613E00B3457A /* GetChargeRequestHandler.swift in Sources */,
+				EB5698C92B0523380011594B /* VehicleIdentifaction.swift in Sources */,
 				EBEA29442950687900B3457A /* GetCarsListHandler.swift in Sources */,
-				EBEA29422950633D00B3457A /* VehicleStatusResponse.swift in Sources */,
+				EB5698CB2B0523380011594B /* VehicleLocationResponse.swift in Sources */,
+				EB5698D12B0523380011594B /* CommonResponse.swift in Sources */,
+				EB3490A32B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */,
 				EBEA294729506FCC00B3457A /* SetCarLockStatusHandler.swift in Sources */,
 				EBFCC1D229B91BCD00736F76 /* AuthManager.swift in Sources */,
 			);
@@ -1057,12 +1290,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5698AA2B0523350011594B /* RefreshTokenResponse.swift in Sources */,
+				EB34909D2B0822D200D0F5B3 /* Constants.swift in Sources */,
+				EB5698A12B0523350011594B /* VehicleLocationResponse.swift in Sources */,
+				EB56989E2B0523350011594B /* SetPrimaryVehicleRequest.swift in Sources */,
+				EB3490972B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */,
+				EB5698A72B0523350011594B /* CommonResponse.swift in Sources */,
+				EB5698A82B0523350011594B /* DriveDistance.swift in Sources */,
+				EB5698A32B0523350011594B /* VehicleLocation.swift in Sources */,
+				EB3490A42B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */,
+				EB3490902B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */,
 				EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */,
 				EBFCC1D329B91BCF00736F76 /* AuthManager.swift in Sources */,
+				EB5698AB2B0523350011594B /* PrimaryVehicleInfo.swift in Sources */,
+				EB5698A52B0523350011594B /* VehicleStatus.swift in Sources */,
 				EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */,
-				EB9EE79D29508177009D4D6A /* VehicleStatusResponse.swift in Sources */,
+				EB5698A42B0523350011594B /* SignInResponse.swift in Sources */,
 				EB40F53B295F149F00064F1F /* Schedule.swift in Sources */,
+				EB5698A62B0523350011594B /* ApiErrorType.swift in Sources */,
+				EB5698A92B0523350011594B /* EvStatus.swift in Sources */,
+				EB56989F2B0523350011594B /* VehicleIdentifaction.swift in Sources */,
+				EB5698A02B0523350011594B /* VehicleSpeed.swift in Sources */,
 				EBEBB7532955BA2C00296FBB /* ApiClient.swift in Sources */,
+				EB5698A22B0523350011594B /* RefreshTokenRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,13 +1321,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB9EE7A6295095E5009D4D6A /* Intents.intentdefinition in Sources */,
+				EB5698B02B0523350011594B /* RefreshTokenRequest.swift in Sources */,
+				EB3490912B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */,
 				EB9EE7982950813C009D4D6A /* GetCarsListHandler.swift in Sources */,
+				EB5698B42B0523350011594B /* ApiErrorType.swift in Sources */,
 				EB9EE79A2950813C009D4D6A /* GetChargeRequestHandler.swift in Sources */,
 				EB40F53A295F149E00064F1F /* Schedule.swift in Sources */,
+				EB34909E2B0822D200D0F5B3 /* Constants.swift in Sources */,
+				EB5698AC2B0523350011594B /* SetPrimaryVehicleRequest.swift in Sources */,
+				EB5698B22B0523350011594B /* SignInResponse.swift in Sources */,
+				EB3490982B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */,
 				EBEBB7542955BA2C00296FBB /* ApiClient.swift in Sources */,
+				EB5698B92B0523350011594B /* PrimaryVehicleInfo.swift in Sources */,
+				EB5698B32B0523350011594B /* VehicleStatus.swift in Sources */,
+				EB5698B72B0523350011594B /* EvStatus.swift in Sources */,
+				EB5698B12B0523350011594B /* VehicleLocation.swift in Sources */,
+				EB5698B62B0523350011594B /* DriveDistance.swift in Sources */,
+				EB5698AE2B0523350011594B /* VehicleSpeed.swift in Sources */,
+				EB5698B82B0523350011594B /* RefreshTokenResponse.swift in Sources */,
 				EB9EE7A3295093DC009D4D6A /* StartClimateControlHandler.swift in Sources */,
-				EB9EE79C29508174009D4D6A /* VehicleStatusResponse.swift in Sources */,
+				EB5698AD2B0523350011594B /* VehicleIdentifaction.swift in Sources */,
 				EB9EE7992950813C009D4D6A /* SetCarLockStatusHandler.swift in Sources */,
+				EB5698AF2B0523350011594B /* VehicleLocationResponse.swift in Sources */,
+				EB5698B52B0523350011594B /* CommonResponse.swift in Sources */,
+				EB3490A52B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */,
 				EB9EE78F2950811C009D4D6A /* IntentHandler.swift in Sources */,
 				EBFCC1D429B91BD100736F76 /* AuthManager.swift in Sources */,
 			);
@@ -1087,14 +1354,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5698BD2B0523360011594B /* VehicleLocationResponse.swift in Sources */,
+				EB5698BE2B0523360011594B /* RefreshTokenRequest.swift in Sources */,
 				EB9EE7BC2950AFFE009D4D6A /* VehicleStatusWidgetBundle.swift in Sources */,
+				EB5698C22B0523360011594B /* ApiErrorType.swift in Sources */,
 				EBFCC1D529B91BD300736F76 /* AuthManager.swift in Sources */,
+				EB5698BA2B0523360011594B /* SetPrimaryVehicleRequest.swift in Sources */,
+				EB5698C32B0523360011594B /* CommonResponse.swift in Sources */,
+				EB5698C72B0523360011594B /* PrimaryVehicleInfo.swift in Sources */,
 				EB9EE7C52950B000009D4D6A /* VehicleStatusWidget.intentdefinition in Sources */,
-				EBC1F73E2950DF7900BBEE5E /* VehicleStatusResponse.swift in Sources */,
+				EB5698C62B0523360011594B /* RefreshTokenResponse.swift in Sources */,
+				EB5698BF2B0523360011594B /* VehicleLocation.swift in Sources */,
 				EB9EE7BE2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift in Sources */,
+				EB3490992B0822A000D0F5B3 /* StartVehicleRequest.swift in Sources */,
+				EB3490922B08226A00D0F5B3 /* SignInUsingKiaRequest.swift in Sources */,
 				EB9EE7C02950AFFE009D4D6A /* VehicleStatusWidget.swift in Sources */,
+				EB5698C12B0523360011594B /* VehicleStatus.swift in Sources */,
+				EB3490A62B0823F000D0F5B3 /* SessionExpiredError.swift in Sources */,
+				EB5698BC2B0523360011594B /* VehicleSpeed.swift in Sources */,
+				EB5698C52B0523360011594B /* EvStatus.swift in Sources */,
+				EB5698C42B0523360011594B /* DriveDistance.swift in Sources */,
+				EB5698C02B0523360011594B /* SignInResponse.swift in Sources */,
 				EB40F539295F149E00064F1F /* Schedule.swift in Sources */,
+				EB5698BB2B0523360011594B /* VehicleIdentifaction.swift in Sources */,
 				EBEBB7552955BA2C00296FBB /* ApiClient.swift in Sources */,
+				EB34909F2B0822D200D0F5B3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

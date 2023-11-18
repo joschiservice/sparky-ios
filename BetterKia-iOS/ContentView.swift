@@ -84,7 +84,7 @@ struct ContentView: View {
             })
             .onAppear {
                 Task {
-                    VehicleManager.shared.loadCachedVehicleStatus();
+                    CacheManager.shared.loadCachedVehicleStatus();
                 }
                 
                 Task {
