@@ -143,6 +143,7 @@
 		EB7709282999387B008F9952 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7709272999387B008F9952 /* VehicleManager.swift */; };
 		EB77092A29993C8C008F9952 /* StartInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB77092929993C8C008F9952 /* StartInfoView.swift */; };
 		EB83315A295485D500A23566 /* VehicleStatusWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE7BD2950AFFE009D4D6A /* VehicleStatusWidgetLiveActivity.swift */; };
+		EB8637852B0B969400BABBD4 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8637842B0B969400BABBD4 /* ConfigManager.swift */; };
 		EB9C9AFF2AC6E11700486281 /* AuthAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9C9AFE2AC6E11700486281 /* AuthAppIntent.swift */; };
 		EB9EE779295080FD009D4D6A /* BetterKiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */; };
 		EB9EE77B295080FD009D4D6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9EE77A295080FD009D4D6A /* ContentView.swift */; };
@@ -368,6 +369,7 @@
 		EB77092429992F29008F9952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EB7709272999387B008F9952 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
 		EB77092929993C8C008F9952 /* StartInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartInfoView.swift; sourceTree = "<group>"; };
+		EB8637842B0B969400BABBD4 /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		EB9C9AFE2AC6E11700486281 /* AuthAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppIntent.swift; sourceTree = "<group>"; };
 		EB9EE776295080FD009D4D6A /* BetterKia Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BetterKia Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9EE778295080FD009D4D6A /* BetterKiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterKiaApp.swift; sourceTree = "<group>"; };
@@ -753,6 +755,7 @@
 				EBF623EC29A26120003044AC /* AlertManager.swift */,
 				EB3374852AA1EA0F001DF0E4 /* InCarManager.swift */,
 				EB5698D62B0528980011594B /* CacheManager.swift */,
+				EB8637842B0B969400BABBD4 /* ConfigManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1175,6 +1178,7 @@
 				EB5FAEAA294F80B300FF160E /* AppDelegate.swift in Sources */,
 				EB5698882B0521680011594B /* ApiErrorType.swift in Sources */,
 				EBF795E52AA372E000BF9229 /* InCarView.swift in Sources */,
+				EB8637852B0B969400BABBD4 /* ConfigManager.swift in Sources */,
 				EB03235229A2305200256B66 /* HvacControlItem.swift in Sources */,
 				EBA46E522A4C8DBF00FC4061 /* CoreDataStack.swift in Sources */,
 				EB7709282999387B008F9952 /* VehicleManager.swift in Sources */,

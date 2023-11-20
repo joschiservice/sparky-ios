@@ -35,7 +35,6 @@ public class VehicleManager : ObservableObject {
     @Published var showClimateControlPopover = false
     @Published var isLoadingVehicleData = false
     @Published var vehicleData: VehicleStatus? = nil
-    @Published var currentHvacTargetTemp: Double? = 21
     @Published var vehicleLocation: VehicleLocation? = nil
     @Published var isLoadingVehicleLocation = false
     @Published var isHvacActive = false
@@ -54,7 +53,6 @@ public class VehicleManager : ObservableObject {
      */
     public static func getPreviewInstance() -> VehicleManager {
         let vmanager = VehicleManager()
-        vmanager.currentHvacTargetTemp = 22
         vmanager.vehicleData = VehicleStatus(
             engine: false, evStatus: EvStatus(batteryCharge: true, batteryStatus: 20, drvDistance: [DriveDistance(rangeByFuel: RangeByFuel(totalAvailableRange: RangeData(value: 320, unit: 1)))]),
             time: Date(), acc: true, sideBackWindowHeat: 1, steerWheelHeat: 1, defrost: true, airCtrlOn: false, doorLock: false)
@@ -106,7 +104,7 @@ public class VehicleManager : ObservableObject {
         var requestData = inputData
         
         if requestData == nil {
-            requestData = StartVehicleRequest(temperature: currentHvacTargetTemp ?? 22, withLiveActivityTip: false, durationMinutes: 10)
+            requestData = StartVehicleRequest(temperature: ConfigManager.shared.hvacTargetTemp, withLiveActivityTip: false, durationMinutes: 10)
         }
         
         logger.log("Sending start vehicle request...")

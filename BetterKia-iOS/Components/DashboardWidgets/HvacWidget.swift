@@ -10,21 +10,20 @@ import SwiftUI
 struct HvacWidget: View {
     @ObservedObject var vehicleManager: VehicleManager
     
+    @State var currentTargetTemp: Double = ConfigManager.shared.hvacTargetTemp
+    
     private let HVAC_MIN_TEMP = 17.0;
     private let HVAC_MAX_TEMP = 27.0;
     private let HVAC_TEMP_STEP = 0.5;
     
     private func increaseHvacTemp() {
-        if (vehicleManager.currentHvacTargetTemp == nil) {
-            vehicleManager.currentHvacTargetTemp = HVAC_MIN_TEMP;
-            return;
-        }
-        
-        vehicleManager.currentHvacTargetTemp! += HVAC_TEMP_STEP;
+        currentTargetTemp += HVAC_TEMP_STEP
+        ConfigManager.shared.hvacTargetTemp = currentTargetTemp
     }
     
     private func decreaseHvacTemp() {
-        vehicleManager.currentHvacTargetTemp! -= HVAC_TEMP_STEP;
+        currentTargetTemp -= HVAC_TEMP_STEP
+        ConfigManager.shared.hvacTargetTemp = currentTargetTemp
     }
     
     var body: some View {
@@ -37,13 +36,13 @@ struct HvacWidget: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 14)
-                .foregroundColor(vehicleManager.currentHvacTargetTemp != nil && vehicleManager.currentHvacTargetTemp == HVAC_MAX_TEMP ? .gray  : .red)
+                .foregroundColor(currentTargetTemp == HVAC_MAX_TEMP ? .gray  : .red)
             
         }
-        .disabled(vehicleManager.currentHvacTargetTemp != nil && vehicleManager.currentHvacTargetTemp == HVAC_MAX_TEMP)
+        .disabled(currentTargetTemp == HVAC_MAX_TEMP)
             
             HStack {
-                Text("\(vehicleManager.currentHvacTargetTemp != nil ? "\( vehicleManager.currentHvacTargetTemp!)°" : "-")")
+                Text("\("\(currentTargetTemp)°")")
                     .font(.system(size: 28))
             }
             .padding(EdgeInsets(top: 10, leading: 8, bottom: 8, trailing: 0))
@@ -56,9 +55,9 @@ struct HvacWidget: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 14)
-                .foregroundColor(vehicleManager.currentHvacTargetTemp == nil || vehicleManager.currentHvacTargetTemp == HVAC_MIN_TEMP ? .gray : .blue)
+                .foregroundColor(currentTargetTemp == HVAC_MIN_TEMP ? .gray : .blue)
         }
-        .disabled(vehicleManager.currentHvacTargetTemp == nil || vehicleManager.currentHvacTargetTemp == HVAC_MIN_TEMP)
+        .disabled(currentTargetTemp == HVAC_MIN_TEMP)
             
         }
     }
@@ -73,11 +72,5 @@ struct HvacWidgetPreviews: PreviewProvider {
         DashboardView()
             .previewDisplayName("Dashboard: No Data")
             .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
-    }
-}
-
-struct Previews_HvacWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }
