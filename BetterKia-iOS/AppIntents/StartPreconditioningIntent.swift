@@ -11,7 +11,6 @@ struct StartPreconditioningIntent: AuthAppIntent {
     static let title: LocalizedStringResource = "Start Preconditioning"
     static let description: IntentDescription? = IntentDescription("Starts the preconditioning of your active vehicle", categoryName: "Vehicle Control")
     
-    
     @Parameter(title: "Temperature")
     var temperatureInput: Int?
     
@@ -26,7 +25,7 @@ struct StartPreconditioningIntent: AuthAppIntent {
             temperature = try await $temperatureInput.requestValue(IntentDialog("To which temperature would you like to precondition your vehicle?"))
         }
         
-        let result = await ApiClient.startVehicle(data: StartVehicleRequest(temperature: UInt(temperature!), withLiveActivityTip: false, durationMinutes: 10));
+        let result = await ApiClient.startVehicle(data: StartVehicleRequest(temperature: Double(temperature!), withLiveActivityTip: false, durationMinutes: 10));
         
         if result == nil || result!.error {
             return .result(dialog: IntentDialog("Sorry, but the preconditioning couldn't be started. Please try again later."))

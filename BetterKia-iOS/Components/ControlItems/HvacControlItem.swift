@@ -38,28 +38,25 @@ struct HvacControlItem: View {
             if (isBusy) {
                 ProgressView()
             } else {
-                VStack {
-                    Image(systemName: "fanblades.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor(vehicleManager.isHvacActive ? .white : .gray)
-                        .rotationEffect(.degrees(rotation))
-                        .onChange(of: vehicleManager.isHvacActive) { _ in
-                            if vehicleManager.isHvacActive {
-                                startRotationAnimation()
-                            }
+                Image(systemName: "fanblades.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(vehicleManager.isHvacActive ? .white : .gray)
+                    .rotationEffect(.degrees(rotation))
+                    .onChange(of: vehicleManager.isHvacActive) { _ in
+                        if vehicleManager.isHvacActive {
+                            startRotationAnimation()
                         }
-                        .onAppear() {
-                            if vehicleManager.isHvacActive {
-                                startRotationAnimation()
-                            }
+                    }
+                    .onAppear() {
+                        if vehicleManager.isHvacActive {
+                            startRotationAnimation()
                         }
-                }
-                .fixedSize()
-                .frame(height: 20, alignment: .center)
-                .frame(maxWidth: .infinity)
+                    }
             }
         }
+        .frame(height: 20, alignment: .center)
+        .frame(maxWidth: .infinity)
         .disabled(isBusy)
     }
 }

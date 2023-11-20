@@ -12,7 +12,8 @@ public class AlertManager : ObservableObject {
     
     @Published var showAlert = false {
         didSet {
-            if (showAlert == true) {
+            // JH: additional count check is mandatory for unknown reasons
+            if (showAlert == true || alertQueue.count < 1) {
                 return
             }
             alertQueue.remove(at: 0)

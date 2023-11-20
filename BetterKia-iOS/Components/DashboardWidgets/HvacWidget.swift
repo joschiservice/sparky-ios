@@ -10,9 +10,9 @@ import SwiftUI
 struct HvacWidget: View {
     @ObservedObject var vehicleManager: VehicleManager
     
-    private let HVAC_MIN_TEMP = 17;
-    private let HVAC_MAX_TEMP = 27;
-    private let HVAC_TEMP_STEP = 1;
+    private let HVAC_MIN_TEMP = 17.0;
+    private let HVAC_MAX_TEMP = 27.0;
+    private let HVAC_TEMP_STEP = 0.5;
     
     private func increaseHvacTemp() {
         if (vehicleManager.currentHvacTargetTemp == nil) {

@@ -35,7 +35,7 @@ public class VehicleManager : ObservableObject {
     @Published var showClimateControlPopover = false
     @Published var isLoadingVehicleData = false
     @Published var vehicleData: VehicleStatus? = nil
-    @Published var currentHvacTargetTemp: Int? = 21
+    @Published var currentHvacTargetTemp: Double? = 21
     @Published var vehicleLocation: VehicleLocation? = nil
     @Published var isLoadingVehicleLocation = false
     @Published var isHvacActive = false
@@ -106,7 +106,7 @@ public class VehicleManager : ObservableObject {
         var requestData = inputData
         
         if requestData == nil {
-            requestData = StartVehicleRequest(temperature: 22, withLiveActivityTip: false, durationMinutes: 10)
+            requestData = StartVehicleRequest(temperature: currentHvacTargetTemp ?? 22, withLiveActivityTip: false, durationMinutes: 10)
         }
         
         logger.log("Sending start vehicle request...")
@@ -187,21 +187,24 @@ public class VehicleManager : ObservableObject {
      */
     public func getVehicleLocation() async {
         // DEMO
-        DispatchQueue.main.async {
-            self.logger.log("Location: setting demo data")
-            self.vehicleLocation = VehicleLocation(latitude: 53.546925, longitude: 9.998855, speed:VehicleSpeed(unit: 1, value: 0), heading: 0)
+        if IS_DEMO_MODE {
+            DispatchQueue.main.async {
+                self.logger.log("Location: setting demo data")
+                self.vehicleLocation = VehicleLocation(latitude: 53.546925, longitude: 9.998855, speed:VehicleSpeed(unit: 1, value: 0), heading: 0)
+                
+                let mapLocation = CLLocationCoordinate2D(latitude: self.vehicleLocation!.latitude, longitude: self.vehicleLocation!.longitude)
+                
+                self.vehicleRegion = MKCoordinateRegion(center: mapLocation, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
+                
+                self.vehiclePositionAnnotations.append(CarPosition(name: "Car", coordinate: self.vehicleRegion.center))
+                
+                self.isLoadingVehicleLocation = false
+            }
             
-            let mapLocation = CLLocationCoordinate2D(latitude: self.vehicleLocation!.latitude, longitude: self.vehicleLocation!.longitude)
-            
-            self.vehicleRegion = MKCoordinateRegion(center: mapLocation, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
-            
-            self.vehiclePositionAnnotations.append(CarPosition(name: "Car", coordinate: self.vehicleRegion.center))
-            
-            self.isLoadingVehicleLocation = false
+            return
         }
         
-        /*
-        DispatchQueue.main.async {
+        /*DispatchQueue.main.async {
             self.isLoadingVehicleLocation = true
         }
         

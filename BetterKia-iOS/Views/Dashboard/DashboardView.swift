@@ -147,11 +147,6 @@ struct DashboardView: View {
             if (vehicleManager.vehicleData == nil) {
                 Task {
                     await vehicleManager.getVehicleData()
-                }
-            }
-            
-            if (vehicleManager.vehicleLocation == nil) {
-                Task {
                     await vehicleManager.getVehicleLocation()
                 }
             }

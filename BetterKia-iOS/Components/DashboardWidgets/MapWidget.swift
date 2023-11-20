@@ -33,7 +33,13 @@ struct MapWidget: View {
                 if (vehicleManager.isLoadingVehicleLocation) {
                     ProgressView()
                 } else {
-                    Text("Location not available")
+                    VStack {
+                        Text("Location not available")
+                        Button("Learn more") {
+                            AlertManager.shared.publishAlert("Info: Location not available", description: "During the development of this app, we noticed that requesting the latest (not current) vehicle location from Kia's servers takes 11 seconds. Due to the current plan of our own servers, request can't be longer than 10 seconds. There's a very high probability this issue does also affect you. We will upgrade our server plan as soon as it's possible for us.")
+                        }
+                    }
+                    
                 }
             }
         }
