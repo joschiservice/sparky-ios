@@ -10,6 +10,7 @@ import Dispatch
 import os
 import SwiftUI
 import MapKit
+import Combine
 
 enum VehicleDataStatus {
     case Refreshing
@@ -32,6 +33,33 @@ struct Vehicle {
 public class VehicleManager : ObservableObject {
     public static var shared = VehicleManager()
     
+    init() {
+        $vehicleData
+            .sink { newData in
+                self.onVehicleDataUpdated(newData)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func onVehicleDataUpdated(_ data: VehicleStatus?) {
+        if data == nil {
+            return
+        }
+        
+        // Only indicate active state when hvac is on
+        if data!.airCtrlOn {
+            return
+        }
+        
+        if data!.steerWheelHeat > 0 {
+            heatedFeaturesHvacOption.state = .Active
+        }
+        
+        if data!.defrost {
+            frontWindshieldHvacOption.state = .Active
+        }
+    }
+    
     @Published var showClimateControlPopover = false
     @Published var isLoadingVehicleData = false
     @Published var vehicleData: VehicleStatus? = nil
@@ -47,6 +75,8 @@ public class VehicleManager : ObservableObject {
     let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "VehicleManager")
     
     @Published public var primaryVehicle: PrimaryVehicleInfo? = nil
+    
+    private var cancellables: Set<AnyCancellable> = []
     
     /**
      Returns an instance of VehicleManager, that is optimized for usage in preview environments.
@@ -105,23 +135,37 @@ public class VehicleManager : ObservableObject {
         
         if requestData == nil {
             requestData = StartVehicleRequest(temperature: ConfigManager.shared.hvacTargetTemp, withLiveActivityTip: false, durationMinutes: 10)
+            requestData?.defrost = ConfigManager.shared.fontWindshieldOptionEnabled
+            requestData?.heatedFeatures = ConfigManager.shared.otherHeatedFeaturesEnabled
         }
         
-        logger.log("Sending start vehicle request...")
-        
-        let result = await ApiClient.startVehicle(data: requestData!)
-        
-        logger.log("Start: \(result?.code ?? "Unknown Error")")
-        
-        if (result == nil || result?.code != "SUCCESS") {
-            logger.warning("StartVehicle: Received bad response. Checking vehicle status with a manual refresh...")
+        if !IS_DEMO_MODE {
+            logger.log("Sending start vehicle request...")
             
-            AlertManager.shared.publishAlert("Error: Start air conditioning", description: "We were not able to ensure that the air conditioning has been started as the KiaConnect service wasn't able to retrieve data from the car in time.")
-            return
+            let result = await ApiClient.startVehicle(data: requestData!)
+            
+            logger.log("Start: \(result?.code ?? "Unknown Error")")
+            
+            if (result == nil || result?.code != "SUCCESS") {
+                logger.warning("StartVehicle: Received bad response. Checking vehicle status with a manual refresh...")
+                
+                AlertManager.shared.publishAlert("Error: Start air conditioning", description: "We were not able to ensure that the air conditioning has been started as the KiaConnect service wasn't able to retrieve data from the car in time.")
+                return
+            }
         }
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [requestData] in
             self.isHvacActive = true
+            
+            if requestData!.defrost != nil && requestData!.defrost! {
+                self.frontWindshieldHvacOption.state = .Active
+            }
+            
+            if requestData!.heatedFeatures != nil && requestData!.heatedFeatures! {
+                // Modifying the state for only one option of steering, rear and mirrors is 
+                // enough due to the dependency structure between those options
+                self.heatedFeaturesHvacOption.state = .Active
+            }
         }
     }
     
@@ -129,19 +173,29 @@ public class VehicleManager : ObservableObject {
      Stops the vehicle.
      */
     public func stop() async {
-        logger.log("Stopping vehicle...")
-        
-        let result = await ApiClient.stopVehicle()
-        
-        logger.log("Stop: \(result?.code ?? "Unknown Error")")
-        
-        if (result == nil || result?.code != "SUCCESS") {
-            AlertManager.shared.publishAlert("Stop air conditioning", description: "We were not able to ensure that the air conditioning has been stopped as the KiaConnect service wasn't able to retrieve data from the car in time.")
-            return
+        if !IS_DEMO_MODE {
+            logger.log("Stopping vehicle...")
+            
+            let result = await ApiClient.stopVehicle()
+            
+            logger.log("Stop: \(result?.code ?? "Unknown Error")")
+            
+            if (result == nil || result?.code != "SUCCESS") {
+                AlertManager.shared.publishAlert("Stop air conditioning", description: "We were not able to ensure that the air conditioning has been stopped as the KiaConnect service wasn't able to retrieve data from the car in time.")
+                return
+            }
         }
         
         DispatchQueue.main.async {
             self.isHvacActive = false
+            
+            if self.heatedFeaturesHvacOption.state == .Active {
+                self.heatedFeaturesHvacOption.state = .Selected
+            }
+            
+            if self.frontWindshieldHvacOption.state == .Active {
+                self.frontWindshieldHvacOption.state = .Selected
+            }
         }
     }
     
@@ -272,5 +326,39 @@ public class VehicleManager : ObservableObject {
         DispatchQueue.main.async {
             self.isVehicleLocked = false
         }
+    }
+    
+    // MARK: - HVAC Options
+    @Published public var frontWindshieldHvacOption = HvacOption(isSelected: ConfigManager.shared.fontWindshieldOptionEnabled) {
+        newValue in
+        ConfigManager.shared.fontWindshieldOptionEnabled = newValue
+    }
+    
+    // Rear Windshield, mirrors & steering wheel can only be switched on or off together
+    @Published public var heatedFeaturesHvacOption = HvacOption(isSelected: ConfigManager.shared.otherHeatedFeaturesEnabled) {
+        newValue in
+        ConfigManager.shared.otherHeatedFeaturesEnabled = newValue
+    }
+}
+
+public enum HvacOptionState {
+    case Off
+    case Selected
+    case Active
+}
+
+public class HvacOption: ObservableObject {
+    @Published var state = HvacOptionState.Off
+    
+    private var cancellables: Set<AnyCancellable> = []
+    
+    init(isSelected: Bool, updateIsSelected: @escaping (Bool) -> Void) {
+        state = isSelected ? .Selected : .Off
+        
+        $state
+            .sink { newState in
+                updateIsSelected(newState != .Off)
+            }
+            .store(in: &cancellables)
     }
 }

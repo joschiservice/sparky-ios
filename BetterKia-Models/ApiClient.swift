@@ -7,6 +7,7 @@
 
 import Foundation
 import os
+import Sentry
 
 struct SimpleApiResponse: Decodable {
     let error: Bool
@@ -345,6 +346,41 @@ public class ApiClient {
         
         logger.error("SetPrimaryVehicle: Failed!")
         return false
+    }
+    
+    static func getVehicleHistory() async -> CommonResponse<[VehicleHistoryEntry]> {
+        do {
+            let (data, response) = try await self.doRequest(urlString: serverUrl + "api/vehicle/history")
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if (httpResponse.statusCode == 200) {
+                    let decoder =  JSONDecoder()
+                    
+                    let formatter = DateFormatter()
+                    formatter.locale = Locale(identifier: "en_US_POSIX")
+                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    
+                    decoder.dateDecodingStrategy = .formatted(formatter)
+                    
+                    do {
+                        let responseData = try decoder.decode([VehicleHistoryEntry].self, from: data);
+                        
+                        return CommonResponse(failed: false, error: .NoError, data: responseData);
+                    } catch {
+                        print("error: ", error)
+                    }
+                } else {
+                    logger.error("GetVehicleHistory: Status Code: \(httpResponse.statusCode)");
+                    logger.error("GetVehicleHistory: Response: \(String(decoding: data, as: UTF8.self))")
+                    return unexpectedResponseHandler(data);
+                }
+            }
+        } catch let error {
+            logger.error("GetVehicleHistory: Error: \(error.localizedDescription)")
+        }
+        
+        logger.error("Failed to get vehicle status")
+        return CommonResponse(failed: true, error: .UnknownError, data: nil);
     }
     
     static func getVehicleStatus(refreshData: Bool = false) async -> CommonResponse<VehicleStatus> {

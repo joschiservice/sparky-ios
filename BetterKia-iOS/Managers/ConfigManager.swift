@@ -24,6 +24,26 @@ public class ConfigManager: ObservableObject {
         }
     }
     
+    var fontWindshieldOptionEnabled: Bool {
+        get {
+            return getValue(forKey: "HVAC_OPTION_FRONT_WINDSHIELD_ENABLED", defaultValue: false)
+        }
+        
+        set {
+            return setValue(forKey: "HVAC_OPTION_FRONT_WINDSHIELD_ENABLED", value: newValue)
+        }
+    }
+    
+    var otherHeatedFeaturesEnabled: Bool {
+        get {
+            return getValue(forKey: "HVAC_OPTION_OTHER_ENABLED", defaultValue: false)
+        }
+        
+        set {
+            return setValue(forKey: "HVAC_OPTION_OTHER_ENABLED", value: newValue)
+        }
+    }
+    
     // MARK: Cache
     private var cache: [String: Any] = [:]
     

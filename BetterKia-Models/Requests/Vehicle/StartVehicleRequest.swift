@@ -6,8 +6,9 @@
 //
 
 public struct StartVehicleRequest: Encodable {
-    let temperature: Double;
-    let defrost: Bool? = nil;
-    let withLiveActivityTip: Bool;
-    let durationMinutes: UInt;
+    var temperature: Double;
+    var defrost: Bool? = nil;
+    var withLiveActivityTip: Bool;
+    var durationMinutes: UInt;
+    var heatedFeatures: Bool? = nil;
 }

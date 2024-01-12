@@ -13,8 +13,21 @@ struct HvacControlItem: View {
     @State private var rotation: Double = 0
     
     private func startRotationAnimation() {
-        withAnimation(Animation.linear(duration: 1.0).repeatForever(autoreverses: false)) {
+        var transaction = Transaction(animation: .linear(duration: 1.0).repeatForever(autoreverses: false))
+        transaction.disablesAnimations = true
+        
+        withTransaction(transaction) {
             rotation = 360
+        }
+    }
+    
+    private func stopRotationAnimation() {
+
+        var transaction = Transaction(animation: .default)
+        transaction.disablesAnimations = true
+        
+        withTransaction(transaction) {
+            rotation = 0
         }
     }
     
@@ -43,9 +56,11 @@ struct HvacControlItem: View {
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(vehicleManager.isHvacActive ? .white : .gray)
                     .rotationEffect(.degrees(rotation))
-                    .onChange(of: vehicleManager.isHvacActive) { _ in
+                    .onChange(of: vehicleManager.isHvacActive) {
                         if vehicleManager.isHvacActive {
                             startRotationAnimation()
+                        } else {
+                            stopRotationAnimation()
                         }
                     }
                     .onAppear() {

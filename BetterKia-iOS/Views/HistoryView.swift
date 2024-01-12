@@ -11,12 +11,46 @@ import SwiftUI
 struct HistoryView: View {
     
     @State private var isLoading = false
+    @State private var data: [VehicleHistoryEntry] = []
+    @State private var hasLoadedData = false
+    
+    func loadData(force: Bool = false) {
+        if (isLoading || (hasLoadedData && !force)) {
+            return
+        }
+        
+        isLoading = true
+        
+        Task {
+            let response = await ApiClient.getVehicleHistory()
+            
+            if response.failed || response.data == nil {
+                self.isLoading = false
+                self.hasLoadedData = true
+                AlertManager.shared.publishAlert("History: Couldn't load data", description: "An error occured while loading the history data. Please try again later")
+                return
+            }
+            
+            self.isLoading = false
+            self.hasLoadedData = true
+            self.data = response.data!
+        }
+    }
+    
+    func getFormattedDate(entry: VehicleHistoryEntry) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        
+        let formattedDate = formatter.string(for: entry.date)
+        
+        return formattedDate != nil ? formattedDate! : "n/a"
+    }
     
     var body: some View {
         NavigationStack {
-            List {
-                Section("14th May 2023") {
-                    HistoryEntry()
+            List ($data, id: \.id) {entry in
+                Section(getFormattedDate(entry: entry.wrappedValue)) {
+                    HistoryEntry(entry: entry.wrappedValue)
                         .listRowSeparator(.hidden)
                 }
             }
@@ -26,12 +60,14 @@ struct HistoryView: View {
                 }
                 })
                     .refreshable {
-                        //self.loadSchedules()
+                        self.loadData(force: true)
                     }
                     .listStyle(.plain)
                     .navigationTitle("History")
             }
-            //.onAppear(perform: self.loadSchedules)
+        .onAppear {
+            self.loadData()
+        }
             }
             }
 
@@ -43,6 +79,8 @@ struct HistoryView_Previews: PreviewProvider {
 }
 
 struct HistoryEntry: View {
+    public var entry: VehicleHistoryEntry
+    
     var body: some View {
         GroupBox(label:
                     HStack {
@@ -50,7 +88,7 @@ struct HistoryEntry: View {
             
             Spacer()
             
-            Text("-3%")
+            Text("-\(entry.estimatedLossPercent)%")
                 .opacity(0.4)
         }
         ) {
@@ -71,9 +109,9 @@ struct HistoryEntry: View {
                     
                 }
                 HStack {
-                    Label("8 km", systemImage: "map")
+                    Label(String(entry.distanceDrivenKm) + " km", systemImage: "map")
                     Spacer()
-                    Text("≈ 1,52 €")
+                    Text("≈ n/a €")
                         .fontWeight(.bold)
                 }
             }

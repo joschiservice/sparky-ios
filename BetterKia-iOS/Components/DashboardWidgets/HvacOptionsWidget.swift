@@ -14,31 +14,48 @@ struct HvacOptionsWidget: View {
         SimpleWidgetItem {
             VStack {
                 HStack (alignment: .center, spacing: 16) {
-                    Image(systemName: "windshield.front.and.heat.waves")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor((vehicleManager.vehicleData != nil && vehicleManager.vehicleData!.defrost) ? .white : .gray)
+                    HvacOptionItem(iconName: "windshield.front.and.heat.waves", hvacOption: vehicleManager.frontWindshieldHvacOption)
                     
-                    Image(systemName: "windshield.rear.and.heat.waves")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor((vehicleManager.vehicleData != nil && vehicleManager.vehicleData!.sideBackWindowHeat > 0) ? .white : .gray)
+                    HvacOptionItem(iconName: "windshield.rear.and.heat.waves", hvacOption: vehicleManager.heatedFeaturesHvacOption)
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                 
                 HStack (alignment: .center, spacing: 16) {
-                    Image(systemName: "steeringwheel.and.heat.waves")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor((vehicleManager.vehicleData != nil && vehicleManager.vehicleData!.steerWheelHeat > 0) ? .red : .gray)
+                    HvacOptionItem(iconName: "steeringwheel.and.heat.waves", hvacOption: vehicleManager.heatedFeaturesHvacOption)
                     
-                    Image(systemName: "mirror.side.left.and.heat.waves")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .foregroundColor((vehicleManager.vehicleData != nil && vehicleManager.vehicleData!.sideBackWindowHeat > 0) ? .white : .gray)
+                    HvacOptionItem(iconName: "mirror.side.left.and.heat.waves", hvacOption: vehicleManager.heatedFeaturesHvacOption)
                 }
             }
             .padding()
         }
+    }
+}
+
+struct HvacOptionItem: View {
+    public let iconName: String
+    @StateObject public var hvacOption: HvacOption
+    
+    var body: some View {
+        Button {
+            hvacOption.state = hvacOption.state == HvacOptionState.Off ? HvacOptionState.Selected : HvacOptionState.Off
+        }
+    label: {
+        Image(systemName: iconName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .foregroundColor(hvacOption.state == HvacOptionState.Active ? .red : hvacOption.state == HvacOptionState.Selected ? .white : .gray)
+    }
+    }
+}
+
+struct HvacOptionsWidgetPreviews: PreviewProvider {
+    static var previews: some View {
+        DashboardView(vehicleManager: VehicleManager.getPreviewInstance())
+            .previewDisplayName("Dashboard: Data")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+        
+        DashboardView()
+            .previewDisplayName("Dashboard: No Data")
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
     }
 }
